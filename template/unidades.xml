@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<registro Nro="1">
+		<fec_eve_age>28/01/2016</fec_eve_age>
+		<hor_eve_age>04:36:19 PM</hor_eve_age>
+		<ali_veh>04166338288</ali_veh>
+		<pla_veh>45AMBG</pla_veh>
+		<dir_eve>Troncal Mérida - Estanques, Parroquia Capital Sucre, Municipio Sucre, Estado Mérida, Venezuela</dir_eve>
+		<y>8.461233</y>
+		<x>-71.483467</x> 
+		<flota>DISTRITO ANDES / P/D ELV - TERCEROS ELV</flota> 
+		<des_eve>La Unidad 04166338288 (45AMBG) salió del Punto de Referencia P/D EL VIGIA Tiempo de Visita: 01:40:01</des_eve> 
+		<elementos>P/D EL VIGIA</elementos> 
+		<entrada_salida>SALIÓ</entrada_salida> 
+		<tiempo_permanencia>01:40:01</tiempo_permanencia> 
+		<des_raz_tra_est>Reporte de Posición Estandar</des_raz_tra_est> 
+		<vel_veh>51</vel_veh> 
+		<des_prioridad>Normal</des_prioridad> 
+		<des_tip_ala>Violación de regla de Permanencia</des_tip_ala> 
+		<nom_tip_age>Agente de Permanencia</nom_tip_age> 
+		<nom_con_aso> </nom_con_aso> 
+		<fec_hor_ate></fec_hor_ate> 
+		<nom_usu></nom_usu> 
+		<com_usu_eve_age></com_usu_eve_age></registro><registro Nro="2">
+		<fec_eve_age>28/01/2016</fec_eve_age> 
+		<hor_eve_age>04:05:37 PM</hor_eve_age> 
+		<ali_veh>04166108374</ali_veh> 
+		<pla_veh>67UDBA</pla_veh> 
+		<dir_eve>Carretera Machiques - La Fría, Parroquia Jesús María Semprún, Municipio Jesús María Semprún, Estado Zulia, Venezuela</dir_eve> 
+		<y>9.082217</y> 
+		<x>-72.666700</x> 
+		<flota>DISTRITO ANDES / P/D ELV - PROPIA LFR</flota> 
+		<des_eve>La Unidad 04166108374 (67UDBA) reportó una velocidad de 87 Km/h en las geocercas: orope 1, Despachos Termoelectrica Casigua El Cubo.</des_eve> 
+		<elementos></elementos> 
+		<entrada_salida></entrada_salida> 
+		<tiempo_permanencia></tiempo_permanencia> 
+		<des_raz_tra_est>Reporte de Posición Estandar</des_raz_tra_est> 
+		<vel_veh>87</vel_veh> 
+		<des_prioridad>Intermedio</des_prioridad> 
+		<des_tip_ala>Violación de regla de velocidad</des_tip_ala> 
+		<nom_tip_age>Agente de Velocidad</nom_tip_age> 
+		<nom_con_aso> </nom_con_aso> 
+		<fec_hor_ate></fec_hor_ate> 
+		<nom_usu></nom_usu> 
+		<com_usu_eve_age></com_usu_eve_age> 
+	</registro>
