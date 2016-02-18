@@ -34,3 +34,27 @@ else{
     }
                               }
 ?>                         
+<?php
+ class db_link {
+  
+  private $link;
+  
+  public function __construct ($database_name) {
+   $link = mysql_connect ("localhost", "your_user_name", "your_password");
+   mysql_select_db ($database_name, $link);
+   $this -> link = $link;
+   }
+  
+  function query ($sql_query) {
+   $result = mysql_query ($sql_query, $this -> link);
+   return $result;
+   }
+  
+  function __destruct() {
+   mysql_close ($this -> link);
+   }
+  }
+ 
+ $db = new db_link ("MyDB");
+ $result = $db->query ("Select * from MyTable");
+ ?>

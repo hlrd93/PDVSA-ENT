@@ -1,0 +1,21 @@
+﻿Metodologia de desarrollo
+Los usuarios deben tener la libertad de experimentar con el prototipo. A diferencia de una simple lista de ca-
+racterísticas del sistema, el prototipo permite a los usuarios interactuar en forma práctica con el sistema. Montar
+un prototipo en un sitio Web interactivo es una forma de facilitar esta interacción.
+Otro aspecto del papel de los usuarios en los prototipos es que se requiere que expresen reacciones abiertas
+al mismo. Los analistas tienen que estar presentes por lo menos parte del tiempo cuando ocurre la experimenta-
+ción. De esta forma pueden observar las interacciones de los usuarios con el sistema y llegar a ver interacciones
+que nunca planearon. En la figura 6.3 se muestra un formulario lleno para observar la experimentación del usua-
+rio con el prototipo. Algunas de las variables a observar son las reacciones de los usuarios al prototipo, sus sugeren-
+cias para cambiar o expandir el prototipo, sus innovaciones para usar el sistema en formas completamente nuevas
+y cualquier plan de revisión para el prototipo que ayude a establecer las prioridades.
+El tercer aspecto del papel que desempeñan los usuarios en los prototipos es su disposición para sugerir
+elementos que se puedan agregar o quitar en base a las características que hayan experimentado. La función del
+analista es obtener tales sugerencias al asegurar a los usuarios que la retroalimentación que ellos proveen se toma
+en serio, al observar a los usuarios a medida que interactúan con el sistema y al llevar a cabo entrevistas cortas
+y específicas con los usuarios en relación con sus experiencias con el prototipo. Aunque se pedirá a los usua-
+rios que articulen sugerencias e innovaciones para el prototipo, al final es responsabilidad del analista ponderar
+esta retroalimentación y traducirla en cambios funcionales en donde sea necesario. Para facilitar el proceso de
+creación del prototipo, el analista debe comunicar con claridad los propósitos de la creación de prototipos a los
+usuarios, junto con la idea de que los prototipos son valiosos sólo cuando los usuarios se involucran en forma
+significativa.
