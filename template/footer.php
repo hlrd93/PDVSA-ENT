@@ -1,13 +1,14 @@
-    <script src="../js/formulario.js"></script>
     
-    <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
-
-    <script src="../js/app.js"></script>
-
+</div> <!-- /#wrapper -->
+</div> <!-- /#wrapper -->
+<!-- jQuery -->
+<script src="../js/jquery.js"></script>
+        
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
+        
+<script src="../js/app.js"></script>
+        
 </body>
-
+    
 </html>

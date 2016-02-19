@@ -32,7 +32,7 @@
                         <div class="row">
                             <div class="formden_header col-md-offset-1">
                              <h2>
-                              Formulario Chuto
+                              Formulario Cisterna
                              </h2>
                              <p>
                              <span class="asteriskField">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
             </div>
-    </div>
-    		<!-- /#wrapper -->
+
+
 
 	<?php include_once('../template/footer.php'); ?>

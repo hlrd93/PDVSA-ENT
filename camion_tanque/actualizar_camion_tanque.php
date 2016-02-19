@@ -31,7 +31,7 @@
 
 
 			</div>
-    		<!-- /#wrapper -->
+
 
 
 	<?php include_once('../template/footer.php'); ?>
