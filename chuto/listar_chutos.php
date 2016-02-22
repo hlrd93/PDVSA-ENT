@@ -27,54 +27,60 @@
         </div>
         <!-- /.row -->
         <?php
-                    
-                    $chuto = new Chuto();
-        $resultado_listado = $chuto->listar_chutos();
+        
+        $resultado_listado = Chuto::listar_chutos();
 
+        /*$chuto = Chuto::instanciacion($resultado_listado);*/
+
+        
         echo "<div class='table-responsive'>";
         echo "<table class='table table-hover'>";
         echo "<thead>";
         echo "<tr>
-                                        <th>#</th>
-                                        <th>Placa</th>
-                                        <th>Placa Nueva</th>
-                                        <th>Serial de Carroceria</th>
-                                        <th>Serial de Motor</th>
-                                        <th>Marca</th>
-                                        <th>Tipo</th>
-                                        <th>Modelo</th>
-                                        <th>Año</th>
-                                        <th>Color</th>
-                                        <th>Observacion</th>
-                                        <th>Fecha Modificacion</th>
-                                        <th>Sede</th>
-                                        <th>Estatus</th>
-                                    </tr>";
+            <th>#</th>
+            <th>Placa</th>
+            <th>Placa Nueva</th>
+            <th>Serial de Carroceria</th>
+            <th>Serial de Motor</th>
+            <th>Marca</th>
+            <th>Tipo</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Color 1</th>
+            <th>Color 2</th>
+            <th>Observacion</th>
+            <th>Fecha Modificacion</th>
+            <th>Sede</th>
+            <th>Estatus</th>
+            </tr>";
         echo "</thead>";
 
-        while ($row = mysqli_fetch_array($resultado_listado)) {
-
+        foreach ($resultado_listado as $row) {
+            echo "<tbody>";
             echo "<tr>";
-            echo "<td>" . $row['id_chuto'] . "</td>";
-            echo "<td>" . $row['placa_chuto'] . "</td>";
-            echo "<td>" . $row['placa_nueva_chuto'] . "</td>";
-            echo "<td>" . $row['serial_carroceria_chuto'] . "</td>";
-            echo "<td>" . $row['serial_motor_chuto'] . "</td>";
-            echo "<td>" . $row['marca_chuto'] . "</td>";
-            echo "<td>" . $row['tipo_chuto'] . "</td>";
-            echo "<td>" . $row['modelo_chuto'] . "</td>";
-            echo "<td>" . $row['a_o_chuto'] . "</td>";
-            echo "<td>" . $row['color_chuto'] . "</td>";
-            echo "<td>" . $row['observacion_chuto_estado'] . "</td>";
-            echo "<td>" . $row['fecha_chuto_estado'] . "</td>";
-            echo "<td>" . $row['nombre_sede'] . "</td>";
-            echo "<td>" . $row['chuto_estado'] . "</td>";
+            echo "<td>" . $row->id_chuto . "</td>";
+            echo "<td>" . $row->placa_chuto . "</td>";
+            echo "<td>" . $row->placa_nueva_chuto . "</td>";
+            echo "<td>" . $row->serial_carroceria_chuto . "</td>";
+            echo "<td>" . $row->serial_motor_chuto . "</td>";
+            echo "<td>" . $row->marca_chuto . "</td>";
+            echo "<td>" . $row->tipo_chuto . "</td>";
+            echo "<td>" . $row->modelo_chuto . "</td>";
+            echo "<td>" . $row->a_o_chuto . "</td>";
+            echo "<td>" . $row->color_chuto_1 . "</td>";
+            echo "<td>" . $row->color_chuto_2 . "</td>";
+            echo "<td>" . $row->observacion_chuto_estado . "</td>";
+            echo "<td>" . $row->fecha_chuto_estado . "</td>";
+            echo "<td>" . $row->nombre_sede . "</td>";
+            echo "<td>" . $row->chuto_estado . "</td>";
             echo "</tr>";
+            echo "</tbody>";
         }
 
         echo "</table>";
         echo "</div>";
+        
         ?>
     </div>
         
-	<?php include_once('../template/footer.php'); ?>
+    <?php include_once('../template/footer.php'); ?>
