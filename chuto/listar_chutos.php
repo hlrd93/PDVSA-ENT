@@ -30,8 +30,6 @@
         
         $resultado_listado = Chuto::listar_chutos();
 
-        /*$chuto = Chuto::instanciacion($resultado_listado);*/
-
         
         echo "<div class='table-responsive'>";
         echo "<table class='table table-hover'>";
@@ -58,7 +56,7 @@
         foreach ($resultado_listado as $row) {
             echo "<tbody>";
             echo "<tr>";
-            echo "<td>" . $row->id_chuto . "</td>";
+            echo '<th scope="row">' . $row->id_chuto . '</th>';
             echo "<td>" . $row->placa_chuto . "</td>";
             echo "<td>" . $row->placa_nueva_chuto . "</td>";
             echo "<td>" . $row->serial_carroceria_chuto . "</td>";
@@ -67,8 +65,8 @@
             echo "<td>" . $row->tipo_chuto . "</td>";
             echo "<td>" . $row->modelo_chuto . "</td>";
             echo "<td>" . $row->a_o_chuto . "</td>";
-            echo "<td>" . $row->color_chuto_1 . "</td>";
-            echo "<td>" . $row->color_chuto_2 . "</td>";
+            echo '<td class="borde" style="background-color:'.$row->color_chuto_1.';"></td>';
+            echo '<td class="borde" style="background-color:'.$row->color_chuto_2.';"></td>';
             echo "<td>" . $row->observacion_chuto_estado . "</td>";
             echo "<td>" . $row->fecha_chuto_estado . "</td>";
             echo "<td>" . $row->nombre_sede . "</td>";

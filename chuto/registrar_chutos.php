@@ -302,27 +302,38 @@
                             </div>
                         </form>
                         <?php
-
-                                                        
-                        if(isset($_POST['submit'])){
-                            $placa_chuto = $_POST['placa_chuto'];
-                            $placa_nueva_chuto = $_POST['placa_nueva_chuto'];
-                            $serial_carroceria_chuto = $_POST['serial_carroceria_chuto'];
-                            $serial_motor_chuto = $_POST['serial_motor_chuto'];
-                            $marca_chuto = $_POST['marca_chuto'];
-                            $tipo_chuto = $_POST['tipo_chuto'];
-                            $modelo_chuto = $_POST['modelo_chuto'];
-                            $a_o_chuto = $_POST['a_o_chuto'];
-                            $color_chuto_1 = $_POST['color_chuto_1'];
-                            $color_chuto_2 = $_POST['color_chuto_2'];
-                            $observacion_chuto_estado = $_POST['observacion_chuto_estado'];
-                            $fecha_chuto_estado = $_POST['fecha_chuto_estado'];
-                            $id_sede_chuto = $_POST['id_sede_chuto'];
-                            $id_chuto_estado = $_POST['id_chuto_estado'];
+                        $chuto = new Chuto();
                         
-                            $resultado_registrar = Chuto::registrar_chuto($placa_chuto, $placa_nueva_chuto, $serial_carroceria_chuto, $serial_motor_chuto, $marca_chuto, $tipo_chuto, $modelo_chuto, $a_o_chuto, $color_chuto_1, $color_chuto_2, $observacion_chuto_estado, $fecha_chuto_estado, $id_sede_chuto, $id_chuto_estado);
+                        
+
+                        if(isset($_POST['submit'])) {
+
+                        $chuto->placa_chuto = $_POST['placa_chuto'];
+                        $chuto->placa_nueva_chuto = $_POST['placa_nueva_chuto'];
+                        $chuto->serial_carroceria_chuto = $_POST['serial_carroceria_chuto'];
+                        $chuto->serial_motor_chuto = $_POST['serial_motor_chuto'];
+                        $chuto->marca_chuto = $_POST['marca_chuto'];
+                        $chuto->tipo_chuto = $_POST['tipo_chuto'];
+                        $chuto->modelo_chuto = $_POST['modelo_chuto'];
+                        $chuto->a_o_chuto = $_POST['a_o_chuto'];
+                        $chuto->color_chuto_1 = $_POST['color_chuto_1'];
+                        $chuto->color_chuto_2 = $_POST['color_chuto_2'];
+                        $chuto->observacion_chuto_estado = $_POST['observacion_chuto_estado'];
+                        $chuto->fecha_chuto_estado = $_POST['fecha_chuto_estado'];
+                        $chuto->id_sede_chuto = $_POST['id_sede_chuto'];
+                        $chuto->id_chuto_estado = $_POST['id_chuto_estado'];
+                        
+                            if($chuto->registrar_chuto()==1){
+                                echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
+                            }
+                            else {
+                                
+                                echo '<script type="text/javascript">sweetAlert("Oops...", "Error!", "error");</script>';
+                            }
 
                         }
+
+
                         ?>
                     </div>
                 </div>

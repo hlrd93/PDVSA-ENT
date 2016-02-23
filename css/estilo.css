@@ -33,11 +33,12 @@ table{
 
 th, td {
     padding: 15px;
+    text-align:justify;
 }
 
-th{
+/*th{
     text-align: left;
-}
+}*/
 
 table tr:nth-child(even) {
     background-color: #eee;

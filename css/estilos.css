@@ -137,4 +137,11 @@ body {
       .contenedor-formulario .formulario input[type="submit"]:hover {
         background: #1976D2; }
 
+ td{
+   vertical-align: center;
+ } 
+.borde {
+  border: 2px solid #7A7A7A;
+}
+
 /*# sourceMappingURL=estilos.css.map */

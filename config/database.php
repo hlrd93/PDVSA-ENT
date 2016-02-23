@@ -35,11 +35,14 @@ class Database {
 		}
 	}
 
-	public function escape_string()
+	public function escape_string($string)
 	{
 
 		$escaped_string = mysqli_real_escape_string($this->conexion, $string);
 		return $escaped_string;
+	}
+	public function ultimo_id() {
+		return mysqli_insert_id($this->conexion);
 	}
 
 }
