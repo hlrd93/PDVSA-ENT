@@ -155,8 +155,7 @@
                                 <span class="help-block" id="hint_a_o_cisterna">
                                     Ingrese el A&ntilde;o de Origen
                                 </span>
-                            </div>
-                                
+                            </div>    
                             <div class="form-group form-group-sm">
                                 <label class="control-label " for="color_cisterna">
                                     Color
@@ -172,8 +171,94 @@
                                 <span class="help-block" id="hint_color_cisterna">
                                     Ingrese el Color de la Cisterna
                                 </span>
+                            </div>    
+                            <div class="form-group form-group-sm">
+                                <label class="control-label " for="nro_ejes_cisterna">
+                                    Numero de Ejes
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-opencart">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="nro_ejes_cisterna" name="nro_ejes_cisterna" type="text"/>
+                                </div>
+                                <span class="help-block" id="hint_nro_ejes_cisterna">
+                                    Ingrese el Numero de Ejes
+                                </span>
                             </div>
-                                
+                            <div class="form-group form-group-sm">
+                                <label class="control-label requiredField" for="capacidad_1erc_cisterna">
+                                    Capacidad del Primer Compartimiento
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-battery-quarter">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="capacidad_1erc_cisterna" name="capacidad_1erc_cisterna" placeholder="ejemplo: 12000..." type="text"/>
+                                </div>
+                                <span class="help-block" id="hint_capacidad_1erc_cisterna">
+                                    Ingrese la capacidad del primer compartimiento, (en caso de no poseer, deje en blanco)
+                                </span>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label requiredField" for="capacidad_2doc_cisterna">
+                                    Capacidad del Segundo Compartimiento
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-battery-half">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="capacidad_2doc_cisterna" name="capacidad_2doc_cisterna" placeholder="ejemplo: 14000..." type="text"/>
+                                </div>
+                                <span class="help-block" id="hint_capacidad_2doc_cisterna">
+                                    Ingrese la capacidad del segundo compartimiento, (en caso de no poseer, deje en blanco)
+                                </span>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label requiredField" for="capacidad_3erc_cisterna">
+                                    Capacidad del Tercer Compartimiento
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-battery-three-quarters">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="capacidad_3erc_cisterna" name="capacidad_3erc_cisterna" placeholder="ejemplo: 16000..." type="text"/>
+                                </div>
+                                <span class="help-block" id="hint_capacidad_3erc_cisterna">
+                                    Ingrese la capacidad del tercer compartimiento, (en caso de no poseer, deje en blanco)
+                                </span>
+                            </div>
+                            <div class="form-group form-group-sm">
+                                <label class="control-label requiredField" for="capacidad_totalc_cisterna">
+                                    Capacidad Total de la Cisterna
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-battery-full">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="capacidad_totalc_cisterna" name="capacidad_totalc_cisterna" placeholder="ejemplo: 42000..." type="text"/>
+                                </div>
+                                <span class="help-block" id="hint_capacidad_totalc_cisterna">
+                                    Ingrese la Capacidad Total
+                                </span>
+                            </div>
                             <div class="form-group form-group-sm">
                                 <label class="control-label " for="observacion_cisterna_estado">
                                     Observacion de la Cisterna
