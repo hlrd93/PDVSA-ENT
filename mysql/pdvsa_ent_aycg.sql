@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-02-2016 a las 21:25:21
+-- Tiempo de generación: 24-02-2016 a las 19:43:27
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -33,16 +33,7 @@ CREATE TABLE `analista` (
   `telefono_analista` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'telefono de contacto corporativo del analista',
   `correo_analista` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'correo corporativo @pdvsa.com',
   `sede_id_sede` varchar(11) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Usuarios quienes controlan la flota en las sedes';
-
---
--- Volcado de datos para la tabla `analista`
---
-
-INSERT INTO `analista` (`id_analista`, `nombre_analista`, `apellido_analista`, `telefono_analista`, `correo_analista`, `sede_id_sede`) VALUES
-(1, 'Carlos', 'Parra', NULL, NULL, 'andes_ev'),
-(2, 'Migceli', 'Castillo', NULL, NULL, 'andes_lf'),
-(3, 'Jaime', 'Molina', NULL, NULL, 'andes_sc');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Usuarios quienes controlan la flota en las sedes\n-administrador\n-usuario\n-*consultor de solo lectura';
 
 -- --------------------------------------------------------
 
@@ -60,14 +51,16 @@ CREATE TABLE `camion_tanque` (
   `tipo_camion_tanque` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'tipo de camion tanque',
   `modelo_camion_tanque` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'modelo del camion tanque',
   `a_o_camion_tanque` int(8) DEFAULT NULL COMMENT 'año del camion tanque',
-  `color_camion_tanque` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores del camion tanque',
+  `nombre_color_camion_tanque` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `color_camion_tanque_1` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores del camion tanque',
+  `color_camion_tanque_2` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
   `nro_ejes_camion_tanque` int(8) DEFAULT NULL COMMENT 'numero de ejes de la camion tanque',
   `capacidad_1erc_camion_tanque` int(8) DEFAULT NULL COMMENT 'capacidad del primer compartimiento en litros',
   `capacidad_2doc_camion_tanque` int(8) DEFAULT NULL COMMENT 'capacidad del segundo compartimiento en litros',
   `capacidad_3erc_camion_tanque` int(8) DEFAULT NULL COMMENT 'capacidad del tercer compartimiento en litros',
   `capacidad_totalc_camion_tanque` int(8) DEFAULT NULL COMMENT 'capacidad total del camion tanque en litros',
   `observacion_camion_tanque_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'observacion del camion tanque',
-  `fecha_camion_tanque_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL COMMENT 'fecha del camion tanque',
+  `fecha_camion_tanque_estado` varchar(32) COLLATE utf8_spanish_ci NOT NULL COMMENT 'fecha del camion tanque',
   `id_sede_camion_tanque` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `id_camion_tanque_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='data de camiones con tanque incorporado';
@@ -82,6 +75,14 @@ CREATE TABLE `camion_tanque_estado` (
   `id_camion_tanque_estado` int(11) NOT NULL,
   `camion_tanque_estado` varchar(20) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Estados y observaciones del camion tanque';
+
+--
+-- Volcado de datos para la tabla `camion_tanque_estado`
+--
+
+INSERT INTO `camion_tanque_estado` (`id_camion_tanque_estado`, `camion_tanque_estado`) VALUES
+(1, 'Activo'),
+(2, 'Estacionamiento');
 
 -- --------------------------------------------------------
 
@@ -99,9 +100,10 @@ CREATE TABLE `chuto` (
   `tipo_chuto` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'tipo de chuto',
   `modelo_chuto` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'modelo del chuto',
   `a_o_chuto` int(8) DEFAULT NULL COMMENT 'año del chuto',
-  `color_chuto` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores del chuto',
+  `nombre_color_chuto` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `color_chuto_1` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores del chuto',
   `observacion_chuto_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_chuto_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_chuto_estado` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
   `id_sede_chuto` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `id_chuto_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='data de camiones';
@@ -110,10 +112,11 @@ CREATE TABLE `chuto` (
 -- Volcado de datos para la tabla `chuto`
 --
 
-INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_carroceria_chuto`, `serial_motor_chuto`, `marca_chuto`, `tipo_chuto`, `modelo_chuto`, `a_o_chuto`, `color_chuto`, `observacion_chuto_estado`, `fecha_chuto_estado`, `id_sede_chuto`, `id_chuto_estado`) VALUES
-(1, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUCK', '420', 'HOWO/A7', 2013, 'BLANCO', 'activo solucion de legalidad', '03/05/2016', 'andes_ev', 1),
-(2, '723862', 'DA723862', 'LZZ5CLVB6DA723862', '120717015117', 'SINOTRUCK', '420', 'HOWO A7', 2012, 'BLANCO', 'activo', '07/05/2016', 'andes_lf', 2),
-(3, '723919', 'DA723919', 'LZZ5CLVB9DA723919', '120717016697', 'SINOTRUCK', '420', 'HOWO/A7', 2012, 'BLANCO', 'Ya fue reparado', '05/05/2016', 'andes_sc', 2);
+INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_carroceria_chuto`, `serial_motor_chuto`, `marca_chuto`, `tipo_chuto`, `modelo_chuto`, `a_o_chuto`, `nombre_color_chuto`, `color_chuto_1`, `observacion_chuto_estado`, `fecha_chuto_estado`, `id_sede_chuto`, `id_chuto_estado`) VALUES
+(1, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#A9A9A9', 'cool', 'Lunes, 22 Febrero 2016', 'andes_sc', 1),
+(2, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, NULL, 'Gris', '#000000', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
+(3, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'activo', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
+(4, '7458991', 'DA7458991', 'LZZ5CLVB7DA7458991', '1304170207471', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'aaa', 'Miercoles, 24 de Febrero del 201', 'andes_lf', 2);
 
 --
 -- Disparadores `chuto`
@@ -145,8 +148,10 @@ CREATE TABLE `chuto_estado` (
 
 INSERT INTO `chuto_estado` (`id_chuto_estado`, `chuto_estado`) VALUES
 (1, 'Activo'),
-(2, 'Desincorporado'),
-(3, 'Estacionamiento');
+(2, 'Estacionamiento'),
+(3, 'Fiscalia'),
+(4, 'A Desincorporar'),
+(5, 'Desincorporado');
 
 -- --------------------------------------------------------
 
@@ -160,19 +165,6 @@ CREATE TABLE `chuto_estado_modificaciones` (
   `observacion_chuto_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_chuto_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Antiguos estados y observaciones de los chutos';
-
---
--- Volcado de datos para la tabla `chuto_estado_modificaciones`
---
-
-INSERT INTO `chuto_estado_modificaciones` (`nro_chuto_estado`, `id_chuto_estado`, `observacion_chuto_estado`, `fecha_chuto_estado`) VALUES
-(5, 1, 'Se desincorporo por delito', '03/05/2016'),
-(6, 2, 'Activo y Circulando', '04/05/2016'),
-(7, 3, 'En estacionamiento', '05/05/2016'),
-(8, 2, 'activo solucion de legalidad', '03/05/2016'),
-(9, 3, 'Se accidento', '04/05/2016'),
-(10, 3, 'Se reparo', '04/05/2016'),
-(11, 2, 'activo solucion de legalidad', '03/05/2016');
 
 -- --------------------------------------------------------
 
@@ -189,14 +181,16 @@ CREATE TABLE `cisterna` (
   `tipo_cisterna` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'tipo de cisterna',
   `modelo_cisterna` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'modelo de la cisterna',
   `a_o_cisterna` int(8) DEFAULT NULL COMMENT 'año de origen de la cisterna',
-  `color_cisterna` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores de la cisterna',
+  `nombre_color_cisterna` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `color_cisterna_1` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores de la cisterna',
+  `color_cisterna_2` varchar(15) COLLATE utf8_spanish_ci DEFAULT NULL COMMENT 'colores de la cisterna',
   `nro_ejes_cisterna` int(8) DEFAULT NULL COMMENT 'numero de ejes de la cisterna',
   `capacidad_1erc_cisterna` int(8) DEFAULT NULL COMMENT 'capacidad del primer compartimiento en litros',
   `capacidad_2doc_cisterna` int(8) DEFAULT NULL COMMENT 'capacidad del segundo compartimiento en litros',
   `capacidad_3erc_cisterna` int(8) DEFAULT NULL COMMENT 'capacidad del tercer compartimiento en litros',
   `capacidad_totalc_cisterna` int(8) DEFAULT NULL COMMENT 'capacidad total de la cisterna en litros',
   `observacion_cisterna_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_cisterna_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_cisterna_estado` varchar(32) COLLATE utf8_spanish_ci NOT NULL,
   `id_sede_cisterna` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
   `id_cisterna_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='data de tanques';
@@ -205,8 +199,8 @@ CREATE TABLE `cisterna` (
 -- Volcado de datos para la tabla `cisterna`
 --
 
-INSERT INTO `cisterna` (`id_cisterna`, `placa_cisterna`, `placa_nueva_cisterna`, `serial_carroceria_cisterna`, `marca_cisterna`, `tipo_cisterna`, `modelo_cisterna`, `a_o_cisterna`, `color_cisterna`, `nro_ejes_cisterna`, `capacidad_1erc_cisterna`, `capacidad_2doc_cisterna`, `capacidad_3erc_cisterna`, `capacidad_totalc_cisterna`, `observacion_cisterna_estado`, `fecha_cisterna_estado`, `id_sede_cisterna`, `id_cisterna_estado`) VALUES
-(1, 'LJ2474', 'D2002474', 'LJRT11272D2002474', 'CIMC THT', 'CHINO', 'THT9350GYY', 2013, 'GRIS Y ROJO', 2, 14000, 10000, 14000, 38000, 'activo', '04/05/2016', 'pdvsa_andes', 1);
+INSERT INTO `cisterna` (`id_cisterna`, `placa_cisterna`, `placa_nueva_cisterna`, `serial_carroceria_cisterna`, `marca_cisterna`, `tipo_cisterna`, `modelo_cisterna`, `a_o_cisterna`, `nombre_color_cisterna`, `color_cisterna_1`, `color_cisterna_2`, `nro_ejes_cisterna`, `capacidad_1erc_cisterna`, `capacidad_2doc_cisterna`, `capacidad_3erc_cisterna`, `capacidad_totalc_cisterna`, `observacion_cisterna_estado`, `fecha_cisterna_estado`, `id_sede_cisterna`, `id_cisterna_estado`) VALUES
+(5, '03VGBH', '03VGBH', '8XVS4WSS57V501117', 'IVECO', 'Convenio', 'EUROTECH', 2007, NULL, '#ff0000', '#ffffff', 3, 12000, 14000, 16000, 42000, 'cool', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1);
 
 --
 -- Disparadores `cisterna`
@@ -239,7 +233,10 @@ CREATE TABLE `cisterna_estado` (
 INSERT INTO `cisterna_estado` (`id_cisterna_estado`, `cisterna_estado`) VALUES
 (1, 'Activo'),
 (2, 'Estacionamiento'),
-(3, 'Vaccum');
+(3, 'Fiscalia'),
+(4, 'A Desincorporar'),
+(5, 'Desincorporado'),
+(6, 'Vaccum');
 
 -- --------------------------------------------------------
 
@@ -253,13 +250,6 @@ CREATE TABLE `cisterna_estado_modificaciones` (
   `observacion_cisterna_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_cisterna_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Antiguos estados y observaciones de las cisternas';
-
---
--- Volcado de datos para la tabla `cisterna_estado_modificaciones`
---
-
-INSERT INTO `cisterna_estado_modificaciones` (`nro_cisterna_estado`, `id_cisterna_estado`, `observacion_cisterna_estado`, `fecha_cisterna_estado`) VALUES
-(1, 1, 'activo en funcionamiento', '03/05/2016');
 
 -- --------------------------------------------------------
 
@@ -277,7 +267,7 @@ CREATE TABLE `distrito` (
 --
 
 INSERT INTO `distrito` (`id_distrito`, `nombre_distrito`) VALUES
-('pdvsa_andes', 'ANDES');
+('pdvsa_andes', 'Andes');
 
 -- --------------------------------------------------------
 
@@ -296,9 +286,9 @@ CREATE TABLE `sede` (
 --
 
 INSERT INTO `sede` (`id_sede`, `nombre_sede`, `id_distrito_sede`) VALUES
-('andes_ev', 'El Vigia', 'pdvsa_andes'),
 ('andes_lf', 'La Fria', 'pdvsa_andes'),
-('andes_sc', 'San Cristobal', 'pdvsa_andes');
+('andes_sc', 'San Cristobal', 'pdvsa_andes'),
+('andes_vg', 'El Vigia', 'pdvsa_andes');
 
 --
 -- Índices para tablas volcadas
@@ -350,8 +340,8 @@ ALTER TABLE `chuto_estado_modificaciones`
 --
 ALTER TABLE `cisterna`
   ADD PRIMARY KEY (`id_cisterna`),
-  ADD KEY `fk_cisterna_sede1_idx` (`id_sede_cisterna`),
-  ADD KEY `fk_cisterna_cisterna_estado1_idx` (`id_cisterna_estado`);
+  ADD KEY `fk_cisterna_cisterna_estado1_idx` (`id_cisterna_estado`),
+  ADD KEY `fk_cisterna_sede1_idx` (`id_sede_cisterna`);
 
 --
 -- Indices de la tabla `cisterna_estado`
@@ -386,22 +376,22 @@ ALTER TABLE `sede`
 -- AUTO_INCREMENT de la tabla `analista`
 --
 ALTER TABLE `analista`
-  MODIFY `id_analista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_analista` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `chuto`
 --
 ALTER TABLE `chuto`
-  MODIFY `id_chuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_chuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `chuto_estado_modificaciones`
 --
 ALTER TABLE `chuto_estado_modificaciones`
-  MODIFY `nro_chuto_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `nro_chuto_estado` int(5) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `cisterna`
 --
 ALTER TABLE `cisterna`
-  MODIFY `id_cisterna` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador de cisterna', AUTO_INCREMENT=2;
+  MODIFY `id_cisterna` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador de cisterna', AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `cisterna_estado_modificaciones`
 --
@@ -436,7 +426,7 @@ ALTER TABLE `chuto`
 --
 ALTER TABLE `cisterna`
   ADD CONSTRAINT `fk_cisterna_cisterna_estado1` FOREIGN KEY (`id_cisterna_estado`) REFERENCES `cisterna_estado` (`id_cisterna_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_cisterna_sede1` FOREIGN KEY (`id_sede_cisterna`) REFERENCES `sede` (`id_distrito_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_cisterna_sede1` FOREIGN KEY (`id_sede_cisterna`) REFERENCES `sede` (`id_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `sede`

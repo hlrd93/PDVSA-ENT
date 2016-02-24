@@ -184,8 +184,8 @@
                                         <i class="fa fa-paint-brush">
                                         </i>
                                     </div>
+                                    <input class="form-control" id="nombre_color_chuto" name="nombre_color_chuto" type="text"/>
                                     <input class="form-control" id="color_chuto_1" name="color_chuto_1" type="color"/>
-                                    <input class="form-control" id="color_chuto_2" name="color_chuto_2" type="color"/>
                                 </div>
                                 <span class="help-block" id="hint_color_chuto">
                                     Ingrese el Color del Chuto
@@ -303,8 +303,6 @@
                         </form>
                         <?php
                         $chuto = new Chuto();
-                        
-                        
 
                         if(isset($_POST['submit'])) {
 
@@ -316,8 +314,8 @@
                         $chuto->tipo_chuto = $_POST['tipo_chuto'];
                         $chuto->modelo_chuto = $_POST['modelo_chuto'];
                         $chuto->a_o_chuto = $_POST['a_o_chuto'];
+                        $chuto->nombre_color_chuto = $_POST['nombre_color_chuto'];
                         $chuto->color_chuto_1 = $_POST['color_chuto_1'];
-                        $chuto->color_chuto_2 = $_POST['color_chuto_2'];
                         $chuto->observacion_chuto_estado = $_POST['observacion_chuto_estado'];
                         $chuto->fecha_chuto_estado = $_POST['fecha_chuto_estado'];
                         $chuto->id_sede_chuto = $_POST['id_sede_chuto'];
@@ -327,8 +325,8 @@
                                 echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
                             }
                             else {
-                                
-                                echo '<script type="text/javascript">sweetAlert("Oops...", "Error!", "error");</script>';
+
+                                echo '<script type="text/javascript">sweetAlert("Oops...", "El Chuto ya fue registrado!", "error");</script>';
                             }
 
                         }

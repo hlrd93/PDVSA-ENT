@@ -11,8 +11,8 @@ class Chuto {
 	public $tipo_chuto;
 	public $modelo_chuto; 
 	public $a_o_chuto;
-	public $color_chuto_1; 
-	public $color_chuto_2;
+	public $nombre_color_chuto;
+	public $color_chuto_1;
 	public $observacion_chuto_estado;
 	public $fecha_chuto_estado;
 	public $nombre_sede;
@@ -22,7 +22,7 @@ class Chuto {
 	{
 		$sql = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, "; 
 		$sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
-		$sql .= "color_chuto_1, color_chuto_2,observacion_chuto_estado, ";
+		$sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, ";
 		$sql .= "fecha_chuto_estado, nombre_sede, chuto_estado "; 
 		$sql .= "FROM chuto INNER JOIN sede ON sede.id_sede = chuto.id_sede_chuto ";
 		$sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado ORDER BY id_chuto ASC";
@@ -76,34 +76,44 @@ class Chuto {
 	public function registrar_chuto()
 	{
 		global $database;
-		
-		$sql = "INSERT INTO chuto(placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
-		$sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
-		$sql .= "color_chuto_1, color_chuto_2, observacion_chuto_estado, fecha_chuto_estado, ";
-		$sql .= "id_sede_chuto, id_chuto_estado) ";
-		$sql .= "VALUES ('";
-		$sql .= $database->escape_string($this->placa_chuto)."','";
-		$sql .= $database->escape_string($this->placa_nueva_chuto)."','";
-		$sql .= $database->escape_string($this->serial_carroceria_chuto)."','";
-		$sql .= $database->escape_string($this->serial_motor_chuto)."','";
-		$sql .= $database->escape_string($this->marca_chuto)."','";
-		$sql .= $database->escape_string($this->tipo_chuto)."','";
-		$sql .= $database->escape_string($this->modelo_chuto)."','";
-		$sql .= $database->escape_string($this->a_o_chuto)."','";
-		$sql .= $database->escape_string($this->color_chuto_1)."','";
-		$sql .= $database->escape_string($this->color_chuto_2)."','";
-		$sql .= $database->escape_string($this->observacion_chuto_estado)."','";
-		$sql .= $database->escape_string($this->fecha_chuto_estado)."','";
-		$sql .= $database->escape_string($this->id_sede_chuto)."','";
-		$sql .= $database->escape_string($this->id_chuto_estado)."')";
 
-			if($database->query($sql)) {
-				$this->id_chuto = $database->ultimo_id();
-				return true;
-			}
-			else {
-				return false;
-			}
+		$sql = "SELECT id_chuto FROM chuto WHERE serial_carroceria_chuto='".$database->escape_string($this->serial_carroceria_chuto)."' OR placa_chuto='".$database->escape_string($this->placa_chuto)."'";
+
+		$resultado = $database->query($sql);
+		
+		if($resultado->num_rows==0)
+		{
+			$sql = "INSERT INTO chuto(placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
+			$sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
+			$sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, fecha_chuto_estado, ";
+			$sql .= "id_sede_chuto, id_chuto_estado) ";
+			$sql .= "VALUES ('";
+			$sql .= $database->escape_string($this->placa_chuto)."','";
+			$sql .= $database->escape_string($this->placa_nueva_chuto)."','";
+			$sql .= $database->escape_string($this->serial_carroceria_chuto)."','";
+			$sql .= $database->escape_string($this->serial_motor_chuto)."','";
+			$sql .= $database->escape_string($this->marca_chuto)."','";
+			$sql .= $database->escape_string($this->tipo_chuto)."','";
+			$sql .= $database->escape_string($this->modelo_chuto)."','";
+			$sql .= $database->escape_string($this->a_o_chuto)."','";
+			$sql .= $database->escape_string($this->nombre_color_chuto)."','";
+			$sql .= $database->escape_string($this->color_chuto_1)."','";
+			$sql .= $database->escape_string($this->observacion_chuto_estado)."','";
+			$sql .= $database->escape_string($this->fecha_chuto_estado)."','";
+			$sql .= $database->escape_string($this->id_sede_chuto)."','";
+			$sql .= $database->escape_string($this->id_chuto_estado)."')";
+
+				if($database->query($sql)) {
+					$this->id_chuto = $database->ultimo_id();
+					return true;
+				}
+				else {
+					return false;
+				}
+		}
+		else {
+			return false;
+		}
 	}
 } //Fin de Clase Chuto
 

@@ -400,7 +400,7 @@
                             }
                             else {
                                 
-                                echo '<script type="text/javascript">sweetAlert("Oops...", "Error!", "error");</script>';
+                                echo '<script type="text/javascript">sweetAlert("Oops...", "La Cisterna ya fue registrado!", "error");</script>';
                             }
 
                         }

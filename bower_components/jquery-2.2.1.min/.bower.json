@@ -1,0 +1,15 @@
+{
+  "name": "jquery-2.2.1.min",
+  "_cacheHeaders": {
+    "ETag": "\"56cb5d7c-14e7e\"",
+    "Last-Modified": "Mon, 22 Feb 2016 19:11:56 GMT",
+    "Content-Length": "85630",
+    "Content-Type": "application/javascript; charset=utf-8"
+  },
+  "_release": "e-tag:56cb5d7c-",
+  "main": "index.js",
+  "_source": "http://code.jquery.com/jquery-2.2.1.min.js",
+  "_target": "*",
+  "_originalSource": "http://code.jquery.com/jquery-2.2.1.min.js",
+  "_direct": true
+}

@@ -26,6 +26,51 @@
             </div>
         </div>
         <!-- /.row -->
+
+
+        <script>
+                    
+            $(document).ready(function() {
+
+                $('#buscar').keyup(function() {
+                    
+                    var buscar = $('#buscar').val();
+                    
+                    $.ajax({
+                        url: '../chuto/buscar.php',
+                        type: 'POST',
+                        data: {buscar: buscar},
+                        success:function(data){
+
+                            if(!data.error) {
+                                $('#resultado').html(data);
+                            }
+                        }
+
+                    });
+                    
+
+                });
+                        
+            });
+                        
+
+        </script>
+        <div class="col-md-6 col-md-offset-3">
+            <form method="post">
+                <div class="form-group form-group-sm">
+                    <div class="row container">
+                        <div class="input-group">
+                            <input class="form-control" name="buscar" id="buscar" type="text">
+                            <hr>
+                            <br>
+                            <h2 class="bg-success" id="resultado"></h2>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <?php
         
         $resultado_listado = Chuto::listar_chutos();
@@ -44,8 +89,7 @@
             <th>Tipo</th>
             <th>Modelo</th>
             <th>Año</th>
-            <th>Color 1</th>
-            <th>Color 2</th>
+            <th>Color</th>
             <th>Observacion</th>
             <th>Fecha Modificacion</th>
             <th>Sede</th>
@@ -65,8 +109,7 @@
             echo "<td>" . $row->tipo_chuto . "</td>";
             echo "<td>" . $row->modelo_chuto . "</td>";
             echo "<td>" . $row->a_o_chuto . "</td>";
-            echo '<td class="borde" style="background-color:'.$row->color_chuto_1.';"></td>';
-            echo '<td class="borde" style="background-color:'.$row->color_chuto_2.';"></td>';
+            echo '<td class="borde" style="background-color:'.$row->color_chuto_1.';"><b>'. $row->nombre_color_chuto .'</b></td>';
             echo "<td>" . $row->observacion_chuto_estado . "</td>";
             echo "<td>" . $row->fecha_chuto_estado . "</td>";
             echo "<td>" . $row->nombre_sede . "</td>";

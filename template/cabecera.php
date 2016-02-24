@@ -40,6 +40,8 @@
         <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: #000000}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: #323436 !important;} .bootstrap-iso .btn-custom{background: #5d6a75} .bootstrap-iso .btn-custom:hover{background: #495661;}.bootstrap-iso .outline, .bootstrap-iso .outline:focus{background-color: transparent; border: 2px solid #5d6a75} .bootstrap-iso .outline:hover{background-color: transparent; border: 2px solid#85929d; color: #85929d !important}.bootstrap-iso .form-control:focus { border-color: #00b3ff;  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 179, 255, 0.6); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 179, 255, 0.6);} .asteriskField{color: red;}</style>
         <link rel="stylesheet" type="text/css" href="../sweetalert-master/dist/sweetalert.css">
         <script src="../sweetalert-master/dist/sweetalert.min.js"></script>
+
+        <script src="../bower_components/jquery-2.2.1.min/index.js"></script>
             
             
     </head>
