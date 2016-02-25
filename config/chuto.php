@@ -17,6 +17,7 @@ class Chuto {
 	public $fecha_chuto_estado;
 	public $nombre_sede;
 	public $chuto_estado;
+	public $buscar;
 	
 	public static function listar_chutos()
 	{
@@ -29,6 +30,26 @@ class Chuto {
 		$resultado = self::consulta($sql);
 		return !empty($resultado) ? $resultado : false;
 
+	}
+
+	public static function buscar_chutos($buscar)
+	{
+		global $database;
+		$sql  = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, "; 
+		$sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
+		$sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, ";
+		$sql .= "fecha_chuto_estado, nombre_sede, chuto_estado "; 
+		$sql .= "FROM chuto INNER JOIN sede ON sede.id_sede = chuto.id_sede_chuto ";
+		$sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado ";
+		$sql .= "WHERE id_chuto LIKE '%".$buscar."%' ";
+		$sql .= "OR placa_chuto LIKE '%".$buscar."%' ";
+		$sql .= "OR placa_nueva_chuto LIKE '%".$buscar."%' ";
+		$sql .= "OR serial_carroceria_chuto LIKE '%".$buscar."%' ";
+		$sql .= "OR serial_motor_chuto  LIKE '%".$buscar."%' "; 
+		$sql .= "ORDER BY id_chuto ASC";
+
+		$resultado = self::consulta($sql);
+		return !empty($resultado) ? $resultado : false;
 	}
 
 	

@@ -27,12 +27,13 @@
         </div>
         <!-- /.row -->
 
-
         <script>
                     
             $(document).ready(function() {
 
-                $('#buscar').keyup(function() {
+                $('#buscar').keyup(function(e) {
+
+                    e.preventDefault();
                     
                     var buscar = $('#buscar').val();
                     
@@ -53,23 +54,21 @@
                 });
                         
             });
-                        
-
         </script>
-        <div class="col-md-6 col-md-offset-3">
+
+        <!-- <div class="col-md-6 col-md-offset-3"> -->
             <form method="post">
                 <div class="form-group form-group-sm">
                     <div class="row container">
                         <div class="input-group">
                             <input class="form-control" name="buscar" id="buscar" type="text">
-                            <hr>
                             <br>
-                            <h2 class="bg-success" id="resultado"></h2>
+                            <h6 class="bg-success" id="resultado"></h6>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
+        <!-- </div> -->
 
         <?php
         
