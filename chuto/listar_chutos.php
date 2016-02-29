@@ -31,16 +31,31 @@
                     
             $(document).ready(function() {
 
-                $('#buscar').keyup(function(e) {
+                $('form').submit(function(e) {
 
                     e.preventDefault();
                     
-                    var buscar = $('#buscar').val();
-                    
+                    var placa = $('#placa').val();
+                    var serial = $('#serial').val();
+                    var sede = $('#sede').val();
+                    var estatus = $('#estatus').val();
+                    var tipo = $('#tipo').val();
+                    var a_o = $('#a_o').val();
+
+                    // alert(placa+' '+serial);
+
                     $.ajax({
                         url: '../chuto/buscar.php',
                         type: 'POST',
-                        data: {buscar: buscar},
+                        data: {
+                                placa: placa,
+                                serial: serial,
+                                sede: sede,
+                                estatus: estatus,
+                                tipo: tipo,
+                                a_o: a_o
+                                },
+                        
                         success:function(data){
 
                             if(!data.error) {
@@ -57,16 +72,127 @@
         </script>
 
         <!-- <div class="col-md-6 col-md-offset-3"> -->
-            <form method="post">
-                <div class="form-group form-group-sm">
-                    <div class="row container">
+            <form class="form-inline" method="post">
+                <!-- <div class="form-group form-group-xs"> -->
+                <div class="row">
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="Placa">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
                         <div class="input-group">
-                            <input class="form-control" name="buscar" id="buscar" type="text">
-                            <br>
-                            <h6 class="bg-success" id="resultado"></h6>
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="placa" id="placa" class="buscar" type="text">
                         </div>
+                        <span class="help-block" id="hint_placa">
+                            Buscar por Placas...
+                        </span>
                     </div>
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="Serial">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="serial" id="serial" class="buscar" type="text">
+                        </div>
+                        <span class="help-block" id="hint_serial">
+                            Buscar por Seriales...
+                        </span>
+                    </div>
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="Sede">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="sede" id="sede" class="buscar" type="text">
+                        </div>
+                        <span class="help-block" id="hint_sede">
+                            Buscar por Sede...
+                        </span>
+                    </div>
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="Estatus">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="estatus" id="estatus" class="buscar" type="text">
+                        </div>
+                        <span class="help-block" id="hint_estatus">
+                            Buscar por Estatus...
+                        </span>
+                    </div>
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="Tipo">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="tipo" id="tipo" class="buscar" type="text">
+                        </div>
+                        <span class="help-block" id="hint_tipo">
+                            Buscar por Tipo...
+                        </span>
+                    </div>
+
+                    <div class="form-group form-group-sm-4">
+                        <label class="control-label requiredField" for="A_o">
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-search">
+                                </i>
+                            </div>
+                            <input class="form-control" name="a_o" id="a_o" class="buscar" type="text">
+                        </div>
+                        <span class="help-block" id="hint_a_o">
+                            Buscar por Año...
+                        </span>
+                    </div>
+
+
+
+                    <input type="submit" id="submit" class="submit">
+
+                    <br>
+          
+                    <div class="table-responsive bg-success" id="resultado"></div>
                 </div>
+                <!-- </div> -->
             </form>
         <!-- </div> -->
 
