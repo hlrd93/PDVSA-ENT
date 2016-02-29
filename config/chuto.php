@@ -30,7 +30,7 @@ class Chuto {
     }
 
     public static function buscar_chutos($placa, $serial, $sede, $estatus, $tipo, $a_o) {
-        $string_sql = self::filtro($sede, $estatus, $tipo, $a_o);
+        $string_sql = self::filtro($placa, $serial, $sede, $estatus, $tipo, $a_o);
 
         global $database;
         $sql = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
@@ -40,12 +40,6 @@ class Chuto {
         $sql .= "FROM chuto INNER JOIN sede ON sede.id_sede = chuto.id_sede_chuto ";
         $sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado ";
         $sql .= "WHERE a_o_chuto>1900 ";
-        // // $sql .= "id_chuto ='".$placa."' OR ";
-        // // $sql .= "placa_chuto ='".$placa."' OR ";
-        // $sql .= "placa_nueva_chuto ='".$placa."' ";
-        // $sql .= "OR serial_carroceria_chuto ='".$serial."' ";
-        // $sql .= "OR a_o_chuto ='".$a_o."' ";
-        // $sql .= "OR nombre_sede ='".$sede."' ";
         $sql .= $string_sql;
         $sql .= " ORDER BY id_chuto ASC";
 
@@ -53,24 +47,29 @@ class Chuto {
         return !empty($resultado) ? $resultado : false;
     }
 
-    public static function filtro($s, $e, $t, $a) {
+    public static function filtro($p, $sr, $sd, $e, $t, $a) {
         $parametro[] = "";
+        if (!empty($p)) {
 
-        if (!empty($s)) {
+            $parametro[0] = "AND placa_chuto ='" . $p . "'";
+        }
+        if (!empty($sr)) {
 
-            $parametro[0] = "AND nombre_sede ='" . $s . "'";
+            $parametro[1] = "AND nombre_sede ='" . $sr . "'";
         }
 
+        if (!empty($sd)) {
+
+            $parametro[2] = "AND nombre_sede ='" . $sd . "'";
+        }
         if (!empty($e)) {
 
-            $parametro[1] = "AND chuto_estado ='" . $e . "'";
+            $parametro[3] = "AND chuto_estado ='" . $e . "'";
         }
-
         if (!empty($t)) {
 
-            $parametro[2] = "AND tipo_chuto ='" . $t . "'";
+            $parametro[4] = "AND tipo_chuto ='" . $t . "'";
         }
-
         if (!empty($a)) {
 
             $parametro[3] = "AND a_o_chuto ='" . $a . "'";

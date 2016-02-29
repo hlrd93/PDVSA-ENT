@@ -57,6 +57,20 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#conductor"><i class="fa fa-fw fa-arrows-v"></i> Conductor <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="conductor" class="collapse">
+                <li>
+                    <a href="../conductor/registrar_conductor.php"><i class="fa fa-fw fa-table"></i> Registrar Conductor</a>
+                </li>
+                <li>
+                    <a href="../conductor/actualizar_conductor.php"><i class="glyphicon glyphicon-edit"></i> Actualizar Conductor</a>
+                </li>
+                <li>
+                    <a href="../conductor/listar_conductor.php"><i class="glyphicon glyphicon-list"></i> Listar Conductores</a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </div>
 <!-- /.navbar-collapse -->

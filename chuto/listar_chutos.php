@@ -1,4 +1,4 @@
-    
+
 	<?php include_once('../template/cabecera.php'); ?>
 
 	<?php include_once('../template/navegador.php'); ?> 
@@ -31,7 +31,7 @@
                     
             $(document).ready(function() {
 
-                $('form').submit(function(e) {
+                $('#form1').submit(function(e) {
 
                     e.preventDefault();
                     
@@ -41,8 +41,6 @@
                     var estatus = $('#estatus').val();
                     var tipo = $('#tipo').val();
                     var a_o = $('#a_o').val();
-
-                    // alert(placa+' '+serial);
 
                     $.ajax({
                         url: '../chuto/buscar.php',
@@ -59,7 +57,42 @@
                         success:function(data){
 
                             if(!data.error) {
-                                $('#resultado').html(data);
+                                $('#resultado1').html(data);
+                            }
+                        }
+
+                    });
+                    
+
+                });
+
+                $('#form2').submit(function(e) {
+
+                    e.preventDefault();
+
+                    var placa = $('#placa').val();
+                    var serial = $('#serial').val();
+                    var sede = $('#sede').val();
+                    var estatus = $('#estatus').val();
+                    var tipo = $('#tipo').val();
+                    var a_o = $('#a_o').val();
+
+                    $.ajax({
+                        url: '../chuto/buscar.php',
+                        type: 'POST',
+                        data: {
+                                placa: placa,
+                                serial: serial,
+                                sede: sede,
+                                estatus: estatus,
+                                tipo: tipo,
+                                a_o: a_o
+                                },
+                        
+                        success:function(data){
+
+                            if(!data.error) {
+                                $('#resultado2').html(data);
                             }
                         }
 
@@ -70,12 +103,16 @@
                         
             });
         </script>
-
-        <!-- <div class="col-md-6 col-md-offset-3"> -->
-            <form class="form-inline" method="post">
+        
+        <h3>Buscar por <small>Placa o Seriales de Motor o Carroceria</small></h3>
+        <hr>
+        <!-- Placas y Seriales -->
+        <div class="row">
+            <!-- <div class="col-md-6 col-md-offset-3"> -->
+            <form id="form1" class="form-inline" method="post">
                 <!-- <div class="form-group form-group-xs"> -->
-                <div class="row">
-
+                <div class="span6">
+                    
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Placa">
                             <span class="asteriskField">
@@ -93,7 +130,7 @@
                             Buscar por Placas...
                         </span>
                     </div>
-
+                        
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Serial">
                             <span class="asteriskField">
@@ -111,7 +148,26 @@
                             Buscar por Seriales...
                         </span>
                     </div>
-
+                        
+                    <div>
+                        
+                    </div>
+                </div>
+                <input type="submit" id="submit1" class="btn btn-info" value="Buscar Chuto">
+                <br><br>
+                <div class="table-responsive bg-success" id="resultado1"></div>
+                <br><br>
+            </form>
+        </div>
+        <!-- </div> -->
+        <h3>Buscar por <small>Sede, Estatus, Tipo o Año</small></h3>
+        <hr>
+        <!-- Sede Estatus Tipo Año -->
+        <div class="row">
+            <!-- <div class="col-md-6 col-md-offset-3"> -->
+            <form id="form2" class="form-inline" method="post">
+                <!-- <div class="form-group form-group-xs"> -->
+                <div class="span6">    
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Sede">
                             <span class="asteriskField">
@@ -129,7 +185,7 @@
                             Buscar por Sede...
                         </span>
                     </div>
-
+                        
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Estatus">
                             <span class="asteriskField">
@@ -147,7 +203,7 @@
                             Buscar por Estatus...
                         </span>
                     </div>
-
+                        
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Tipo">
                             <span class="asteriskField">
@@ -165,7 +221,7 @@
                             Buscar por Tipo...
                         </span>
                     </div>
-
+                        
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="A_o">
                             <span class="asteriskField">
@@ -183,17 +239,13 @@
                             Buscar por Año...
                         </span>
                     </div>
-
-
-
-                    <input type="submit" id="submit" class="submit">
-
-                    <br>
-          
-                    <div class="table-responsive bg-success" id="resultado"></div>
                 </div>
-                <!-- </div> -->
+                <input type="submit" id="submit2" class="btn btn-info" value="Buscar Chutos">
+                <br><br>
+                <div class="table-responsive bg-success" id="resultado2"></div>
+                <br><br>
             </form>
+        </div>
         <!-- </div> -->
 
         <?php
