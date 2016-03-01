@@ -67,7 +67,7 @@
                     </div>
                     <hr>
                     <div class="col-md-6 col-md-offset-3">
-                        <form id="form_chuto" method="post" action="./registrar.php">
+                        <form id="form_chuto" method="post" action="./registrar.php" enctype="multipart/form-data">
                             <div class="form-group form-group-sm">
                                 <label class="control-label requiredField" for="placa_chuto">
                                     Placa Chuto
@@ -241,6 +241,7 @@
                                         </i>
                                     </div>
                                     <input class="form-control" id="fecha_chuto_estado" name="fecha_chuto_estado" type="date" readonly value='<?php
+                                    date_default_timezone_set('America/Caracas');
                                       $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
                                       $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
                                     echo $dias[date('w')].", ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y');?>'/>
@@ -280,7 +281,7 @@
                                 </span>
                             </div>
                                 
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="id_chuto_estado">
                                     Estatus
                                     <span class="asteriskField">
@@ -310,11 +311,17 @@
                                     <option value="5">
                                         Desincorporado
                                     </option>
+                                    <option value="6">
+                                        Grúa
+                                    </option>
                                 </select>
                                 <span class="help-block" id="hint_id_chuto_estado">
                                     Seleccione el Estado Actual del Chuto
                                 </span>
                             </div>
+                            
+                            <input type="file" name="foto_placa_chuto">
+
                             <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
                                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -329,7 +336,6 @@
                                     <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar" data-toggle="modal" data-target=".bs-example-modal-lg">
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </div>

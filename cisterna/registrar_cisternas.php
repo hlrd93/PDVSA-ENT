@@ -26,6 +26,29 @@
             </div>
         </div>
         <!-- /.row -->
+        <script>
+            
+            $(document).ready(function() {
+                
+                $("#form_cisterna").submit(function(e) {
+                    
+                    e.preventDefault();
+                    
+                    $('#cisterna-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
+                    
+                    var postData = $(this).serialize();
+                    var url = $(this).attr("action");
+                    
+                    $.post(url, postData, function(php_table_data){
+                        
+                        $("#cisterna-resultado").html(php_table_data);                        
+                        
+                    });
+                    
+                });
+                
+            }); /*document ready function */
+        </script>
         <!-- HTML Form (wrapped in a .bootstrap-iso div) col-md-6 col-sm-6 col-xs-12-->
         <div class="bootstrap-iso">
             <div class="container-fluid">
@@ -44,7 +67,7 @@
                     </div>
                     <hr>
                     <div class="col-md-6 col-md-offset-3">
-                        <form method="post">
+                        <form id="form_cisterna" method="post" action="./registrar.php">
                             <div class="form-group form-group-sm">
                                 <label class="control-label requiredField" for="placa_cisterna">
                                     Placa Cisterna
@@ -165,6 +188,7 @@
                                         <i class="fa fa-paint-brush">
                                         </i>
                                     </div>
+                                    <input class="form-control" id="nombre_color_cisterna" name="nombre_color_cisterna" type="text"/>
                                     <input class="form-control" id="color_cisterna_1" name="color_cisterna_1" type="color"/>
                                     <input class="form-control" id="color_cisterna_2" name="color_cisterna_2" type="color"/>
                                 </div>
@@ -363,55 +387,26 @@
                                 </span>
                             </div>
                                 
+                            <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div id="cisterna-resultado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>
-                                    <button class="btn btn-custom btn-lg btn-block outline" name="submit" type="submit">
-                                        Registrar
-                                    </button>
+                                    <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar" data-toggle="modal" data-target=".bs-example-modal-lg">
                                 </div>
                             </div>
-                        </form>
-                                <?php
-                        $cisterna = new Cisterna();
-
-                        if(isset($_POST['submit'])) {
-
-                        $cisterna->placa_cisterna = $_POST['placa_cisterna'];
-                        $cisterna->placa_nueva_cisterna = $_POST['placa_nueva_cisterna'];
-                        $cisterna->serial_carroceria_cisterna = $_POST['serial_carroceria_cisterna'];
-                        $cisterna->marca_cisterna = $_POST['marca_cisterna'];
-                        $cisterna->tipo_cisterna = $_POST['tipo_cisterna'];
-                        $cisterna->modelo_cisterna = $_POST['modelo_cisterna'];
-                        $cisterna->a_o_cisterna = $_POST['a_o_cisterna'];
-                        $cisterna->color_cisterna_1 = $_POST['color_cisterna_1'];
-                        $cisterna->color_cisterna_2 = $_POST['color_cisterna_2'];
-                        $cisterna->nro_ejes_cisterna = $_POST['nro_ejes_cisterna'];
-                        $cisterna->capacidad_1erc_cisterna = $_POST['capacidad_1erc_cisterna'];
-                        $cisterna->capacidad_2doc_cisterna = $_POST['capacidad_2doc_cisterna'];
-                        $cisterna->capacidad_3erc_cisterna = $_POST['capacidad_3erc_cisterna'];
-                        $cisterna->capacidad_totalc_cisterna = $_POST['capacidad_totalc_cisterna'];
-                        $cisterna->observacion_cisterna_estado = $_POST['observacion_cisterna_estado'];
-                        $cisterna->fecha_cisterna_estado = $_POST['fecha_cisterna_estado'];
-                        $cisterna->id_sede_cisterna = $_POST['id_sede_cisterna'];
-                        $cisterna->id_cisterna_estado = $_POST['id_cisterna_estado'];
-                        
-                            if($cisterna->registrar_cisterna()==1){
-                                echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
-                            }
-                            else {
-                                
-                                echo '<script type="text/javascript">sweetAlert("Oops...", "La Cisterna ya fue registrado!", "error");</script>';
-                            }
-
-                        }
-
-
-                        ?>
-                            </div>
-                        </div>
+                        </form>       
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
 
 

@@ -154,7 +154,5 @@ class Chuto {
         }
     }
 
-}
-
-//Fin de Clase Chuto
+}//Fin de Clase Chuto
 ?>

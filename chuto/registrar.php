@@ -1,4 +1,5 @@
 <?php
+
 sleep(3);
 
 include_once("../config/init.php");

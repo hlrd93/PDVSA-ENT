@@ -1,14 +1,14 @@
 
-    <?php include_once('../template/cabecera.php'); ?>
+<?php include_once('../template/cabecera.php'); ?>
 
-    <?php include_once('../template/navegador.php'); ?> 
+<?php include_once('../template/navegador.php'); ?> 
 
-    <?php include_once('../template/sidebar.php'); ?> 
+<?php include_once('../template/sidebar.php'); ?> 
 
 <div id="page-wrapper">
-    
+
     <div class="container-fluid">
-        
+
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
@@ -28,13 +28,13 @@
         <!-- /.row -->
 
         <script>
-                    
-            $(document).ready(function() {
 
-                $('#form1').submit(function(e) {
+            $(document).ready(function () {
+
+                $('#form1').submit(function (e) {
 
                     e.preventDefault();
-                    
+
                     var placa = $('#placa').val();
                     var serial = $('#serial').val();
                     var sede = "";
@@ -46,27 +46,26 @@
                         url: '../chuto/buscar.php',
                         type: 'POST',
                         data: {
-                                placa: placa,
-                                serial: serial,
-                                sede: sede,
-                                estatus: estatus,
-                                tipo: tipo,
-                                a_o: a_o
-                                },
-                        
-                        success:function(data){
+                            placa: placa,
+                            serial: serial,
+                            sede: sede,
+                            estatus: estatus,
+                            tipo: tipo,
+                            a_o: a_o
+                        },
+                        success: function (data) {
 
-                            if(!data.error) {
+                            if (!data.error) {
                                 $('#resultado1').html(data);
                             }
                         }
 
                     });
-                    
+
 
                 });
 
-                $('#form2').submit(function(e) {
+                $('#form2').submit(function (e) {
 
                     e.preventDefault();
 
@@ -81,38 +80,35 @@
                         url: '../chuto/buscar.php',
                         type: 'POST',
                         data: {
-                                placa: placa,
-                                serial: serial,
-                                sede: sede,
-                                estatus: estatus,
-                                tipo: tipo,
-                                a_o: a_o
-                                },
-                        
-                        success:function(data){
+                            placa: placa,
+                            serial: serial,
+                            sede: sede,
+                            estatus: estatus,
+                            tipo: tipo,
+                            a_o: a_o
+                        },
+                        success: function (data) {
 
-                            if(!data.error) {
+                            if (!data.error) {
                                 $('#resultado2').html(data);
                             }
                         }
 
                     });
-                    
+
 
                 });
-                        
+
             });
         </script>
-        
+
         <h3>Buscar por <small>Placa o Seriales de Motor o Carroceria</small></h3>
         <hr>
         <!-- Placas y Seriales -->
         <div class="row">
-            <!-- <div class="col-md-6 col-md-offset-3"> -->
             <form id="form1" class="form-inline" method="post">
-                <!-- <div class="form-group form-group-xs"> -->
                 <div class="span6">
-                    
+
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Placa">
                             <span class="asteriskField">
@@ -130,7 +126,7 @@
                             Buscar por Placas...
                         </span>
                     </div>
-                        
+
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Serial">
                             <span class="asteriskField">
@@ -148,11 +144,8 @@
                             Buscar por Seriales...
                         </span>
                     </div>
-                        
-                    <div>
-                        
-                    </div>
                 </div>
+                
                 <input type="submit" id="submit1" class="btn btn-info" value="Buscar Chuto">
                 <br><br>
                 <div class="table-responsive bg-success" id="resultado1"></div>
@@ -179,13 +172,26 @@
                                 <i class="fa fa-search">
                                 </i>
                             </div>
-                            <input class="form-control" name="sede" id="sede" class="buscar" type="text">
+                            <select class="select form-control" id="sede" name="sede">
+                                <option value="">
+                                    Seleccione
+                                </option>
+                                <option value="El Vigia">
+                                    El Vigia
+                                </option>
+                                <option value="La Fria">
+                                    La Fria
+                                    </option>
+                                <option value="San Cristobal">
+                                    San Cristobal
+                                </option>
+                            </select>
                         </div>
                         <span class="help-block" id="hint_sede">
                             Buscar por Sede...
                         </span>
                     </div>
-                        
+
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Estatus">
                             <span class="asteriskField">
@@ -197,13 +203,35 @@
                                 <i class="fa fa-search">
                                 </i>
                             </div>
-                            <input class="form-control" name="estatus" id="estatus" class="buscar" type="text">
+                            <select class="select form-control" id="estatus" name="estatus">
+                                <option value="">
+                                        Seleccione
+                                    </option>
+                                    <option value="Activo">
+                                        Activo
+                                    </option>
+                                    <option value="Estacionamiento">
+                                        Estacionamiento
+                                    </option>
+                                    <option value="Fiscalia">
+                                        Fiscalia
+                                    </option>
+                                    <option value="A Desincorporar">
+                                        A Desincorporar
+                                    </option>
+                                    <option value="Desincorporado">
+                                        Desincorporado
+                                    </option>
+                                    <option value="Grua">
+                                        Grúa
+                                    </option>
+                            </select>
                         </div>
                         <span class="help-block" id="hint_estatus">
                             Buscar por Estatus...
                         </span>
                     </div>
-                        
+
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="Tipo">
                             <span class="asteriskField">
@@ -221,7 +249,7 @@
                             Buscar por Tipo...
                         </span>
                     </div>
-                        
+
                     <div class="form-group form-group-sm-4">
                         <label class="control-label requiredField" for="A_o">
                             <span class="asteriskField">
@@ -249,29 +277,28 @@
         <!-- </div> -->
 
         <?php
-        
         $resultado_listado = Chuto::listar_chutos();
 
-        
+
         echo "<div class='table-responsive'>";
         echo "<table class='table table-hover'>";
         echo "<thead>";
         echo "<tr>
-            <th>#</th>
-            <th>Placa</th>
-            <th>Placa Nueva</th>
-            <th>Serial de Carroceria</th>
-            <th>Serial de Motor</th>
-            <th>Marca</th>
-            <th>Tipo</th>
-            <th>Modelo</th>
-            <th>Año</th>
-            <th>Color</th>
-            <th>Observacion</th>
-            <th>Fecha Modificacion</th>
-            <th>Sede</th>
-            <th>Estatus</th>
-            </tr>";
+                    <th>#</th>
+                    <th>Placa</th>
+                    <th>Placa Nueva</th>
+                    <th>Serial de Carroceria</th>
+                    <th>Serial de Motor</th>
+                    <th>Marca</th>
+                    <th>Tipo</th>
+                    <th>Modelo</th>
+                    <th>Año</th>
+                    <th>Color</th>
+                    <th>Observacion</th>
+                    <th>Fecha Modificacion</th>
+                    <th>Sede</th>
+                    <th>Estatus</th>
+                    </tr>";
         echo "</thead>";
 
         foreach ($resultado_listado as $row) {
@@ -286,7 +313,7 @@
             echo "<td>" . $row->tipo_chuto . "</td>";
             echo "<td>" . $row->modelo_chuto . "</td>";
             echo "<td>" . $row->a_o_chuto . "</td>";
-            echo '<td class="borde" style="background-color:'.$row->color_chuto_1.';"><b>'. $row->nombre_color_chuto .'</b></td>';
+            echo '<td class="borde" style="background-color:' . $row->color_chuto_1 . ';"><b>' . $row->nombre_color_chuto . '</b></td>';
             echo "<td>" . $row->observacion_chuto_estado . "</td>";
             echo "<td>" . $row->fecha_chuto_estado . "</td>";
             echo "<td>" . $row->nombre_sede . "</td>";
@@ -297,8 +324,7 @@
 
         echo "</table>";
         echo "</div>";
-        
         ?>
     </div>
-        
-    <?php include_once('../template/footer.php'); ?>
+
+        <?php include_once('../template/footer.php'); ?>
