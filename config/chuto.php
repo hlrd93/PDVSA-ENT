@@ -51,11 +51,11 @@ class Chuto {
         $parametro[] = "";
         if (!empty($p)) {
 
-            $parametro[0] = "AND placa_chuto ='" . $p . "'";
+            $parametro[0] = "AND placa_chuto ='" . $p . "' OR placa_nueva_chuto ='" . $p . "'";
         }
         if (!empty($sr)) {
 
-            $parametro[1] = "AND nombre_sede ='" . $sr . "'";
+            $parametro[1] = "AND serial_carroceria_chuto ='" . $sr . "' OR serial_motor_chuto ='" . $sr . "'";
         }
 
         if (!empty($sd)) {

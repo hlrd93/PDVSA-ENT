@@ -1,9 +1,9 @@
 
-	<?php include_once('../template/cabecera.php'); ?>
+    <?php include_once('../template/cabecera.php'); ?>
 
-	<?php include_once('../template/navegador.php'); ?> 
+    <?php include_once('../template/navegador.php'); ?> 
 
-	<?php include_once('../template/sidebar.php'); ?> 
+    <?php include_once('../template/sidebar.php'); ?> 
 
 <div id="page-wrapper">
     
@@ -37,10 +37,10 @@
                     
                     var placa = $('#placa').val();
                     var serial = $('#serial').val();
-                    var sede = $('#sede').val();
-                    var estatus = $('#estatus').val();
-                    var tipo = $('#tipo').val();
-                    var a_o = $('#a_o').val();
+                    var sede = "";
+                    var estatus = "";
+                    var tipo = "";
+                    var a_o = "";
 
                     $.ajax({
                         url: '../chuto/buscar.php',
@@ -70,8 +70,8 @@
 
                     e.preventDefault();
 
-                    var placa = $('#placa').val();
-                    var serial = $('#serial').val();
+                    var placa = "";
+                    var serial = "";
                     var sede = $('#sede').val();
                     var estatus = $('#estatus').val();
                     var tipo = $('#tipo').val();

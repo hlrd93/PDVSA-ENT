@@ -26,6 +26,29 @@
             </div>
         </div>
         <!-- /.row -->
+        <script>
+            
+            $(document).ready(function() {
+                
+                $("#form_chuto").submit(function(e) {
+                    
+                    e.preventDefault();
+                    
+                    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
+                    
+                    var postData = $(this).serialize();
+                    var url = $(this).attr("action");
+                    
+                    $.post(url, postData, function(php_table_data){
+                        
+                        $("#chuto-resultado").html(php_table_data);                        
+                        
+                    });
+                    
+                });
+                
+            }); /*document ready function */
+        </script>
         <!-- HTML Form (wrapped in a .bootstrap-iso div)-->
         <div class="bootstrap-iso">
             <div class="container-fluid">
@@ -44,7 +67,7 @@
                     </div>
                     <hr>
                     <div class="col-md-6 col-md-offset-3">
-                        <form method="post">
+                        <form id="form_chuto" method="post" action="./registrar.php">
                             <div class="form-group form-group-sm">
                                 <label class="control-label requiredField" for="placa_chuto">
                                     Placa Chuto
@@ -226,10 +249,10 @@
                                     Fecha de Registro del Chuto
                                 </span>
                             </div>
-                            
+                                
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="id_sede_chuto">
-                                Sede
+                                    Sede
                                     <span class="asteriskField">
                                         *
                                     </span>
@@ -256,7 +279,7 @@
                                     Selecciona la Sede, el cual ser&aacute; asignado el chuto
                                 </span>
                             </div>
-
+                                
                             <div class="form-group form-group-sm">
                                 <label class="control-label requiredField" for="id_chuto_estado">
                                     Estatus
@@ -292,47 +315,22 @@
                                     Seleccione el Estado Actual del Chuto
                                 </span>
                             </div>
-
+                            <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div id="chuto-resultado">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div>
-                                    <button class="btn btn-custom btn-lg btn-block outline" name="submit" type="submit">
-                                        Registrar
-                                    </button>
+                                    <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar" data-toggle="modal" data-target=".bs-example-modal-lg">
                                 </div>
                             </div>
+
                         </form>
-                        <?php
-                        $chuto = new Chuto();
-
-                        if(isset($_POST['submit'])) {
-
-                        $chuto->placa_chuto = $_POST['placa_chuto'];
-                        $chuto->placa_nueva_chuto = $_POST['placa_nueva_chuto'];
-                        $chuto->serial_carroceria_chuto = $_POST['serial_carroceria_chuto'];
-                        $chuto->serial_motor_chuto = $_POST['serial_motor_chuto'];
-                        $chuto->marca_chuto = $_POST['marca_chuto'];
-                        $chuto->tipo_chuto = $_POST['tipo_chuto'];
-                        $chuto->modelo_chuto = $_POST['modelo_chuto'];
-                        $chuto->a_o_chuto = $_POST['a_o_chuto'];
-                        $chuto->nombre_color_chuto = $_POST['nombre_color_chuto'];
-                        $chuto->color_chuto_1 = $_POST['color_chuto_1'];
-                        $chuto->observacion_chuto_estado = $_POST['observacion_chuto_estado'];
-                        $chuto->fecha_chuto_estado = $_POST['fecha_chuto_estado'];
-                        $chuto->id_sede_chuto = $_POST['id_sede_chuto'];
-                        $chuto->id_chuto_estado = $_POST['id_chuto_estado'];
-                        
-                            if($chuto->registrar_chuto()==1){
-                                echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
-                            }
-                            else {
-
-                                echo '<script type="text/javascript">sweetAlert("Oops...", "El Chuto ya fue registrado!", "error");</script>';
-                            }
-
-                        }
-
-
-                        ?>
                     </div>
                 </div>
             </div>
