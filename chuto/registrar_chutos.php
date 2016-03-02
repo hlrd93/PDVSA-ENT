@@ -29,12 +29,32 @@
         <script>
             
             $(document).ready(function() {
-                
+
                 $("#form_chuto").submit(function(e) {
                     
                     e.preventDefault();
-                    
+
                     $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
+                    
+                var data = new FormData(this);
+                
+                $.ajax({
+                        url: '../chuto/registrar.php',
+                        type: 'POST',
+                        data: data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+
+                            if (!data.error) {
+                                $('#chuto-resultado').html(data);
+                            }
+                        }
+
+                    });
+                
+                /*    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
                     
                     var postData = $(this).serialize();
                     var url = $(this).attr("action");
@@ -45,6 +65,7 @@
                         
                     });
                     
+                */
                 });
                 
             }); /*document ready function */
@@ -320,7 +341,11 @@
                                 </span>
                             </div>
                             
-                            <input type="file" name="foto_placa_chuto">
+                            <input type="file" name="foto_placa_chuto" id="foto_placa_chuto">
+                            <input type="file" name="foto_serial_carroceria_chuto" id="foto_serial_carroceria_chuto">
+                            <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto">
+                            <input type="file" name="foto_seguro_chuto" id="foto_seguro_chuto">
+                            <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto">
 
                             <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
