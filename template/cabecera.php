@@ -42,6 +42,7 @@
         <script src="../sweetalert-master/dist/sweetalert.min.js"></script>
 
         <script src="../bower_components/jquery-2.2.1.min/index.js"></script>
+        <script type="text/javascript" src="../js/bootstrap-filestyle.min.js"> </script>
             
             
     </head>

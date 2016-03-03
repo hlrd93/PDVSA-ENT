@@ -340,13 +340,57 @@
                                     Seleccione el Estado Actual del Chuto
                                 </span>
                             </div>
-                            
-                            <input type="file" name="foto_placa_chuto" id="foto_placa_chuto">
-                            <input type="file" name="foto_serial_carroceria_chuto" id="foto_serial_carroceria_chuto">
-                            <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto">
-                            <input type="file" name="foto_seguro_chuto" id="foto_seguro_chuto">
-                            <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto">
 
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_placa_chuto">
+                                    Foto Placa del Chuto
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_placa_chuto" id="foto_placa_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_serial_carroceria_chuto">
+                                    Foto Serial de Carroceria del Chuto
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_serial_carroceria_chuto" id="foto_serial_carroceria_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_serial_motor_chuto">
+                                Foto Serial de Motor del Chuto
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Motor">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_seguro_chuto">
+                                    Foto Digital del Seguro
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_seguro_chuto" id="foto_seguro_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_titulo_chuto">
+                                    Foto Digital del Titulo
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
+                                </div>
+                            </div>
                             <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
                                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
