@@ -45,9 +45,9 @@ if (isset($_POST['fecha_cisterna_estado'])) {
     $tmp_name5 = $_FILES['foto_titulo_cisterna']['tmp_name'];
 
     $placa_cisterna = $_POST['placa_cisterna'] . "_placa";
-    $serial_carroceria_cisterna = $_POST['placa_chuto'] . "_" .  $_POST['serial_carroceria_cisterna'] . "_carroceria";
-    $seguro = $placa_cisterna . "_seguro";
-    $titulo = $placa_cisterna . "_titulo";
+    $serial_carroceria_cisterna = $_POST['placa_cisterna'] . "_" .  $_POST['serial_carroceria_cisterna'] . "_carroceria";
+    $seguro = $_POST['placa_cisterna'] . "_seguro";
+    $titulo = $_POST['placa_cisterna'] . "_titulo";
     
     $a = "placa";
     $b = "serial_carroceria";

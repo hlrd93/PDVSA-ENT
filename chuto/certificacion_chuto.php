@@ -20,7 +20,7 @@
                         <i class="fa fa-dashboard"></i>  <a href="../inicio/index.php">Inicio</a>
                     </li>
                     <li class="active">
-                        <img src="../img/chuto.png" height="18px" alt="Truck"> Listado de Chutos
+                        <img src="../img/chuto.png" height="18px" alt="Truck"> Ficha Técnica de Chutos
                     </li>
                 </ol>
             </div>

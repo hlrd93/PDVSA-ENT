@@ -164,11 +164,11 @@ class Cisterna {
         }
     }
 
-    public function subir_archivo($tmp_name, $ruta, $nombre, $x) {
+    public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
 
         if(move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/cisterna/".$x."/".$nombre.".png");
+            rename($ruta, "../img/cisterna/".$x."/".$nombre.".".$formato);
 
             return true;
         } else {
@@ -176,7 +176,5 @@ class Cisterna {
         }
     }
 
-}
-
-//Fin de Clase Cisterna
+}//Fin de Clase Cisterna
 ?>
