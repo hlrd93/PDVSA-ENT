@@ -17,11 +17,6 @@ class Chuto {
     public $fecha_chuto_estado;
     public $nombre_sede;
     public $chuto_estado;
-    public $ruta_imagen_chuto1;
-    public $ruta_imagen_chuto2;
-    public $ruta_imagen_chuto3;
-    public $ruta_imagen_chuto4;
-    public $ruta_imagen_chuto5;
 
     public static function listar_chutos() {
         $sql = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
@@ -131,8 +126,7 @@ class Chuto {
             $sql = "INSERT INTO chuto(placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
             $sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
             $sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, fecha_chuto_estado, ";
-            $sql .= "id_sede_chuto, id_chuto_estado, ruta_imagen_chuto1, ruta_imagen_chuto2, ";
-            $sql .= "ruta_imagen_chuto3, ruta_imagen_chuto4, ruta_imagen_chuto5) ";
+            $sql .= "id_sede_chuto, id_chuto_estado) ";
             $sql .= "VALUES ('";
             $sql .= $database->escape_string($this->placa_chuto) . "','";
             $sql .= $database->escape_string($this->placa_nueva_chuto) . "','";
@@ -147,12 +141,7 @@ class Chuto {
             $sql .= $database->escape_string($this->observacion_chuto_estado) . "','";
             $sql .= $database->escape_string($this->fecha_chuto_estado) . "','";
             $sql .= $database->escape_string($this->id_sede_chuto) . "','";
-            $sql .= $database->escape_string($this->id_chuto_estado) . "','";
-            $sql .= $database->escape_string($this->ruta_imagen_chuto1) . "','";
-            $sql .= $database->escape_string($this->ruta_imagen_chuto2) . "','";
-            $sql .= $database->escape_string($this->ruta_imagen_chuto3) . "','";
-            $sql .= $database->escape_string($this->ruta_imagen_chuto4) . "','";
-            $sql .= $database->escape_string($this->ruta_imagen_chuto5) . "')";
+            $sql .= $database->escape_string($this->id_chuto_estado) . "')";
 
             if ($database->query($sql)) {
                 $this->id_chuto = $database->ultimo_id();
@@ -165,11 +154,11 @@ class Chuto {
         }
     }
 
-    public function subir_archivo($tmp_name, $ruta, $nombre, $x) {
+    public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
 
         if(move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/chuto/".$x."/".$nombre.".png");
+            rename($ruta, "../img/chuto/".$x."/".$nombre.".".$formato);
 
             return true;
         } else {

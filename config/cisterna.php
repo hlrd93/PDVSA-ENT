@@ -164,6 +164,18 @@ class Cisterna {
         }
     }
 
+    public function subir_archivo($tmp_name, $ruta, $nombre, $x) {
+
+        if(move_uploaded_file($tmp_name, $ruta) == true) {
+
+            rename($ruta, "../img/cisterna/".$x."/".$nombre.".png");
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 //Fin de Clase Cisterna

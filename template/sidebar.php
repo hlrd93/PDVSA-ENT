@@ -21,6 +21,9 @@
                 <li>
                     <a href="../chuto/transferidos_chutos.php"><i class="glyphicon glyphicon-transfer"></i> Chutos Transferidos</a>
                 </li>
+                <li>
+                    <a href="../chuto/certificacion_chuto.php"><i class="glyphicon glyphicon-folder-open"></i> Ficha de Chutos</a>
+                </li>
             </ul>
         </li>
         <li>
@@ -37,6 +40,9 @@
                 </li>
                 <li>
                     <a href="../cisterna/transferidos_cisternas.php"><i class="glyphicon glyphicon-transfer"></i> Cisternas Transferidas</a>
+                </li>
+                <li>
+                    <a href="../cisterna/certificacion_cisterna.php"><i class="glyphicon glyphicon-folder-open"></i> Ficha de Cisternas</a>
                 </li>
             </ul>
         </li>

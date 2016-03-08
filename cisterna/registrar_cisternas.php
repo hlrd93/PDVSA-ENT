@@ -35,15 +35,33 @@
                     e.preventDefault();
                     
                     $('#cisterna-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
+
+                var data = new FormData(this);
+
+                $.ajax({
+                        url: '../cisterna/registrar.php',
+                        type: 'POST',
+                        data: data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+
+                            if (!data.error) {
+                                $('#cisterna-resultado').html(data);
+                            }
+                        }
+                });
                     
-                    var postData = $(this).serialize();
+                    /*var postData = $(this).serialize();
                     var url = $(this).attr("action");
                     
                     $.post(url, postData, function(php_table_data){
                         
                         $("#cisterna-resultado").html(php_table_data);                        
                         
-                    });
+                    });*/
+
                     
                 });
                 
@@ -309,6 +327,7 @@
                                         </i>
                                     </div>
                                     <input class="form-control" id="fecha_cisterna_estado" name="fecha_cisterna_estado" type="date" readonly value='<?php
+                                    date_default_timezone_set('America/Caracas');
                                       $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
                                       $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
                                     echo $dias[date('w')].", ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y');?>'/>
@@ -385,6 +404,48 @@
                                 <span class="help-block" id="hint_id_cisterna_estado">
                                     Seleccione el Estado Actual de la cisterna
                                 </span>
+                            </div>
+
+                            <!-- Subida de Archivos Digitales -->
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_placa_cisterna">
+                                    Foto Placa de la Cisterna
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_placa_cisterna" id="foto_placa_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_serial_carroceria_cisterna">
+                                    Foto Serial de Carroceria de la Cisterna
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_serial_carroceria_cisterna" id="foto_serial_carroceria_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_seguro_cisterna">
+                                    Foto Digital del Seguro
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                    <input type="file" name="foto_seguro_cisterna" id="foto_seguro_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
+                                </div>
+                            </div>
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_titulo_cisterna">
+                                    Foto Digital del Titulo
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                <input type="file" name="foto_titulo_cisterna" id="foto_titulo_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
+                                </div>
                             </div>
                                 
                             <!-- ventana modal bootstrap de loading -->

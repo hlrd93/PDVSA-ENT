@@ -51,8 +51,7 @@
                                 $('#chuto-resultado').html(data);
                             }
                         }
-
-                    });
+                });
                 
                 /*    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
                     
@@ -340,7 +339,8 @@
                                     Seleccione el Estado Actual del Chuto
                                 </span>
                             </div>
-
+                            
+                            <!-- Subida de Archivos Digitales -->
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_placa_chuto">
                                     Foto Placa del Chuto
