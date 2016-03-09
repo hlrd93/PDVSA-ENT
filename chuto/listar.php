@@ -9,27 +9,33 @@ echo "<div class='table-responsive'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>
-                    <th>#</th>
-                    <th>Placa</th>
-                    <th>Placa Nueva</th>
-                    <th>Serial de Carroceria</th>
-                    <th>Serial de Motor</th>
-                    <th>Marca</th>
-                    <th>Tipo</th>
-                    <th>Modelo</th>
-                    <th>Año</th>
-                    <th>Color</th>
-                    <th>Observacion</th>
-                    <th>Fecha Modificacion</th>
-                    <th>Sede</th>
-                    <th>Estatus</th>
-                    </tr>";
+        <th>#</th>
+        <th>Placa</th>
+        <th>Placa Nueva</th>
+        <th>Serial de Carroceria</th>
+        <th>Serial de Motor</th>
+        <th>Marca</th>
+        <th>Tipo</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Color</th>
+        <th>Observacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Sede</th>
+        <th>Estatus</th>
+        </tr>";
 echo "</thead>";
 
 foreach ($resultado_listado as $row) {
     echo "<tbody>";
     echo "<tr>";
-    echo '<th scope="row" rel=' . $row->id_chuto . '>' . $row->id_chuto . '</th>';
+    echo '<td>
+            <div class="btn-group-vertical" role="group">
+                <button type="submit" rel=' . $row->id_chuto . ' class="actualizar btn btn-success btn-sm btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button>
+                <button type="submit" rel=' . $row->id_chuto . ' class="eliminar btn btn-danger btn-sm btn-block">Eliminar</button>
+            </div>
+        </td>';
+    echo '<th scope="row">' . $row->id_chuto . '</th>';
     echo "<td>" . $row->placa_chuto . "</td>";
     echo "<td>" . $row->placa_nueva_chuto . "</td>";
     echo "<td>" . $row->serial_carroceria_chuto . "</td>";
@@ -49,4 +55,47 @@ foreach ($resultado_listado as $row) {
 
 echo "</table>";
 echo "</div>";
+
+echo '
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+';
 ?>
+<script>
+    
+    $(document).ready(function() {
+
+        $('.actualizar').on('click', function(e) {
+            
+            e.preventDefault();
+            /* Actualizar */
+
+            var id = $(this).attr("rel");
+
+            $.ajax({
+                url: '../chuto/actualizar_chuto.php',
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+
+                    if (!data.error) {
+                        $('.modal-body').html(data);
+                    }
+                }
+
+            });
+        });
+        
+    });
+
+</script>

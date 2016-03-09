@@ -33,9 +33,9 @@
 
                 listar();
 
-                setInterval(function(){
+                /*setInterval(function(){
                     listar();
-                }, 30000);
+                }, 30000);*/
 
                 function listar(){
                     $.ajax({

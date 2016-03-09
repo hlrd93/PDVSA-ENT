@@ -1,3 +1,8 @@
+<script>
+    
+
+
+</script>
 <?php
 
 include_once("../config/init.php");
@@ -9,32 +14,38 @@ echo "<div class='table-responsive'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>
-            <th>#</th>
-            <th>Placa</th>
-            <th>Placa Nueva</th>
-            <th>Serial de Carroceria</th>
-            <th>Marca</th>
-            <th>Tipo</th>
-            <th>Modelo</th>
-            <th>Año</th>
-            <th>Color 1</th>
-            <th>Color 2</th>
-            <th>Nro. Ejes</th>
-            <th>1er Compartimiento <small>(lts)</small></th>
-            <th>2do Compartimiento <small>(lts)</small></th>
-            <th>3er Compartimiento <small>(lts)</small></th>
-            <th>Total Compartimientos <small>(lts)</small></th>
-            <th>Observacion</th>
-            <th>Fecha Modificacion</th>
-            <th>Sede</th>
-            <th>Estatus</th>
-            </tr>";
+        <th>#</th>
+        <th>Placa</th>
+        <th>Placa Nueva</th>
+        <th>Serial de Carroceria</th>
+        <th>Marca</th>
+        <th>Tipo</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Color 1</th>
+        <th>Color 2</th>
+        <th>Nro. Ejes</th>
+        <th>1er Compartimiento <small>(lts)</small></th>
+        <th>2do Compartimiento <small>(lts)</small></th>
+        <th>3er Compartimiento <small>(lts)</small></th>
+        <th>Total Compartimientos <small>(lts)</small></th>
+        <th>Observacion</th>
+        <th>Fecha Modificacion</th>
+        <th>Sede</th>
+        <th>Estatus</th>
+        </tr>";
 echo "</thead>";
 
 foreach ($resultado_listado as $row) {
     echo "<tbody>";
     echo "<tr>";
-    echo '<th scope="row" rel=' . $row->id_chuto . '>' . $row->id_cisterna . '</th>';
+    echo '<td>
+            <div class="btn-group-vertical" role="group">
+                <button type="submit" rel=' . $row->id_cisterna . ' class="actualizar btn btn-success btn-sm btn-block">Actualizar</button>
+                <button type="submit" rel=' . $row->id_cisterna . ' class="eliminar btn btn-danger btn-sm btn-block">Eliminar</button>
+            </div>
+        </td>';
+    echo '<th scope="row">' . $row->id_cisterna . '</th>';
     echo "<td>" . $row->placa_cisterna . "</td>";
     echo "<td>" . $row->placa_nueva_cisterna . "</td>";
     echo "<td>" . $row->serial_carroceria_cisterna . "</td>";

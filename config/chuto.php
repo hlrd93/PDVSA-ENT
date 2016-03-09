@@ -17,6 +17,18 @@ class Chuto {
     public $fecha_chuto_estado;
     public $nombre_sede;
     public $chuto_estado;
+    public $id_sede_chuto;
+
+    public static function listar_chuto_byid($id) {
+        $sql = "SELECT placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
+        $sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
+        $sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, ";
+        $sql .= "fecha_chuto_estado, nombre_sede, chuto_estado, id_sede_chuto ";
+        $sql .= "FROM chuto INNER JOIN sede ON sede.id_sede = chuto.id_sede_chuto ";
+        $sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado WHERE id_chuto ='".$id."'";
+        $resultado = self::consulta($sql);
+        return !empty($resultado) ? $resultado : false;
+    }
 
     public static function listar_chutos() {
         $sql = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
