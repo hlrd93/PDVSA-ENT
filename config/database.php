@@ -17,7 +17,7 @@ class Database {
 		if ($this->conexion->connect_errno)
 		{
 			
-			die("Base de Datos: Fallo la Conexion... Contacte al WebDeveloper...". mysqli_error());
+			die("Base de Datos: Fallo la Conexion... Contacte al Web Developer...". mysqli_error());
 		}
 	}
 
@@ -41,6 +41,7 @@ class Database {
 		$escaped_string = mysqli_real_escape_string($this->conexion, $string);
 		return $escaped_string;
 	}
+	
 	public function ultimo_id() {
 		return mysqli_insert_id($this->conexion);
 	}

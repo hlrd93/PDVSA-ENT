@@ -43,11 +43,11 @@
             
             $(document).ready(function() {
 
-                $("#form_chuto").submit(function(e) {
+                $(".form_chuto").submit(function(e) {
                     
                     e.preventDefault();
 
-                    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
+                    /*$('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');*/
                     
                 var data = new FormData(this);
                 
@@ -100,7 +100,11 @@
                     </div>
                     <hr>
                     <div class="col-md-8 col-md-offset-2">
-                        <form id="form_chuto" method="post" action="./registrar.php" enctype="multipart/form-data">
+                        <form id="form_chuto" class="form_chuto" method="post" enctype="multipart/form-data">
+                            
+                            <!-- id del chuto -->
+                            <input type="hidden" id="id_chuto" name="id_chuto" value="<?php echo $id; ?>">
+                            
                             <div class="form-group form-group-sm">
                                 <label class="control-label requiredField" for="placa_chuto">
                                     Placa Chuto
@@ -257,7 +261,7 @@
                                         <i class="fa fa-eye">
                                         </i>
                                     </div>
-                                    <textarea class="form-control" id="observacion_chuto_estado" name="observacion_chuto_estado" placeholder="ejemplo: Se encuentra Activo, Ya fue reparado...." maxlength="200">value="<?php echo $row->observacion_chuto_estado; ?>"</textarea>
+                                    <textarea class="form-control" id="observacion_chuto_estado" name="observacion_chuto_estado" placeholder="ejemplo: Se encuentra Activo, Ya fue reparado...." maxlength="200"><?php echo $row->observacion_chuto_estado; ?></textarea>
                                 </div>
                                 <span class="help-block" id="hint_observacion_chuto_estado">
                                     Ingrese la Observacion respectiva del Chuto
@@ -329,7 +333,7 @@
                                     </i>
                                 </div>
                                 <select class="select form-control" id="id_chuto_estado" name="id_chuto_estado" required>
-                                    <option value="<?php echo $row->chuto_estado; ?>">
+                                    <option value="<?php echo $row->id_chuto_estado; ?>">
                                         <?php echo $row->chuto_estado; }?>
                                     </option>
                                     <option value="">
@@ -412,19 +416,18 @@
                             </div>
                             <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">
-                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div id="chuto-resultado">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div>
-                                    <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                    <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Actualizar">
                                 </div>
                             </div>
                         </form>
+                                <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content"> -->
+                                            <div id="chuto-resultado"></div>
+                                <!--         </div>
+                                    </div>
+                                </div> -->
                     </div>
                 </div>
             </div>

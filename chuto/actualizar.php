@@ -1,8 +1,4 @@
-<?php 
-
-$id = $_POST['id'];
-
-sleep(2);
+<?php
 
 include_once("../config/init.php");
 
@@ -10,6 +6,7 @@ $chuto = new Chuto();
 
 if (isset($_POST['fecha_chuto_estado'])) {
 
+    $chuto->id_chuto = $_POST['id_chuto'];
     $chuto->placa_chuto = $_POST['placa_chuto'];
     $chuto->placa_nueva_chuto = $_POST['placa_nueva_chuto'];
     $chuto->serial_carroceria_chuto = $_POST['serial_carroceria_chuto'];
@@ -59,21 +56,30 @@ if (isset($_POST['fecha_chuto_estado'])) {
     $png = "png";
     $pdf = "pdf";
 
-    if ($chuto->registrar_chuto() == 1) {
-                
+    if ($chuto->actualizar_chuto() == true) {
+        
+/*        if(!empty($tmp_name1)) {
         $chuto->subir_archivo($tmp_name1, $ruta1, $placa_chuto, $a, $png);
+        }
+        if(!empty($tmp_name2)) {
         $chuto->subir_archivo($tmp_name2, $ruta2, $serial_carroceria_chuto, $b, $png);
+        }
+        if(!empty($tmp_name3)) {
         $chuto->subir_archivo($tmp_name3, $ruta3, $serial_motor_chuto, $c, $png);
+        }
+        if(!empty($tmp_name4)) {
         $chuto->subir_archivo($tmp_name4, $ruta4, $seguro, $d, $pdf);
+        }
+        if(!empty($tmp_name5)) {
         $chuto->subir_archivo($tmp_name5, $ruta5, $titulo, $e, $pdf);
+        }*/
 
-        echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
+    	echo '<script type="text/javascript">swal("Exito!", "Actualizado!", "success");</script>';
+
     } else {
 
-        echo '<script type="text/javascript">sweetAlert("Oops...", "El Chuto ya fue registrado!", "error");</script>';
+		echo '<script type="text/javascript">sweetAlert("Oops...", "El Chuto no fue Actualizado!", "error");</script>';
     }
 }
-
-echo "Chuto " . $id;
-
- ?>
+ 
+?>
