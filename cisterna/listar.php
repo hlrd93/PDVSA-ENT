@@ -1,8 +1,3 @@
-<script>
-    
-
-
-</script>
 <?php
 
 include_once("../config/init.php");
@@ -14,60 +9,108 @@ echo "<div class='table-responsive'>";
 echo "<table class='table table-hover'>";
 echo "<thead>";
 echo "<tr>
-        <th>#</th>
-        <th>Placa</th>
-        <th>Placa Nueva</th>
-        <th>Serial de Carroceria</th>
-        <th>Marca</th>
-        <th>Tipo</th>
-        <th>Modelo</th>
-        <th>Año</th>
-        <th>Color 1</th>
-        <th>Color 2</th>
-        <th>Nro. Ejes</th>
-        <th>1er Compartimiento <small>(lts)</small></th>
-        <th>2do Compartimiento <small>(lts)</small></th>
-        <th>3er Compartimiento <small>(lts)</small></th>
-        <th>Total Compartimientos <small>(lts)</small></th>
-        <th>Observacion</th>
-        <th>Fecha Modificacion</th>
-        <th>Sede</th>
-        <th>Estatus</th>
+        <th class='text-center'>Acción</th>
+        <th class='text-center' class='text-center'>#</th>
+        <th class='text-center' class='text-center'>Placa</th>
+        <th class='text-center' class='text-center'>Placa Nueva</th>
+        <th class='text-center' class='text-center'>Serial de Carroceria</th>
+        <th class='text-center' class='text-center'>Marca</th>
+        <th class='text-center' class='text-center'>Tipo</th>
+        <th class='text-center' class='text-center'>Modelo</th>
+        <th class='text-center' class='text-center'>Año</th>
+        <th class='text-center' class='text-center'>Color 1</th>
+        <th class='text-center' class='text-center'>Color 2</th>
+        <th class='text-center' class='text-center'>Nro. Ejes</th>
+        <th class='text-center' class='text-center'>1er Compartimiento <small>(lts)</small></th>
+        <th class='text-center' class='text-center'>2do Compartimiento <small>(lts)</small></th>
+        <th class='text-center' class='text-center'>3er Compartimiento <small>(lts)</small></th>
+        <th class='text-center' class='text-center'>Total Compartimientos <small>(lts)</small></th>
+        <th class='text-center' class='text-center'>Observacion</th>
+        <th class='text-center' class='text-center'>Fecha Modificacion</th>
+        <th class='text-center' class='text-center'>Sede</th>
+        <th class='text-center' class='text-center'>Estatus</th>
         </tr>";
 echo "</thead>";
 
 foreach ($resultado_listado as $row) {
     echo "<tbody>";
     echo "<tr>";
-    echo '<td>
-            <div class="btn-group-vertical" role="group">
-                <button type="submit" rel=' . $row->id_cisterna . ' class="actualizar btn btn-success btn-sm btn-block">Actualizar</button>
-                <button type="submit" rel=' . $row->id_cisterna . ' class="eliminar btn btn-danger btn-sm btn-block">Eliminar</button>
+    echo '<td class="text-center">
+            <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle btn-xs" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Opcion:
+                    <span class="caret"></span>
+                    </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+
+                    <li><button type="submit" rel=' . $row->id_cisterna . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button></li>
+                
+                    <li><button type="submit" rel=' . $row->id_cisterna . ' class="eliminar btn btn-danger btn-xs btn-block">Eliminar</button></li>
+                </ul>
             </div>
         </td>';
-    echo '<th scope="row">' . $row->id_cisterna . '</th>';
-    echo "<td>" . $row->placa_cisterna . "</td>";
-    echo "<td>" . $row->placa_nueva_cisterna . "</td>";
-    echo "<td>" . $row->serial_carroceria_cisterna . "</td>";
-    echo "<td>" . $row->marca_cisterna . "</td>";
-    echo "<td>" . $row->tipo_cisterna . "</td>";
-    echo "<td>" . $row->modelo_cisterna . "</td>";
-    echo "<td>" . $row->a_o_cisterna . "</td>";
-    echo '<td class="borde" style="background-color:' . $row->color_cisterna_1 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
-    echo '<td class="borde" style="background-color:' . $row->color_cisterna_2 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
-    echo "<td>" . $row->nro_ejes_cisterna . "</td>";
-    echo "<td>" . $row->capacidad_1erc_cisterna . "</td>";
-    echo "<td>" . $row->capacidad_2doc_cisterna . "</td>";
-    echo "<td>" . $row->capacidad_3erc_cisterna . "</td>";
-    echo "<td>" . $row->capacidad_totalc_cisterna . "</td>";
-    echo "<td>" . $row->observacion_cisterna_estado . "</td>";
-    echo "<td>" . $row->fecha_cisterna_estado . "</td>";
-    echo "<td>" . $row->nombre_sede . "</td>";
-    echo "<td>" . $row->cisterna_estado . "</td>";
+    echo '<th scope="row" class="text-center">' . $row->id_cisterna . '</th>';
+    echo "<td class='text-center'>" . $row->placa_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->placa_nueva_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->serial_carroceria_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->marca_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->tipo_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->modelo_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->a_o_cisterna . "</td>";
+    echo '<td class="borde text-center" style="background-color:' . $row->color_cisterna_1 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
+    echo '<td class="borde text-center" style="background-color:' . $row->color_cisterna_2 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
+    echo "<td class='text-center'>" . $row->nro_ejes_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->capacidad_1erc_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->capacidad_2doc_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->capacidad_3erc_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->capacidad_totalc_cisterna . "</td>";
+    echo "<td class='text-center'>" . $row->observacion_cisterna_estado . "</td>";
+    echo "<td class='text-center'>" . $row->fecha_cisterna_estado . "</td>";
+    echo "<td class='text-center'>" . $row->nombre_sede . "</td>";
+    echo "<td class='text-center'>" . $row->cisterna_estado . "</td>";
     echo "</tr>";
     echo "</tbody>";
 }
 
 echo "</table>";
 echo "</div>";
+
+echo '
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+';
 ?>
+<script>
+    $(document).ready(function() {
+
+        $('.actualizar').on('click', function(e) {
+            
+            e.preventDefault();
+            /* Actualizar */
+
+            var id = $(this).attr("rel");
+
+            $.ajax({
+                url: '../cisterna/actualizar_cisterna.php',
+                type: 'POST',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+
+                    if (!data.error) {
+                        $('.modal-body').html(data);
+                    }
+                }
+
+            });
+        });
+    });
+</script>

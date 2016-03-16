@@ -1,5 +1,4 @@
-    
-	<?php 
+    <?php 
 
     include_once('../template/cabecera.php');
 
@@ -16,7 +15,7 @@
 
     <!-- Cabecera del Modal -->
     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" id="cerrar1" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Actualización del Chuto</h4>
     </div>        
     
@@ -42,6 +41,15 @@
         <script>
             
             $(document).ready(function() {
+
+                $('#cerrar1').click(function() {
+                    /* Cerrar */
+                    location.reload(true);
+                });
+                $('#cerrar2').click(function() {
+                    /* Cerrar */
+                    location.reload(true);
+                });
 
                 $(".form_chuto").submit(function(e) {
                     
@@ -117,7 +125,7 @@
                                         <i class="fa fa-truck">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="placa_chuto" name="placa_chuto" type="text" value="<?php echo $row->placa_chuto; ?>" required/>
+                                    <input class="form-control" id="placa_chuto" name="placa_chuto" type="text" value="<?php echo $row->placa_chuto; ?>" required>
                                 </div>
                                 <span class="help-block" id="hint_placa_chuto">
                                     Ingrese Placa de Chuto
@@ -132,7 +140,7 @@
                                         <i class="fa fa-bookmark-o">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="placa_nueva_chuto" name="placa_nueva_chuto" type="text" value="<?php echo $row->placa_nueva_chuto; ?>"/>
+                                    <input class="form-control" id="placa_nueva_chuto" name="placa_nueva_chuto" type="text" value="<?php echo $row->placa_nueva_chuto; ?>">
                                 </div>
                                 <span class="help-block" id="hint_placa_nueva_chuto">
                                     Ingrese Placa Nueva (si posee)
@@ -150,7 +158,7 @@
                                         <i class="fa fa-barcode">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="serial_carroceria_chuto" name="serial_carroceria_chuto" type="text" value="<?php echo $row->serial_carroceria_chuto; ?>" required />
+                                    <input class="form-control" id="serial_carroceria_chuto" name="serial_carroceria_chuto" type="text" value="<?php echo $row->serial_carroceria_chuto; ?>" required >
                                 </div>
                                 <span class="help-block" id="hint_serial_carroceria_chuto">
                                     Ingrese el Serial de la Carroceria
@@ -168,7 +176,7 @@
                                         <i class="fa fa-barcode">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="serial_motor_chuto" name="serial_motor_chuto" type="text" value="<?php echo $row->serial_motor_chuto; ?>" required />
+                                    <input class="form-control" id="serial_motor_chuto" name="serial_motor_chuto" type="text" value="<?php echo $row->serial_motor_chuto; ?>" required >
                                 </div>
                                 <span class="help-block" id="hint_serial_motor_chuto">
                                     Ingrese el Serial del Motor
@@ -183,7 +191,7 @@
                                         <i class="fa fa-tags">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="marca_chuto" name="marca_chuto" placeholder="ejemplo: Sinotruk, Freightliner, Mack, Chevrolet...." type="text" value="<?php echo $row->marca_chuto; ?>"/>
+                                    <input class="form-control" id="marca_chuto" name="marca_chuto" placeholder="ejemplo: Sinotruk, Freightliner, Mack, Chevrolet...." type="text" value="<?php echo $row->marca_chuto; ?>">
                                 </div>
                                 <span class="help-block" id="hint_marca_chuto">
                                     Ingrese la Marca del Chuto
@@ -198,7 +206,7 @@
                                         <i class="fa fa-gg">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="tipo_chuto" name="tipo_chuto" placeholder="ejemplo: 420, Ocupado, Convenio, 380...." type="text" value="<?php echo $row->tipo_chuto; ?>"/>
+                                    <input class="form-control" id="tipo_chuto" name="tipo_chuto" placeholder="ejemplo: 420, Ocupado, Convenio, 380...." type="text" value="<?php echo $row->tipo_chuto; ?>">
                                 </div>
                                 <span class="help-block" id="hint_tipo_chuto">
                                     Ingrese el Tipo del Chuto
@@ -213,7 +221,7 @@
                                         <i class="fa fa-gg-circle">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="modelo_chuto" name="modelo_chuto" placeholder="ejemplo: HOWO/A7, Tracto-Camion...." type="text" value="<?php echo $row->modelo_chuto; ?>"/>
+                                    <input class="form-control" id="modelo_chuto" name="modelo_chuto" placeholder="ejemplo: HOWO/A7, Tracto-Camion...." type="text" value="<?php echo $row->modelo_chuto; ?>">
                                 </div>
                                 <span class="help-block" id="hint_modelo_chuto">
                                     Ingrese el Modelo del Chuto
@@ -228,13 +236,12 @@
                                         <i class="fa fa-calendar-o">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="a_o_chuto" name="a_o_chuto" placeholder="ejemplo: 1993, 2009, 2015...." type="text" value="<?php echo $row->a_o_chuto; ?>"/>
+                                    <input class="form-control" id="a_o_chuto" name="a_o_chuto" placeholder="ejemplo: 1993, 2009, 2015...." type="text" value="<?php echo $row->a_o_chuto; ?>">
                                 </div>
                                 <span class="help-block" id="hint_a_o_chuto">
                                     Ingrese el A&ntilde;o de Origen
                                 </span>
                             </div>
-                                
                             <div class="form-group form-group-sm">
                                 <label class="control-label " for="color_chuto">
                                     Color
@@ -244,8 +251,8 @@
                                         <i class="fa fa-paint-brush">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="nombre_color_chuto" name="nombre_color_chuto" type="text" value="<?php echo $row->nombre_color_chuto; ?>"/>
-                                    <input class="form-control" id="color_chuto_1" name="color_chuto_1" type="color" value="<?php echo $row->color_chuto_1; ?>"/>
+                                    <input class="form-control" id="nombre_color_chuto" name="nombre_color_chuto" type="text" value="<?php echo $row->nombre_color_chuto; ?>">
+                                    <input class="form-control" id="color_chuto_1" name="color_chuto_1" type="color" value="<?php echo $row->color_chuto_1; ?>">
                                 </div>
                                 <span class="help-block" id="hint_color_chuto">
                                     Ingrese el Color del Chuto
@@ -281,7 +288,7 @@
                                     date_default_timezone_set('America/Caracas');
                                       $dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
                                       $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-                                    echo $dias[date('w')].", ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y');?>'/>
+                                    echo $dias[date('w')].", ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y');?>'>
                                 </div>
                                 <span class="help-block" id="hint_fecha_chuto_estado">
                                     Fecha de Registro del Chuto
@@ -421,19 +428,13 @@
                                 </div>
                             </div>
                         </form>
-                                <!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content"> -->
-                                            <div id="chuto-resultado"></div>
-                                <!--         </div>
-                                    </div>
-                                </div> -->
+                        <div id="chuto-resultado"></div>
                     </div>
                 </div>
             </div>
         </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="cerrar2" class="btn btn-default" data-dismiss="modal">Cerrar</button>
     </div>
     </div>
 

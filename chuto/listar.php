@@ -44,7 +44,7 @@ foreach ($resultado_listado as $row) {
                 </ul>
             </div>
         </td>';
-    echo '<th scope="row"  class="text-center">' . $row->id_chuto . '</th>';
+    echo '<th scope="row" class="text-center">' . $row->id_chuto . '</th>';
     echo "<td class='text-center'>" . $row->placa_chuto . "</td>";
     echo "<td class='text-center'>" . $row->placa_nueva_chuto . "</td>";
     echo "<td class='text-center'>" . $row->serial_carroceria_chuto . "</td>";
@@ -71,7 +71,6 @@ echo '
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        
                     </div>
                 </div>
             </div>
@@ -79,7 +78,6 @@ echo '
 ';
 ?>
 <script>
-    
     $(document).ready(function() {
 
         $('.actualizar').on('click', function(e) {
@@ -104,7 +102,5 @@ echo '
 
             });
         });
-        
     });
-
 </script>

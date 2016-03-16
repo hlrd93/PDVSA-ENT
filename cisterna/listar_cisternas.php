@@ -42,7 +42,7 @@
                         url: '../cisterna/listar.php',
                         type: 'POST',
                         success: function (data) {
-                                if (!data.error) {
+                            if (!data.error) {
                                 $('#listar').html(data);
                             }
                         }
@@ -298,4 +298,4 @@
         
     </div>
 
-<?php include_once('../template/footer.php'); ?>
+        <?php include_once('../template/footer.php'); ?>

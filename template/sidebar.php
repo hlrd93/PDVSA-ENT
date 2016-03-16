@@ -13,9 +13,6 @@
                     <a href="../chuto/registrar_chutos.php"><i class="fa fa-fw fa-table"></i> Registrar Chuto</a>
                 </li>
                 <li>
-                    <a href="../chuto/actualizar_chutos.php"><i class="glyphicon glyphicon-edit"></i> Actualizar Chuto</a>
-                </li>
-                <li>
                     <a href="../chuto/listar_chutos.php"><i class="glyphicon glyphicon-list"></i> Listar Chutos</a>
                 </li>
                 <li>
@@ -31,9 +28,6 @@
             <ul id="cisterna" class="collapse">
                 <li>
                     <a href="../cisterna/registrar_cisternas.php"><i class="fa fa-fw fa-table"></i> Registrar Cisterna</a>
-                </li>
-                <li>
-                    <a href="../cisterna/actualizar_cisternas.php"><i class="glyphicon glyphicon-edit"></i> Actualizar Cisterna</a>
                 </li>
                 <li>
                     <a href="../cisterna/listar_cisternas.php"><i class="glyphicon glyphicon-list"></i> Listar Cisternas</a>

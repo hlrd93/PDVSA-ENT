@@ -58,7 +58,7 @@ if (isset($_POST['fecha_chuto_estado'])) {
 
     if ($chuto->actualizar_chuto() == true) {
         
-/*        if(!empty($tmp_name1)) {
+        if(!empty($tmp_name1)) {
         $chuto->subir_archivo($tmp_name1, $ruta1, $placa_chuto, $a, $png);
         }
         if(!empty($tmp_name2)) {
@@ -72,9 +72,10 @@ if (isset($_POST['fecha_chuto_estado'])) {
         }
         if(!empty($tmp_name5)) {
         $chuto->subir_archivo($tmp_name5, $ruta5, $titulo, $e, $pdf);
-        }*/
-
+        }
     	echo '<script type="text/javascript">swal("Exito!", "Actualizado!", "success");</script>';
+        sleep(1);
+        echo '<script type="text/javascript">location.reload(true);</script>';
 
     } else {
 

@@ -42,7 +42,7 @@
                         url: '../chuto/listar.php',
                         type: 'POST',
                         success: function (data) {
-                                if (!data.error) {
+                            if (!data.error) {
                                 $('#listar').html(data);
                             }
                         }

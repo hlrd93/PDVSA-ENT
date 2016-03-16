@@ -22,6 +22,45 @@ class Cisterna {
     public $fecha_cisterna_estado;
     public $nombre_sede;
     public $cisterna_estado;
+    public $id_sede_cisterna;
+    public $id_cisterna_estado;
+
+    public function actualizar_cisterna() {
+        global $database;
+
+        /*$sql = "UPDATE chuto SET ";
+        $sql .= "placa_chuto='".$database->escape_string($this->placa_chuto)."', ";
+        $sql .= "placa_nueva_chuto='".$database->escape_string($this->placa_nueva_chuto)."', "; 
+        $sql .= "serial_carroceria_chuto='".$database->escape_string($this->serial_carroceria_chuto)."', ";
+        $sql .= "serial_motor_chuto='".$database->escape_string($this->serial_motor_chuto)."', ";
+        $sql .= "marca_chuto='".$database->escape_string($this->marca_chuto)."', ";
+        $sql .= "tipo_chuto='".$database->escape_string($this->tipo_chuto)."', ";
+        $sql .= "modelo_chuto='".$database->escape_string($this->modelo_chuto)."', ";
+        $sql .= "a_o_chuto='".$database->escape_string($this->a_o_chuto)."', ";
+        $sql .= "nombre_color_chuto='".$database->escape_string($this->nombre_color_chuto)."', ";
+        $sql .= "color_chuto_1='".$database->escape_string($this->color_chuto_1)."', ";
+        $sql .= "observacion_chuto_estado='".$database->escape_string($this->observacion_chuto_estado)."', ";
+        $sql .= "fecha_chuto_estado='".$database->escape_string($this->fecha_chuto_estado)."', ";
+        $sql .= "id_sede_chuto='".$database->escape_string($this->id_sede_chuto)."', ";
+        $sql .= "id_chuto_estado='".$database->escape_string($this->id_chuto_estado)."' ";
+        $sql .= " WHERE id_chuto=".$database->escape_string($this->id_chuto);
+        
+        $database->query($sql);
+        return (mysqli_affected_rows($database->conexion) == 1) ? true : false;*/
+    }
+    public static function listar_cisterna_byid($id) {
+        $sql = "SELECT placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
+        $sql .= "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, ";
+        $sql .= "nombre_color_cisterna, color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, ";
+        $sql .= "capacidad_1erc_cisterna, capacidad_2doc_cisterna, capacidad_3erc_cisterna, ";
+        $sql .= "capacidad_totalc_cisterna, observacion_cisterna_estado, ";
+        $sql .= "fecha_cisterna_estado, nombre_sede, cisterna_estado, ";
+        $sql .= "cisterna.id_sede_cisterna, cisterna.id_cisterna_estado ";
+        $sql .= "FROM cisterna INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
+        $sql .= "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado WHERE id_cisterna ='".$id."'";
+        $resultado = self::consulta($sql);
+        return !empty($resultado) ? $resultado : false;
+    }
 
     public function listar_cisternas() {
         global $database;
