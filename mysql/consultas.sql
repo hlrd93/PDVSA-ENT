@@ -18,3 +18,13 @@ INSERT INTO chuto_estado_modificaciones(nro_chuto_estado, id_chuto_estado, estad
 
 END
 
+USE `pdvsa_ent_aycg`;
+DELIMITER $$
+CREATE TRIGGER `cisterna_BUPD` AFTER UPDATE ON `cisterna` FOR EACH ROW
+BEGIN
+	IF OLD.id_cisterna_estado<>NEW.id_cisterna_estado OR OLD.observacion_cisterna_estado<>NEW.observacion_cisterna_estado OR OLD.fecha_cisterna_estado<>NEW.fecha_cisterna_estado
+	THEN 
+		INSERT INTO cisterna_estado_modificaciones(nro_cisterna_estado, id_cisterna_estado, observacion_cisterna_estado, fecha_cisterna_estado) values (NULL, OLD.id_cisterna_estado, OLD.observacion_cisterna_estado, OLD.fecha_cisterna_estado); 
+	END IF;
+END
+
