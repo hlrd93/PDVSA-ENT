@@ -57,7 +57,7 @@ if (isset($_POST['fecha_cisterna_estado'])) {
     $png = "png";
     $pdf = "pdf";
 
-    if ($cisterna->registrar_cisterna() == 1) {
+    if ($cisterna->registrar_cisterna() == true) {
                 
         $cisterna->subir_archivo($tmp_name1, $ruta1, $placa_cisterna, $a, $png);
         $cisterna->subir_archivo($tmp_name2, $ruta2, $serial_carroceria_cisterna, $b, $png);
