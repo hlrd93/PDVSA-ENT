@@ -1,3 +1,5 @@
+$(document).ready(function() {
+  
 function perfil(tipo){
     
     switch (tipo) {
@@ -16,4 +18,6 @@ function perfil(tipo){
       default:
         break;
     }
-  }
+}
+
+});//document ready function

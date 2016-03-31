@@ -44,11 +44,11 @@
 
                 $('#cerrar1').click(function() {
                     /* Cerrar */
-                    location.reload(true);
+                    listar();
                 });
                 $('#cerrar2').click(function() {
                     /* Cerrar */
-                    location.reload(true);
+                    listar();
                 });
 
                 $(".form_chuto").submit(function(e) {
@@ -433,9 +433,9 @@
                 </div>
             </div>
         </div>
-    <div class="modal-footer">
-        <button type="button" id="cerrar2" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-    </div>
+        <div class="modal-footer">
+            <button type="button" id="cerrar2" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
     </div>
 
     <?php include_once('../template/footer.php'); ?>

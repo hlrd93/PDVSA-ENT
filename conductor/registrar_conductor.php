@@ -27,8 +27,7 @@
         </div>
         <!-- /.row -->
         <script>
-            
-            
+
             $(document).ready(function() {
 
                 var date_input=$('input[name="fecha_conductor"]'); //our date input has the name "date"
@@ -76,20 +75,7 @@
                                 $('#conductor-resultado').html(data);
                             }
                         }
-                });
-                
-                /*    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
-                    
-                    var postData = $(this).serialize();
-                    var url = $(this).attr("action");
-                    
-                    $.post(url, postData, function(php_table_data){
-                        
-                        $("#chuto-resultado").html(php_table_data);                        
-                        
                     });
-                    
-                */
                 });
                 
             }); /*document ready function */
@@ -101,7 +87,7 @@
                     <div class="formden_header col-md-offset-1">
                         <h2>
                             Formulario Conductor
-                <div id="conductor-cargando"><img src="../img/cargando2.gif" height="40px" alt="Cargando"></div>
+                            <div id="conductor-cargando"><img src="../img/cargando2.gif" height="40px" alt="Cargando"></div>
                         </h2>
                         <p>
                             <span class="asteriskField">
@@ -194,6 +180,18 @@
                                 </div>
                             </div>
                             
+                            <!-- Carnet -->
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="foto_carnet">
+                                    Foto Digital del Carnet
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-cloud-upload">
+                                    </i>
+                                <input type="file" name="foto_carnet" id="foto_carnet" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
+                                </div>
+                            </div>
+
                             <!-- Certificado Medico -->
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_certificado_medico">

@@ -7,6 +7,49 @@ class Conductor {
 	public $apellido_conductor;
 	public $fecha_conductor;
 
+    public function actualizar_conductor() {
+        global $database;
+
+        $sql = "UPDATE conductor SET ";
+        $sql .= "cedula_conductor='".$database->escape_string($this->cedula_conductor)."', ";
+        $sql .= "nombre_conductor='".$database->escape_string($this->nombre_conductor)."', "; 
+        $sql .= "apellido_conductor='".$database->escape_string($this->apellido_conductor)."', ";
+        $sql .= "fecha_conductor='".$database->escape_string($this->fecha_conductor)."' ";
+        $sql .= " WHERE id_conductor=".$database->escape_string($this->id_conductor);
+        
+        $database->query($sql);
+        return (mysqli_affected_rows($database->conexion) == 1) ? true : false;
+    }
+
+    public static function listar_conductor_byid($c) {
+        $sql = "SELECT * FROM conductor WHERE id_conductor ='".$c."'";
+        $resultado = self::consulta($sql);
+        return !empty($resultado) ? $resultado : false;
+    }
+
+    public static function buscar_conductor($c) {
+        
+        $string_sql = self::filtro($c);
+
+        $sql = "SELECT * FROM conductor ";
+        $sql .= $string_sql;
+        $sql .= " ORDER BY id_conductor ASC";
+
+        $resultado = self::consulta($sql);
+        return !empty($resultado) ? $resultado : false;
+    }
+
+    public static function filtro($c) {
+        $parametro[] = "";
+
+        if (!empty($c)) {
+
+            $parametro[0] = "WHERE cedula_conductor ='" . $c . "'";
+        }
+
+        return implode(" ", $parametro);
+    }
+
 	public static function consulta($sql) {
     	global $database;
 
@@ -24,18 +67,18 @@ class Conductor {
 
     private static function instanciacion($registro) {
 
-        $chuto = new self();
+        $conductor = new self();
 
         foreach ($registro as $propiedad => $value) {
 
-            if ($chuto->tiene_la_propiedad($propiedad)) {
+            if ($conductor->tiene_la_propiedad($propiedad)) {
 
                 //setter setea el valor de la propiedad de la clase
-                $chuto->$propiedad = $value;
+                $conductor->$propiedad = $value;
             }
         }
 
-        return $chuto;
+        return $conductor;
     }
 
     private function tiene_la_propiedad($propiedad) {
@@ -74,8 +117,8 @@ class Conductor {
 
         if(move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/chuto/".$x."/".$nombre.".".$formato);
-
+            rename($ruta, "../img/conductor/".$x."/".$nombre.".".$formato);
+            
             return true;
         } else {
             return false;

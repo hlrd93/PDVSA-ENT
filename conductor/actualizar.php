@@ -1,5 +1,4 @@
 <?php
-sleep(2);
 
 include_once("../config/init.php");
 
@@ -7,6 +6,7 @@ $conductor = new Conductor();
 
 if (isset($_POST['cedula_conductor'])) {
 
+	$conductor->id_conductor = $_POST['id_conductor'];
     $conductor->cedula_conductor = $_POST['cedula_conductor'];
     $conductor->nombre_conductor = $_POST['nombre_conductor'];
     $conductor->apellido_conductor = $_POST['apellido_conductor'];
@@ -40,7 +40,7 @@ if (isset($_POST['cedula_conductor'])) {
     $png = "png";
 //  $pdf = "pdf";
 
-    if ($conductor->registrar_conductor() == true) {
+    if ($conductor->actualizar_conductor() == true) {
 
     	if(!empty($tmp_name1)) {
 		$conductor->subir_archivo($tmp_name1, $ruta1, $cedula, $a, $png);
@@ -54,10 +54,11 @@ if (isset($_POST['cedula_conductor'])) {
 		if(!empty($tmp_name4)) {
 		$conductor->subir_archivo($tmp_name4, $ruta4, $licencia, $d, $png);
 		}
-        echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
+        echo '<script type="text/javascript">swal("Exito!", "Actualizado!", "success");</script>';
     } else {
 
-        echo '<script type="text/javascript">sweetAlert("Oops...", "El Conductor ya fue registrado!", "error");</script>';
+        echo '<script type="text/javascript">sweetAlert("Oops...", "El Conductor no fue Actualizado!", "error");</script>';
     }
 }
+sleep(2);
 ?>

@@ -64,9 +64,6 @@
                     <a href="../conductor/registrar_conductor.php"><i class="fa fa-fw fa-table"></i> Registrar Conductor</a>
                 </li>
                 <li>
-                    <a href="../conductor/actualizar_conductor.php"><i class="glyphicon glyphicon-edit"></i> Actualizar Conductor</a>
-                </li>
-                <li>
                     <a href="../conductor/listar_conductor.php"><i class="glyphicon glyphicon-list"></i> Listar Conductores</a>
                 </li>
             </ul>
