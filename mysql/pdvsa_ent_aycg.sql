@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 09-03-2016 a las 18:58:36
+-- Tiempo de generación: 04-04-2016 a las 20:45:22
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `analista`
+-- Estructura de tabla para la tabla `analista_sede`
 --
 
-CREATE TABLE `analista` (
+CREATE TABLE `analista_sede` (
   `id_analista` int(11) NOT NULL,
   `nombre_analista` varchar(45) COLLATE utf8_spanish_ci NOT NULL COMMENT 'nombre del analista',
   `apellido_analista` varchar(45) COLLATE utf8_spanish_ci NOT NULL COMMENT 'apellido del analista',
@@ -113,7 +113,7 @@ CREATE TABLE `chuto` (
 --
 
 INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_carroceria_chuto`, `serial_motor_chuto`, `marca_chuto`, `tipo_chuto`, `modelo_chuto`, `a_o_chuto`, `nombre_color_chuto`, `color_chuto_1`, `observacion_chuto_estado`, `fecha_chuto_estado`, `id_sede_chuto`, `id_chuto_estado`) VALUES
-(1, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#A9A9A9', 'cool', 'Lunes, 22 Febrero 2016', 'andes_sc', 1),
+(1, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#a9a9a9', 'cool', 'Lunes, 14 de Marzo del 2016', 'andes_sc', 1),
 (2, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, NULL, 'Gris', '#000000', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
 (3, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'activo', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
 (4, '7458991', 'DA7458991', 'LZZ5CLVB7DA7458991', '1304170207471', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'aaa', 'Miercoles, 24 de Febrero del 201', 'andes_lf', 2),
@@ -134,25 +134,13 @@ INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_car
 (19, '238288991', '238288991', '238288991', '238288991', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
 (20, '2382889912', '2382889912', '2382889912', '2382889912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
 (21, 'AA89912', 'AA89912', 'AA89912AA89912', 'AA8991289912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(22, 'DA89912', 'DA89912', 'DA89912AA89912', 'DA8991289912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
+(22, 'DA89912', 'DA89912', 'DA89912AA89912', 'DA8991289912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
 (23, 'DA899123', 'DA899123', 'DA89912AA899123', 'DA89912899123', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(24, 'DA8991234', 'DA8991234', 'DA89912AA8991234', 'DA899128991234', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Jueves, 03 de Marzo del 2016', 'andes_sc', 1),
-(25, '44PGBI', '44PGBI', '3AKJA6CG97DZ12438', '06R0968154', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', '', 'Martes, 08 de Marzo del 2016', 'andes_vg', 1),
-(26, '44PGBI1', '44PGBI1', '3AKJA6CG97DZ124381', '06R09681541', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', 'esta andando!', 'Martes, 08 de Marzo del 2016', 'andes_sc', 1),
-(27, '5669772', '5669772', '5669772rey', '5669772', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 08 de Marzo del 2016', 'andes_vg', 1);
-
---
--- Disparadores `chuto`
---
-DELIMITER $$
-CREATE TRIGGER `chuto_BUPD` BEFORE UPDATE ON `chuto` FOR EACH ROW BEGIN
-	IF OLD.id_chuto_estado<>NEW.id_chuto_estado or OLD.observacion_chuto_estado<>NEW.observacion_chuto_estado or OLD.fecha_chuto_estado<>NEW.fecha_chuto_estado
-	THEN  
-		INSERT INTO chuto_estado_modificaciones(nro_chuto_estado, id_chuto_estado, observacion_chuto_estado,fecha_chuto_estado) values(NULL, OLD.id_chuto_estado, OLD.observacion_chuto_estado, OLD.fecha_chuto_estado);
-	END IF;
-END
-$$
-DELIMITER ;
+(24, 'DA8991234', 'DA8991234', 'DA89912AA8991234', 'DA899128991234', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
+(25, '44PGBI', '44PGBI', '3AKJA6CG97DZ12438', '06R0968154', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', '', 'Martes, 15 de Marzo del 2016', 'andes_vg', 1),
+(26, '44PGBI1', '44PGBI1', '3AKJA6CG97DZ124381', '06R09681541', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', 'esta andando!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
+(27, '56697721', '5669772', '5669772rey', '5669772', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_vg', 1),
+(28, '1234', '213', '213', '213', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'se ecnuentra activo', 'Lunes, 04 de Abril del 2016', 'andes_vg', 2);
 
 -- --------------------------------------------------------
 
@@ -224,7 +212,7 @@ CREATE TABLE `cisterna` (
 --
 
 INSERT INTO `cisterna` (`id_cisterna`, `placa_cisterna`, `placa_nueva_cisterna`, `serial_carroceria_cisterna`, `marca_cisterna`, `tipo_cisterna`, `modelo_cisterna`, `a_o_cisterna`, `nombre_color_cisterna`, `color_cisterna_1`, `color_cisterna_2`, `nro_ejes_cisterna`, `capacidad_1erc_cisterna`, `capacidad_2doc_cisterna`, `capacidad_3erc_cisterna`, `capacidad_totalc_cisterna`, `observacion_cisterna_estado`, `fecha_cisterna_estado`, `id_sede_cisterna`, `id_cisterna_estado`) VALUES
-(5, '03VGBH', '03VGBH', '8XVS4WSS57V501117', 'IVECO', 'Convenio', 'EUROTECH', 2007, NULL, '#ff0000', '#ffffff', 3, 12000, 14000, 16000, 42000, 'cool', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
+(5, '03VGBHffgg55', '03VGBH', '8XVS4WSS57V501117', 'IVECO', 'Convenio', 'EUROTECH', 2007, '', '#ff0000', '#ffffff', 3, 12000, 14000, 16000, 42000, 'cool', 'Lunes, 04 de Abril del 2016', 'andes_vg', 1),
 (6, '03VGBH1', '03VGBH1', '8XVS4WSS57V5011171', 'IVECO', 'Convenio', 'EUROTECH', 2007, NULL, '#000000', '#000000', 3, 12000, 14000, 16000, 42000, 'COOL!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
 (7, '03VGBH12', '03VGBH12', '8XVS4WSS57V50111712', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojo', '#000000', '#000000', 3, 12000, 14000, 16000, 42000, 'Reparacion', 'Martes, 01 de Marzo del 2016', 'andes_sc', 2),
 (8, '03VGBH123', '03VGBH123', '8XVS4WSS57V501117123', 'IVECO', 'Convenio', 'EUROTECH', 2007, '', '#818181', '#ff0000', 3, 12000, 14000, 16000, 42000, 'cooool!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 3),
@@ -233,20 +221,7 @@ INSERT INTO `cisterna` (`id_cisterna`, `placa_cisterna`, `placa_nueva_cisterna`,
 (11, '03VGBH456', '03VGBH456', '8XVS4WSS57V501117456', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojito', '#818181', '#ff0000', 3, 12000, 14000, 16000, 42000, 'cooool!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 4),
 (13, '23828899', '23828899', '23828899herwinrey', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojito', '#a0a0a0', '#ff0000', 3, 12000, 14000, 16000, 42000, 'subiendo archivos!', 'Lunes, 07 de Marzo del 2016', 'andes_sc', 1),
 (14, '23828899rey', '23828899rey', '23828899herwinleonardo', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojito', '#a0a0a0', '#ff0000', 3, 12000, 14000, 16000, 42000, 'subiendo archivos!', 'Lunes, 07 de Marzo del 2016', 'andes_sc', 1),
-(15, '21341421', '21341421', '21341421rey', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojito', '#777777', '#ff1500', 3, 12000, 14000, 16000, 42000, 'cool', 'Martes, 08 de Marzo del 2016', 'andes_vg', 1);
-
---
--- Disparadores `cisterna`
---
-DELIMITER $$
-CREATE TRIGGER `cisterna_BUPD` BEFORE UPDATE ON `cisterna` FOR EACH ROW BEGIN
-	IF OLD.id_cisterna_estado<>NEW.id_cisterna_estado OR OLD.observacion_cisterna_estado<>NEW.observacion_cisterna_estado OR OLD.fecha_cisterna_estado<>NEW.fecha_cisterna_estado
-	THEN 
-		INSERT INTO cisterna_estado_modificaciones(nro_cisterna_estado, id_cisterna_estado, observacion_cisterna_estado, fecha_cisterna_estado) values (NULL, OLD.id_cisterna_estado, OLD.observacion_cisterna_estado, OLD.fecha_cisterna_estado); 
-	END IF;
-END
-$$
-DELIMITER ;
+(15, '21341421', '21341421', '21341421rey', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojito', '#777777', '#ff1500', 3, 12000, 14000, 16000, 42000, 'cool', 'Miercoles, 16 de Marzo del 2016', 'andes_vg', 1);
 
 -- --------------------------------------------------------
 
@@ -279,10 +254,19 @@ INSERT INTO `cisterna_estado` (`id_cisterna_estado`, `cisterna_estado`) VALUES
 
 CREATE TABLE `cisterna_estado_modificaciones` (
   `nro_cisterna_estado` int(5) NOT NULL,
-  `id_cisterna_estado` int(11) NOT NULL,
+  `id_cisterna_estado` int(11) DEFAULT NULL,
+  `id_sede_cisterna` varchar(11) COLLATE utf8_spanish_ci DEFAULT NULL,
   `observacion_cisterna_estado` varchar(200) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `fecha_cisterna_estado` varchar(12) COLLATE utf8_spanish_ci NOT NULL
+  `fecha_cisterna_estado` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Antiguos estados y observaciones de las cisternas';
+
+--
+-- Volcado de datos para la tabla `cisterna_estado_modificaciones`
+--
+
+INSERT INTO `cisterna_estado_modificaciones` (`nro_cisterna_estado`, `id_cisterna_estado`, `id_sede_cisterna`, `observacion_cisterna_estado`, `fecha_cisterna_estado`) VALUES
+(1, 1, NULL, 'cool', 'Miercoles, 1'),
+(2, 1, NULL, 'cool', 'Miercoles, 1');
 
 -- --------------------------------------------------------
 
@@ -292,10 +276,38 @@ CREATE TABLE `cisterna_estado_modificaciones` (
 
 CREATE TABLE `conductor` (
   `id_conductor` int(11) NOT NULL,
-  `cedula_conductor` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `cedula_conductor` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `nombre_conductor` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `apellido_conductor` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL
+  `apellido_conductor` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_conductor` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `id_sede_conductor` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
+  `id_conductor_estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Chofer de las unidades de transporte de combustibles liquidos';
+
+--
+-- Volcado de datos para la tabla `conductor`
+--
+
+INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`, `apellido_conductor`, `fecha_conductor`, `id_sede_conductor`, `id_conductor_estado`) VALUES
+(1, '238288991', 'Herwin', 'Rey', '31/03/2016', '', 0),
+(2, '21341422', 'Eleyibeth Alexandra', 'Ogliastre Galvan', '31/03/2016', '', 0),
+(4, '5669772', 'Omar', 'Rey Reyes', '27/04/2016', '', 0),
+(5, '6058648', 'Betty Teresa', 'Diaz Porras', '24/05/2016', '', 0),
+(6, '11499411', 'Carolina', 'Rey', '24/05/2016', '', 0),
+(7, '14954761', 'Marc', 'Anthony', '11/05/2016', '', 0),
+(8, '12432567', 'Alex', 'Rey', '30/03/2016', '', 0),
+(9, '22448449', 'orlando disney', 'florida miami', '30/03/2016', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `conductor_estado`
+--
+
+CREATE TABLE `conductor_estado` (
+  `id_conductor_estado` int(11) NOT NULL,
+  `conductor_estado` varchar(20) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -314,6 +326,16 @@ CREATE TABLE `distrito` (
 
 INSERT INTO `distrito` (`id_distrito`, `nombre_distrito`) VALUES
 ('pdvsa_andes', 'Andes');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estados`
+--
+
+CREATE TABLE `estados` (
+  `id_estados` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -341,9 +363,9 @@ INSERT INTO `sede` (`id_sede`, `nombre_sede`, `id_distrito_sede`) VALUES
 --
 
 --
--- Indices de la tabla `analista`
+-- Indices de la tabla `analista_sede`
 --
-ALTER TABLE `analista`
+ALTER TABLE `analista_sede`
   ADD PRIMARY KEY (`id_analista`),
   ADD KEY `fk_analista_sede1_idx` (`sede_id_sede`);
 
@@ -405,13 +427,27 @@ ALTER TABLE `cisterna_estado_modificaciones`
 -- Indices de la tabla `conductor`
 --
 ALTER TABLE `conductor`
-  ADD PRIMARY KEY (`id_conductor`);
+  ADD PRIMARY KEY (`id_conductor`),
+  ADD KEY `fk_conductor_conductor_estado1_idx` (`id_conductor_estado`),
+  ADD KEY `fk_conductor_sede1_idx` (`id_sede_conductor`);
+
+--
+-- Indices de la tabla `conductor_estado`
+--
+ALTER TABLE `conductor_estado`
+  ADD PRIMARY KEY (`id_conductor_estado`);
 
 --
 -- Indices de la tabla `distrito`
 --
 ALTER TABLE `distrito`
   ADD PRIMARY KEY (`id_distrito`);
+
+--
+-- Indices de la tabla `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`id_estados`);
 
 --
 -- Indices de la tabla `sede`
@@ -425,15 +461,15 @@ ALTER TABLE `sede`
 --
 
 --
--- AUTO_INCREMENT de la tabla `analista`
+-- AUTO_INCREMENT de la tabla `analista_sede`
 --
-ALTER TABLE `analista`
+ALTER TABLE `analista_sede`
   MODIFY `id_analista` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `chuto`
 --
 ALTER TABLE `chuto`
-  MODIFY `id_chuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_chuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT de la tabla `chuto_estado_modificaciones`
 --
@@ -448,20 +484,20 @@ ALTER TABLE `cisterna`
 -- AUTO_INCREMENT de la tabla `cisterna_estado_modificaciones`
 --
 ALTER TABLE `cisterna_estado_modificaciones`
-  MODIFY `nro_cisterna_estado` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `nro_cisterna_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `conductor`
 --
 ALTER TABLE `conductor`
-  MODIFY `id_conductor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_conductor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `analista`
+-- Filtros para la tabla `analista_sede`
 --
-ALTER TABLE `analista`
+ALTER TABLE `analista_sede`
   ADD CONSTRAINT `fk_analista_sede1` FOREIGN KEY (`sede_id_sede`) REFERENCES `sede` (`id_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -484,6 +520,13 @@ ALTER TABLE `chuto`
 ALTER TABLE `cisterna`
   ADD CONSTRAINT `fk_cisterna_cisterna_estado1` FOREIGN KEY (`id_cisterna_estado`) REFERENCES `cisterna_estado` (`id_cisterna_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_cisterna_sede1` FOREIGN KEY (`id_sede_cisterna`) REFERENCES `sede` (`id_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `conductor`
+--
+ALTER TABLE `conductor`
+  ADD CONSTRAINT `fk_conductor_conductor_estado1` FOREIGN KEY (`id_conductor_estado`) REFERENCES `conductor_estado` (`id_conductor_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_conductor_sede1` FOREIGN KEY (`id_sede_conductor`) REFERENCES `sede` (`id_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `sede`
