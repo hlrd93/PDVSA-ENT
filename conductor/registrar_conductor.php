@@ -62,6 +62,7 @@
                             $('#nombre_conductor').prop('readonly', true);
                             $('#apellido_conductor').prop('readonly', true);
                             $('#fecha_conductor').prop('readonly', true);
+                            $('#id_conductor_estado').prop('readonly', true);
                         },
                         success: function (data) {
 
@@ -72,6 +73,7 @@
                                 $('#nombre_conductor').prop('readonly', false);
                                 $('#apellido_conductor').prop('readonly', false);
                                 $('#fecha_conductor').prop('readonly', false);
+                                $('#id_conductor_estado').prop('readonly', false);
                                 $('#conductor-resultado').html(data);
                             }
                         }
@@ -166,6 +168,66 @@
                                     <input class="form-control" id="fecha_conductor" name="fecha_conductor" placeholder="Dia/Mes/Año" type="date"/>
                                 </div>
                             </div>
+                            
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="id_sede_conductor">
+                                    Sede
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user">
+                                    </i>
+                                </div>
+                                <select class="select form-control" id="id_sede_conductor" name="id_sede_conductor" required>
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+                                    <option value="andes_vg">
+                                        El Vigia
+                                    </option>
+                                    <option value="andes_lf">
+                                        La Fria
+                                    </option>
+                                    <option value="andes_sc">
+                                        San Cristobal
+                                    </option>
+                                </select>
+                                <span class="help-block" id="hint_id_sede_conductor">
+                                    Selecciona la Sede, el cual ser&aacute; asignado el conductor
+                                </span>
+                            </div>
+
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="id_conductor_estado">
+                                    Estatus
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-check">
+                                    </i>
+                                </div>
+                                <select class="select form-control" id="id_conductor_estado" name="id_conductor_estado" required>
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+                                    <option value="">
+                                         
+                                    </option>
+                                    <option value="">
+                                        
+                                    </option>
+                                    <option value="">
+                                        
+                                    </option>
+                                </select>
+                                <span class="help-block" id="hint_id_conductor_estado">
+                                    Ingrese el Estatus del Conductor
+                                </span>
+                            </div>
                             <!-- Carga de Documentos: Cedula, Certificado Medico, Licencia -->
 
                             <!-- Cedula -->
@@ -176,8 +238,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_cedula" id="foto_cedula" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                                 </div>
+                                <input type="file" name="foto_cedula" id="foto_cedula" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                             </div>
                             
                             <!-- Carnet -->
@@ -188,8 +250,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_carnet" id="foto_carnet" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                                 </div>
+                                <input type="file" name="foto_carnet" id="foto_carnet" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                             </div>
 
                             <!-- Certificado Medico -->
@@ -200,8 +262,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_certificado_medico" id="foto_certificado_medico" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                                 </div>
+                                <input type="file" name="foto_certificado_medico" id="foto_certificado_medico" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                             </div>
                             
                             <!-- Licencia -->
@@ -212,8 +274,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_licencia" id="foto_licencia" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                                 </div>
+                                <input type="file" name="foto_licencia" id="foto_licencia" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                             </div>
 
                             <div class="form-group">

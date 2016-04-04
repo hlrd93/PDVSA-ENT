@@ -24,32 +24,33 @@ class Chuto {
         global $database;
 
         $sql = "UPDATE chuto SET ";
-        $sql .= "placa_chuto='".$database->escape_string($this->placa_chuto)."', ";
-        $sql .= "placa_nueva_chuto='".$database->escape_string($this->placa_nueva_chuto)."', "; 
-        $sql .= "serial_carroceria_chuto='".$database->escape_string($this->serial_carroceria_chuto)."', ";
-        $sql .= "serial_motor_chuto='".$database->escape_string($this->serial_motor_chuto)."', ";
-        $sql .= "marca_chuto='".$database->escape_string($this->marca_chuto)."', ";
-        $sql .= "tipo_chuto='".$database->escape_string($this->tipo_chuto)."', ";
-        $sql .= "modelo_chuto='".$database->escape_string($this->modelo_chuto)."', ";
-        $sql .= "a_o_chuto='".$database->escape_string($this->a_o_chuto)."', ";
-        $sql .= "nombre_color_chuto='".$database->escape_string($this->nombre_color_chuto)."', ";
-        $sql .= "color_chuto_1='".$database->escape_string($this->color_chuto_1)."', ";
-        $sql .= "observacion_chuto_estado='".$database->escape_string($this->observacion_chuto_estado)."', ";
-        $sql .= "fecha_chuto_estado='".$database->escape_string($this->fecha_chuto_estado)."', ";
-        $sql .= "id_sede_chuto='".$database->escape_string($this->id_sede_chuto)."', ";
-        $sql .= "id_chuto_estado='".$database->escape_string($this->id_chuto_estado)."' ";
-        $sql .= " WHERE id_chuto=".$database->escape_string($this->id_chuto);
-        
+        $sql .= "placa_chuto='" . $database->escape_string($this->placa_chuto) . "', ";
+        $sql .= "placa_nueva_chuto='" . $database->escape_string($this->placa_nueva_chuto) . "', ";
+        $sql .= "serial_carroceria_chuto='" . $database->escape_string($this->serial_carroceria_chuto) . "', ";
+        $sql .= "serial_motor_chuto='" . $database->escape_string($this->serial_motor_chuto) . "', ";
+        $sql .= "marca_chuto='" . $database->escape_string($this->marca_chuto) . "', ";
+        $sql .= "tipo_chuto='" . $database->escape_string($this->tipo_chuto) . "', ";
+        $sql .= "modelo_chuto='" . $database->escape_string($this->modelo_chuto) . "', ";
+        $sql .= "a_o_chuto='" . $database->escape_string($this->a_o_chuto) . "', ";
+        $sql .= "nombre_color_chuto='" . $database->escape_string($this->nombre_color_chuto) . "', ";
+        $sql .= "color_chuto_1='" . $database->escape_string($this->color_chuto_1) . "', ";
+        $sql .= "observacion_chuto_estado='" . $database->escape_string($this->observacion_chuto_estado) . "', ";
+        $sql .= "fecha_chuto_estado='" . $database->escape_string($this->fecha_chuto_estado) . "', ";
+        $sql .= "id_sede_chuto='" . $database->escape_string($this->id_sede_chuto) . "', ";
+        $sql .= "id_chuto_estado='" . $database->escape_string($this->id_chuto_estado) . "' ";
+        $sql .= " WHERE id_chuto=" . $database->escape_string($this->id_chuto);
+
         $database->query($sql);
         return (mysqli_affected_rows($database->conexion) == 1) ? true : false;
     }
+
     public static function listar_chuto_byid($id) {
         $sql = "SELECT placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
         $sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
         $sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, ";
         $sql .= "fecha_chuto_estado, nombre_sede, chuto_estado, chuto.id_sede_chuto, chuto.id_chuto_estado ";
         $sql .= "FROM chuto INNER JOIN sede ON sede.id_sede = chuto.id_sede_chuto ";
-        $sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado WHERE id_chuto ='".$id."'";
+        $sql .= "INNER JOIN chuto_estado ON chuto_estado.id_chuto_estado = chuto.id_chuto_estado WHERE id_chuto ='" . $id . "'";
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
     }
@@ -190,9 +191,9 @@ class Chuto {
 
     public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
 
-        if(move_uploaded_file($tmp_name, $ruta) == true) {
+        if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/chuto/".$x."/".$nombre.".".$formato);
+            rename($ruta, "../img/chuto/" . $x . "/" . $nombre . "." . $formato);
 
             return true;
         } else {
@@ -200,6 +201,7 @@ class Chuto {
         }
     }
 
+}
 
-}//Fin de Clase Chuto
+//Fin de Clase Chuto
 

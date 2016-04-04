@@ -348,8 +348,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_placa_chuto" id="foto_placa_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
                                 </div>
+                                    <input type="file" name="foto_placa_chuto" id="foto_placa_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_serial_carroceria_chuto">
@@ -358,8 +358,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_serial_carroceria_chuto" id="foto_serial_carroceria_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
                                 </div>
+                                    <input type="file" name="foto_serial_carroceria_chuto" id="foto_serial_carroceria_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_serial_motor_chuto">
@@ -368,8 +368,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Motor">
                                 </div>
+                                    <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Motor">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_seguro_chuto">
@@ -378,8 +378,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_seguro_chuto" id="foto_seguro_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
                                 </div>
+                                    <input type="file" name="foto_seguro_chuto" id="foto_seguro_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_titulo_chuto">
@@ -388,8 +388,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
                                 </div>
+                                <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
                             </div>
                             <!-- ventana modal bootstrap de loading -->
                             <div class="form-group">

@@ -29,30 +29,31 @@ class Cisterna {
         global $database;
 
         $sql = "UPDATE cisterna SET ";
-        $sql .= "placa_cisterna='".$database->escape_string($this->placa_cisterna)."', ";
-        $sql .= "placa_nueva_cisterna='".$database->escape_string($this->placa_nueva_cisterna)."', "; 
-        $sql .= "serial_carroceria_cisterna='".$database->escape_string($this->serial_carroceria_cisterna)."', ";
-        $sql .= "marca_cisterna='".$database->escape_string($this->marca_cisterna)."', ";
-        $sql .= "tipo_cisterna='".$database->escape_string($this->tipo_cisterna)."', ";
-        $sql .= "modelo_cisterna='".$database->escape_string($this->modelo_cisterna)."', ";
-        $sql .= "a_o_cisterna='".$database->escape_string($this->a_o_cisterna)."', ";
-        $sql .= "nombre_color_cisterna='".$database->escape_string($this->nombre_color_cisterna)."', ";
-        $sql .= "color_cisterna_1='".$database->escape_string($this->color_cisterna_1)."', ";
-        $sql .= "color_cisterna_2='".$database->escape_string($this->color_cisterna_2)."', ";
-        $sql .= "nro_ejes_cisterna='".$database->escape_string($this->nro_ejes_cisterna)."', ";
-        $sql .= "capacidad_1erc_cisterna='".$database->escape_string($this->capacidad_1erc_cisterna)."', ";
-        $sql .= "capacidad_2doc_cisterna='".$database->escape_string($this->capacidad_2doc_cisterna)."', ";
-        $sql .= "capacidad_3erc_cisterna='".$database->escape_string($this->capacidad_3erc_cisterna)."', ";
-        $sql .= "capacidad_totalc_cisterna='".$database->escape_string($this->capacidad_totalc_cisterna)."', ";
-        $sql .= "observacion_cisterna_estado='".$database->escape_string($this->observacion_cisterna_estado)."', ";
-        $sql .= "fecha_cisterna_estado='".$database->escape_string($this->fecha_cisterna_estado)."', ";
-        $sql .= "id_sede_cisterna='".$database->escape_string($this->id_sede_cisterna)."', ";
-        $sql .= "id_cisterna_estado='".$database->escape_string($this->id_cisterna_estado)."' ";
-        $sql .= " WHERE id_cisterna=".$database->escape_string($this->id_cisterna);
-        
+        $sql .= "placa_cisterna='" . $database->escape_string($this->placa_cisterna) . "', ";
+        $sql .= "placa_nueva_cisterna='" . $database->escape_string($this->placa_nueva_cisterna) . "', ";
+        $sql .= "serial_carroceria_cisterna='" . $database->escape_string($this->serial_carroceria_cisterna) . "', ";
+        $sql .= "marca_cisterna='" . $database->escape_string($this->marca_cisterna) . "', ";
+        $sql .= "tipo_cisterna='" . $database->escape_string($this->tipo_cisterna) . "', ";
+        $sql .= "modelo_cisterna='" . $database->escape_string($this->modelo_cisterna) . "', ";
+        $sql .= "a_o_cisterna='" . $database->escape_string($this->a_o_cisterna) . "', ";
+        $sql .= "nombre_color_cisterna='" . $database->escape_string($this->nombre_color_cisterna) . "', ";
+        $sql .= "color_cisterna_1='" . $database->escape_string($this->color_cisterna_1) . "', ";
+        $sql .= "color_cisterna_2='" . $database->escape_string($this->color_cisterna_2) . "', ";
+        $sql .= "nro_ejes_cisterna='" . $database->escape_string($this->nro_ejes_cisterna) . "', ";
+        $sql .= "capacidad_1erc_cisterna='" . $database->escape_string($this->capacidad_1erc_cisterna) . "', ";
+        $sql .= "capacidad_2doc_cisterna='" . $database->escape_string($this->capacidad_2doc_cisterna) . "', ";
+        $sql .= "capacidad_3erc_cisterna='" . $database->escape_string($this->capacidad_3erc_cisterna) . "', ";
+        $sql .= "capacidad_totalc_cisterna='" . $database->escape_string($this->capacidad_totalc_cisterna) . "', ";
+        $sql .= "observacion_cisterna_estado='" . $database->escape_string($this->observacion_cisterna_estado) . "', ";
+        $sql .= "fecha_cisterna_estado='" . $database->escape_string($this->fecha_cisterna_estado) . "', ";
+        $sql .= "id_sede_cisterna='" . $database->escape_string($this->id_sede_cisterna) . "', ";
+        $sql .= "id_cisterna_estado='" . $database->escape_string($this->id_cisterna_estado) . "' ";
+        $sql .= " WHERE id_cisterna=" . $database->escape_string($this->id_cisterna);
+
         $database->query($sql);
         return (mysqli_affected_rows($database->conexion) == 1) ? true : false;
     }
+
     public static function listar_cisterna_byid($id) {
         $sql = "SELECT placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
         $sql .= "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, ";
@@ -62,7 +63,7 @@ class Cisterna {
         $sql .= "fecha_cisterna_estado, nombre_sede, cisterna_estado, ";
         $sql .= "cisterna.id_sede_cisterna, cisterna.id_cisterna_estado ";
         $sql .= "FROM cisterna INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
-        $sql .= "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado WHERE id_cisterna ='".$id."'";
+        $sql .= "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado WHERE id_cisterna ='" . $id . "'";
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
     }
@@ -210,9 +211,9 @@ class Cisterna {
 
     public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
 
-        if(move_uploaded_file($tmp_name, $ruta) == true) {
+        if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/cisterna/".$x."/".$nombre.".".$formato);
+            rename($ruta, "../img/cisterna/" . $x . "/" . $nombre . "." . $formato);
 
             return true;
         } else {
@@ -220,5 +221,6 @@ class Cisterna {
         }
     }
 
-}//Fin de Clase Cisterna
-?>
+}
+
+//Fin de Clase Cisterna

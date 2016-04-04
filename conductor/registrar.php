@@ -11,6 +11,8 @@ if (isset($_POST['cedula_conductor'])) {
     $conductor->nombre_conductor = $_POST['nombre_conductor'];
     $conductor->apellido_conductor = $_POST['apellido_conductor'];
     $conductor->fecha_conductor = $_POST['fecha_conductor'];
+    $conductor->id_conductor_estado = $_POST['id_conductor_estado'];
+    $conductor->id_sede_conductor = $_POST['id_sede_conductor'];
     
     $ruta1 = "../img/conductor/cedula/". $_POST['cedula_conductor']."_cedula.png";
     $ruta2 = "../img/conductor/carnet/". $_POST['cedula_conductor']."_carnet.png";

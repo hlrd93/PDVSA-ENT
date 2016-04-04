@@ -414,8 +414,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_placa_cisterna" id="foto_placa_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
                                 </div>
+                                    <input type="file" name="foto_placa_cisterna" id="foto_placa_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Placa">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_serial_carroceria_cisterna">
@@ -424,8 +424,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_serial_carroceria_cisterna" id="foto_serial_carroceria_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
                                 </div>
+                                    <input type="file" name="foto_serial_carroceria_cisterna" id="foto_serial_carroceria_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Carroceria">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_seguro_cisterna">
@@ -434,8 +434,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_seguro_cisterna" id="foto_seguro_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
                                 </div>
+                                    <input type="file" name="foto_seguro_cisterna" id="foto_seguro_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Poliza de Seguro" >
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_titulo_cisterna">
@@ -444,8 +444,8 @@
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                <input type="file" name="foto_titulo_cisterna" id="foto_titulo_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
                                 </div>
+                                <input type="file" name="foto_titulo_cisterna" id="foto_titulo_cisterna" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
                             </div>
                                 
                             <!-- ventana modal bootstrap de loading -->

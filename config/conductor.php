@@ -1,34 +1,41 @@
-<?php 
+<?php
+
 class Conductor {
 
-	public $id_conductor;
-	public $cedula_conductor;
-	public $nombre_conductor;
-	public $apellido_conductor;
-	public $fecha_conductor;
+    public $id_conductor;
+    public $cedula_conductor;
+    public $nombre_conductor;
+    public $apellido_conductor;
+    public $fecha_conductor;
+/*  public $nombre_sede;
+    public $conductor_estado; */
+    public $id_sede_conductor;
+    public $id_conductor_estado;
 
     public function actualizar_conductor() {
         global $database;
 
         $sql = "UPDATE conductor SET ";
-        $sql .= "cedula_conductor='".$database->escape_string($this->cedula_conductor)."', ";
-        $sql .= "nombre_conductor='".$database->escape_string($this->nombre_conductor)."', "; 
-        $sql .= "apellido_conductor='".$database->escape_string($this->apellido_conductor)."', ";
-        $sql .= "fecha_conductor='".$database->escape_string($this->fecha_conductor)."' ";
-        $sql .= " WHERE id_conductor=".$database->escape_string($this->id_conductor);
-        
+        $sql .= "cedula_conductor='" . $database->escape_string($this->cedula_conductor) . "', ";
+        $sql .= "nombre_conductor='" . $database->escape_string($this->nombre_conductor) . "', ";
+        $sql .= "apellido_conductor='" . $database->escape_string($this->apellido_conductor) . "', ";
+        $sql .= "fecha_conductor='" . $database->escape_string($this->fecha_conductor) . "' ";
+        $sql .= "id_sede_conductor='" . $database->escape_string($this->id_sede_conductor) . "' ";
+        $sql .= "id_conductor_estado='" . $database->escape_string($this->id_conductor_estado) . "' ";
+        $sql .= " WHERE id_conductor=" . $database->escape_string($this->id_conductor);
+
         $database->query($sql);
         return (mysqli_affected_rows($database->conexion) == 1) ? true : false;
     }
 
     public static function listar_conductor_byid($c) {
-        $sql = "SELECT * FROM conductor WHERE id_conductor ='".$c."'";
+        $sql = "SELECT * FROM conductor WHERE id_conductor ='" . $c . "'";
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
     }
 
     public static function buscar_conductor($c) {
-        
+
         $string_sql = self::filtro($c);
 
         $sql = "SELECT * FROM conductor ";
@@ -50,8 +57,8 @@ class Conductor {
         return implode(" ", $parametro);
     }
 
-	public static function consulta($sql) {
-    	global $database;
+    public static function consulta($sql) {
+        global $database;
 
         $resultado_listado = $database->query($sql);
 
@@ -115,15 +122,16 @@ class Conductor {
 
     public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
 
-        if(move_uploaded_file($tmp_name, $ruta) == true) {
+        if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/conductor/".$x."/".$nombre.".".$formato);
-            
+            rename($ruta, "../img/conductor/" . $x . "/" . $nombre . "." . $formato);
+
             return true;
         } else {
             return false;
         }
     }
 
-} //Fin de Clase Conductor
-?>
+}
+
+//Fin de Clase Conductor
