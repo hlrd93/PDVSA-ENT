@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-04-2016 a las 20:45:22
+-- Tiempo de generación: 05-04-2016 a las 20:46:40
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -281,22 +281,24 @@ CREATE TABLE `conductor` (
   `apellido_conductor` varchar(45) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_conductor` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL,
   `id_sede_conductor` varchar(11) COLLATE utf8_spanish_ci NOT NULL,
-  `id_conductor_estado` int(11) NOT NULL
+  `id_conductor_estado` varchar(4) COLLATE utf8_spanish_ci NOT NULL,
+  `id_estado_especificacion` varchar(4) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Chofer de las unidades de transporte de combustibles liquidos';
 
 --
 -- Volcado de datos para la tabla `conductor`
 --
 
-INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`, `apellido_conductor`, `fecha_conductor`, `id_sede_conductor`, `id_conductor_estado`) VALUES
-(1, '238288991', 'Herwin', 'Rey', '31/03/2016', '', 0),
-(2, '21341422', 'Eleyibeth Alexandra', 'Ogliastre Galvan', '31/03/2016', '', 0),
-(4, '5669772', 'Omar', 'Rey Reyes', '27/04/2016', '', 0),
-(5, '6058648', 'Betty Teresa', 'Diaz Porras', '24/05/2016', '', 0),
-(6, '11499411', 'Carolina', 'Rey', '24/05/2016', '', 0),
-(7, '14954761', 'Marc', 'Anthony', '11/05/2016', '', 0),
-(8, '12432567', 'Alex', 'Rey', '30/03/2016', '', 0),
-(9, '22448449', 'orlando disney', 'florida miami', '30/03/2016', '', 0);
+INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`, `apellido_conductor`, `fecha_conductor`, `id_sede_conductor`, `id_conductor_estado`, `id_estado_especificacion`) VALUES
+(1, '238288991', 'Herwin', 'Rey', '31/03/2016', '', '0', ''),
+(2, '21341422', 'Eleyibeth Alexandra', 'Ogliastre Galvan', '31/03/2016', '', '0', ''),
+(4, '5669772', 'Omar', 'Rey Reyes', '27/04/2016', '', '0', ''),
+(5, '6058648', 'Betty Teresa', 'Diaz Porras', '24/05/2016', '', '0', ''),
+(6, '11499411', 'Carolina', 'Rey', '24/05/2016', '', '0', ''),
+(7, '14954761', 'Marc', 'Anthony', '11/05/2016', '', '0', ''),
+(8, '12432567', 'Alex', 'Rey', '30/03/2016', '', '0', ''),
+(9, '22448449', 'orlando disney', 'florida miami', '30/03/2016', '', '0', ''),
+(12, '11223344', 'fibonacci alexo', 'castro chavez', '05/04/2016', 'andes_sc', 'A', 'ADE');
 
 -- --------------------------------------------------------
 
@@ -305,9 +307,17 @@ INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`,
 --
 
 CREATE TABLE `conductor_estado` (
-  `id_conductor_estado` int(11) NOT NULL,
-  `conductor_estado` varchar(20) COLLATE utf8_spanish_ci NOT NULL
+  `id_conductor_estado` varchar(4) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_estado` varchar(13) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `conductor_estado`
+--
+
+INSERT INTO `conductor_estado` (`id_conductor_estado`, `nombre_estado`) VALUES
+('A', 'Disponible'),
+('B', 'No Disponible');
 
 -- --------------------------------------------------------
 
@@ -330,12 +340,33 @@ INSERT INTO `distrito` (`id_distrito`, `nombre_distrito`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados`
+-- Estructura de tabla para la tabla `estado_especificacion`
 --
 
-CREATE TABLE `estados` (
-  `id_estados` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `estado_especificacion` (
+  `id_estado_especificacion` varchar(4) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_especificacion` varchar(33) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `estado_especificacion`
+--
+
+INSERT INTO `estado_especificacion` (`id_estado_especificacion`, `nombre_especificacion`) VALUES
+('ACH', 'Choferes en Reserva'),
+('ADE', 'Descargando o Retornando de Viaje'),
+('APR', 'Programacion del Dia'),
+('BAD', 'Adiestramiento'),
+('BAP', 'Apoyo a Distrito/Sede'),
+('BCO', 'Compensatorio'),
+('BEC', 'Ecor'),
+('BEJ', 'Ejerciendo Otro Cargo'),
+('BIN', 'Inhabilitado Medicamente'),
+('BOT', 'Otros'),
+('BPE', 'Permiso de Ausencia'),
+('BRE', 'Reposo'),
+('BTR', 'Trabajo Adecuado'),
+('BVA', 'Vacaciones');
 
 -- --------------------------------------------------------
 
@@ -429,7 +460,8 @@ ALTER TABLE `cisterna_estado_modificaciones`
 ALTER TABLE `conductor`
   ADD PRIMARY KEY (`id_conductor`),
   ADD KEY `fk_conductor_conductor_estado1_idx` (`id_conductor_estado`),
-  ADD KEY `fk_conductor_sede1_idx` (`id_sede_conductor`);
+  ADD KEY `fk_conductor_sede1_idx` (`id_sede_conductor`),
+  ADD KEY `fk_conductor_estado_especificacion1_idx` (`id_estado_especificacion`);
 
 --
 -- Indices de la tabla `conductor_estado`
@@ -444,10 +476,10 @@ ALTER TABLE `distrito`
   ADD PRIMARY KEY (`id_distrito`);
 
 --
--- Indices de la tabla `estados`
+-- Indices de la tabla `estado_especificacion`
 --
-ALTER TABLE `estados`
-  ADD PRIMARY KEY (`id_estados`);
+ALTER TABLE `estado_especificacion`
+  ADD PRIMARY KEY (`id_estado_especificacion`);
 
 --
 -- Indices de la tabla `sede`
@@ -489,7 +521,7 @@ ALTER TABLE `cisterna_estado_modificaciones`
 -- AUTO_INCREMENT de la tabla `conductor`
 --
 ALTER TABLE `conductor`
-  MODIFY `id_conductor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_conductor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --
@@ -526,6 +558,7 @@ ALTER TABLE `cisterna`
 --
 ALTER TABLE `conductor`
   ADD CONSTRAINT `fk_conductor_conductor_estado1` FOREIGN KEY (`id_conductor_estado`) REFERENCES `conductor_estado` (`id_conductor_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_conductor_estado_especificacion1` FOREIGN KEY (`id_estado_especificacion`) REFERENCES `estado_especificacion` (`id_estado_especificacion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_conductor_sede1` FOREIGN KEY (`id_sede_conductor`) REFERENCES `sede` (`id_sede`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

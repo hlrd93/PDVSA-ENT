@@ -63,6 +63,7 @@
                             $('#apellido_conductor').prop('readonly', true);
                             $('#fecha_conductor').prop('readonly', true);
                             $('#id_conductor_estado').prop('readonly', true);
+                            $('#id_conductor_estado_child').prop('readonly', true);
                         },
                         success: function (data) {
 
@@ -74,9 +75,23 @@
                                 $('#apellido_conductor').prop('readonly', false);
                                 $('#fecha_conductor').prop('readonly', false);
                                 $('#id_conductor_estado').prop('readonly', false);
+                                $('#id_conductor_estado_child').prop('readonly', false);
                                 $('#conductor-resultado').html(data);
+
                             }
                         }
+                    });
+                });
+
+                $("#id_conductor_estado").change(function() {
+                
+                    $("#id_conductor_estado option:selected").each(function () {
+                    
+                        elegido=$(this).val();
+                        $.post("estatus.php", { elegido: elegido }, function(data){
+
+                            $("#id_conductor_estado_child").html(data);
+                        });
                     });
                 });
                 
@@ -214,20 +229,18 @@
                                     <option value="">
                                         Seleccione
                                     </option>
-                                    <option value="">
-                                         
+                                    <option value="A">
+                                        Disponible
                                     </option>
-                                    <option value="">
-                                        
-                                    </option>
-                                    <option value="">
-                                        
+                                    <option value="B">
+                                        No Disponible
                                     </option>
                                 </select>
-                                <span class="help-block" id="hint_id_conductor_estado">
-                                    Ingrese el Estatus del Conductor
-                                </span>
+                                <!-- select id_conductor_estado_child -->
+                                <div id="id_conductor_estado_child" class="form-group form-group-md">
+                                </div>
                             </div>
+
                             <!-- Carga de Documentos: Cedula, Certificado Medico, Licencia -->
 
                             <!-- Cedula -->

@@ -54,5 +54,27 @@
           a)Distrito:
               -Andes.
               -Otros.
-  
+
+    4.  Conductores:
+          a)Registro:
+          b)Estado:
+            -Disponible:
+              *Especificación:
+                >Choferes en reserva
+                >Programación del día
+                >Descargando o Retornando de viaje
+            -No Disponible:
+              *Especificación:
+                >Vacaciones
+                >Compensatorio
+                >Permiso de ausencia
+                >Apoyo a distrito / Sede
+                >Ecor
+                >Reposo
+                >Inhabilitado Medicamente
+                >Trabajo Adecuado
+                >Adiestramiento
+                >Ejerciendo otro cargo
+                >Otros
+    
   Nota: Se entiende por unidades a Cisternas y Chutos pertenecientes a la transportista.

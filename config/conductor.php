@@ -7,10 +7,9 @@ class Conductor {
     public $nombre_conductor;
     public $apellido_conductor;
     public $fecha_conductor;
-/*  public $nombre_sede;
-    public $conductor_estado; */
     public $id_sede_conductor;
     public $id_conductor_estado;
+    public $id_conductor_estado_child; /*especificacion*/
 
     public function actualizar_conductor() {
         global $database;
@@ -19,9 +18,10 @@ class Conductor {
         $sql .= "cedula_conductor='" . $database->escape_string($this->cedula_conductor) . "', ";
         $sql .= "nombre_conductor='" . $database->escape_string($this->nombre_conductor) . "', ";
         $sql .= "apellido_conductor='" . $database->escape_string($this->apellido_conductor) . "', ";
-        $sql .= "fecha_conductor='" . $database->escape_string($this->fecha_conductor) . "' ";
-        $sql .= "id_sede_conductor='" . $database->escape_string($this->id_sede_conductor) . "' ";
-        $sql .= "id_conductor_estado='" . $database->escape_string($this->id_conductor_estado) . "' ";
+        $sql .= "fecha_conductor='" . $database->escape_string($this->fecha_conductor) . "', ";
+        $sql .= "id_sede_conductor='" . $database->escape_string($this->id_sede_conductor) . "', ";
+        $sql .= "id_conductor_estado='" . $database->escape_string($this->id_conductor_estado) . "', ";
+        $sql .= "id_estado_especificacion='" . $database->escape_string($this->id_conductor_estado_child) . "' ";
         $sql .= " WHERE id_conductor=" . $database->escape_string($this->id_conductor);
 
         $database->query($sql);
@@ -102,12 +102,15 @@ class Conductor {
         $resultado = $database->query($sql);
 
         if ($resultado->num_rows == 0) {
-            $sql = "INSERT INTO conductor(cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor) ";
+            $sql = "INSERT INTO conductor(cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor, id_sede_conductor, id_conductor_estado, id_estado_especificacion) ";
             $sql .= "VALUES ('";
             $sql .= $database->escape_string($this->cedula_conductor) . "','";
             $sql .= $database->escape_string($this->nombre_conductor) . "','";
             $sql .= $database->escape_string($this->apellido_conductor) . "','";
-            $sql .= $database->escape_string($this->fecha_conductor) . "')";
+            $sql .= $database->escape_string($this->fecha_conductor) . "','";
+            $sql .= $database->escape_string($this->id_sede_conductor) . "','";
+            $sql .= $database->escape_string($this->id_conductor_estado) . "','";
+            $sql .= $database->escape_string($this->id_conductor_estado_child) . "')";
 
             if ($database->query($sql)) {
                 $this->id_conductor = $database->ultimo_id();

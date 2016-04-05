@@ -13,6 +13,7 @@ if (isset($_POST['cedula_conductor'])) {
     $conductor->fecha_conductor = $_POST['fecha_conductor'];
     $conductor->id_conductor_estado = $_POST['id_conductor_estado'];
     $conductor->id_sede_conductor = $_POST['id_sede_conductor'];
+    $conductor->id_conductor_estado_child = $_POST['id_conductor_estado_child'];
     
     $ruta1 = "../img/conductor/cedula/". $_POST['cedula_conductor']."_cedula.png";
     $ruta2 = "../img/conductor/carnet/". $_POST['cedula_conductor']."_carnet.png";
