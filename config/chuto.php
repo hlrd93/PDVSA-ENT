@@ -158,11 +158,12 @@ class Chuto {
         $resultado = $database->query($sql);
 
         if ($resultado->num_rows == 0) {
-            $sql = "INSERT INTO chuto(placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
+            $sql = "INSERT INTO chuto(id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
             $sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
             $sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, fecha_chuto_estado, ";
             $sql .= "id_sede_chuto, id_chuto_estado) ";
             $sql .= "VALUES ('";
+            $sql .= $database->escape_string($this->id_chuto) . "','";
             $sql .= $database->escape_string($this->placa_chuto) . "','";
             $sql .= $database->escape_string($this->placa_nueva_chuto) . "','";
             $sql .= $database->escape_string($this->serial_carroceria_chuto) . "','";
@@ -189,16 +190,37 @@ class Chuto {
         }
     }
 
-    public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
+    public function subir_archivo($tmp_name, $ruta, $carpeta, $nombre, $formato) {
 
         if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/chuto/" . $x . "/" . $nombre . "." . $formato);
+            $rutab = "../img/chuto/" . $carpeta . "/" . $nombre . "." . $formato;
+            
+            if($ruta != $rutab){
+
+                rename($ruta, $rutab);
+            
+            }
 
             return true;
         } else {
             return false;
         }
+    }
+
+    public function nro_id_chuto() {
+
+        global $database;
+
+        $sql = "SELECT * FROM chuto";
+        
+        $r = $database->query($sql);
+
+        $x = $r->num_rows;
+
+        $x++;
+        
+        return $x;
     }
 
 }

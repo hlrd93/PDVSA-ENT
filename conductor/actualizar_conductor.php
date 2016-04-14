@@ -38,12 +38,13 @@
             </div>
         </div>
         <!-- /.row -->
-		<script>
+        <script>
+            
+            $('#conductor-cargando').hide();
+                
             $(document).ready(function() {
-            	
-                $('#conductor-cargando').hide();
 
-                var date_input=$('input[name="fecha_conductor"]'); //our date input has the name "date"
+                var date_input=$('input[name="fecha_conductor"]');
                 var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
                 date_input.datepicker({
                     format: 'dd/mm/yyyy',
@@ -52,7 +53,6 @@
                     todayHighlight: true,
                     autoclose: true,
                 });
-
 
                 $(".form_conductor").submit(function(e) {
                     
@@ -74,6 +74,8 @@
                             $('#nombre_conductor').prop('readonly', true);
                             $('#apellido_conductor').prop('readonly', true);
                             $('#fecha_conductor').prop('readonly', true);
+                            $('#id_sede_conductor').prop('readonly', true);
+                            $('#id_conductor_estado').prop('readonly', true);
                         },
                         success: function (data) {
 
@@ -84,14 +86,30 @@
                                 $('#nombre_conductor').prop('readonly', false);
                                 $('#apellido_conductor').prop('readonly', false);
                                 $('#fecha_conductor').prop('readonly', false);
+                                $('#id_sede_conductor').prop('readonly', false);
+                                $('#id_conductor_estado').prop('readonly', false);
                                 $('#conductor-resultado').html(data);
                             }
                         }
                     });
                 });
+
+                $(".id_conductor_estado").change(function() {
+                
+                    $(".id_conductor_estado option:selected").each(function () {
+                    
+                        elegido=$(this).val();
+                        
+                        $.post("./estatus.php", { elegido: elegido }, function(data){
+
+                            $("#id_conductor_estado_child").html(data);
+                        });
+                    });
+                });
                 
             }); /*document ready function */
         </script>
+
         <!-- HTML Form (wrapped in a .bootstrap-iso div)-->
         <div class="bootstrap-iso">
             <div class="container-fluid">
@@ -180,9 +198,70 @@
                                         <i class="fa fa-calendar">
                                         </i>
                                     </div>
-                                    <input class="form-control" id="fecha_conductor" name="fecha_conductor" placeholder="Dia/Mes/Año" type="date" value="<?php echo $row->fecha_conductor; } ?>"/>
+                                    <input class="form-control" id="fecha_conductor" name="fecha_conductor" placeholder="Dia/Mes/Año" type="date" value="<?php echo $row->fecha_conductor; ?>"/>
                                 </div>
                             </div>
+
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="id_sede_conductor">
+                                    Sede
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user">
+                                    </i>
+                                </div>
+                                <select class="select form-control" id="id_sede_conductor" name="id_sede_conductor" required>
+                                    <option value="<?php echo $row->id_sede_conductor; ?>">
+                                        <?php  echo $row->nombre_sede; } ?>
+                                    </option>
+                                    <option value="">
+                                    -----------------
+                                    </option>
+                                    <option value="andes_vg">
+                                        El Vigia
+                                    </option>
+                                    <option value="andes_lf">
+                                        La Fria
+                                    </option>
+                                    <option value="andes_sc">
+                                        San Cristobal
+                                    </option>
+                                </select>
+                                <span class="help-block" id="hint_id_sede_conductor">
+                                    Selecciona la Sede, el cual ser&aacute; asignado el conductor
+                                </span>
+                            </div>
+
+                            <div class="form-group form-group-md">
+                                <label class="control-label requiredField" for="id_conductor_estado">
+                                    Estatus
+                                    <span class="asteriskField">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="input-group-addon">
+                                    <i class="glyphicon glyphicon-check">
+                                    </i>
+                                </div>
+                                <select class="select form-control id_conductor_estado" id="id_conductor_estado" name="id_conductor_estado" required>
+                                    <option value="">
+                                        Seleccione
+                                    </option>
+                                    <option value="A">
+                                        Disponible
+                                    </option>
+                                    <option value="B">
+                                        No Disponible
+                                    </option>
+                                </select>
+                                <!-- select id_conductor_estado_child -->
+                                <div id="id_conductor_estado_child" class="form-group form-group-md">
+                                </div>
+                            </div>
+
                             <!-- Carga de Documentos: Cedula, Certificado Medico, Licencia -->
 
                             <!-- Cedula -->
@@ -244,11 +323,9 @@
                 </div>
             </div>
         </div>
-	    <div class="modal-footer">
-	        <button type="button" id="cerrar2" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-	    </div>
+        <div class="modal-footer">
+            <button type="button" id="cerrar2" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </div>
     </div>
-	<!-- Bootstrap Date-Picker Plugin -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 
-    <?php include_once('../template/footer.php'); ?>
+    <?php require('../template/footer.php'); ?>

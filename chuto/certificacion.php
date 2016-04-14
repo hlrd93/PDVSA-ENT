@@ -70,7 +70,7 @@ echo "</div>";
                             <h3 class='panel-title'>Foto de la Placa</h3>
                         </div>
                         <div class='panel-body text-center'>
-                            <img src='../img/chuto/placa/" . $row->placa_chuto . "_placa.png' alt='foto de la placa no ha sido cargada' class='img-responsive img-thumbnail'>
+                            <img src='../img/chuto/placa/" . $row->id_chuto . "_placa.png' alt='foto de la placa no ha sido cargada' class='img-responsive img-thumbnail'>
                         </div>
                     </div>
                 </div>";
@@ -81,7 +81,7 @@ echo "</div>";
                             <h3 class='panel-title'>Foto del Serial de Carroceria</h3>
                         </div>
                         <div class='panel-body text-center'>
-                            <img src='../img/chuto/serial_carroceria/" . $row->placa_chuto . "_" . $row->serial_carroceria_chuto . "_carroceria.png' alt='foto del serial no ha sido cargada' class='img-responsive img-thumbnail'>
+                            <img src='../img/chuto/serial_carroceria/" . $row->id_chuto . "_serial_carroceria.png' alt='foto del serial no ha sido cargada' class='img-responsive img-thumbnail'>
                         </div>
                     </div>
                 </div>";
@@ -92,7 +92,7 @@ echo "</div>";
                             <h3 class='panel-title'>Foto del Serial de Motor</h3>
                         </div>
                         <div class='panel-body text-center'>
-                            <img src='../img/chuto/serial_motor/" . $row->placa_chuto . "_" . $row->serial_motor_chuto . "_motor.png' alt='foto del serial no ha sido cargada' class='img-responsive img-thumbnail'>
+                            <img src='../img/chuto/serial_motor/" . $row->id_chuto . "_serial_motor.png' alt='foto del serial no ha sido cargada' class='img-responsive img-thumbnail'>
                         </div>
                     </div>
                 </div>";
@@ -104,7 +104,7 @@ echo "</div>";
                         </div>
                         <div class='panel-body'>
                             <div class='embed-responsive embed-responsive-4by3'>
-                                <embed src='../img/chuto/titulo/" . $row->placa_chuto . "_titulo.pdf' alt='foto del titulo no ha sido cargada' class='embed-responsive-item'>
+                                <embed src='../img/chuto/titulo/" . $row->id_chuto . "_titulo.pdf' alt='foto del titulo no ha sido cargada' class='embed-responsive-item'>
                                 </embed>
                             </div>
                         </div>
@@ -118,7 +118,7 @@ echo "</div>";
                         </div>
                         <div class='panel-body'>
                             <div class='embed-responsive embed-responsive-4by3'>
-                                <embed src='../img/chuto/seguro/" . $row->placa_chuto . "_seguro.pdf' height='600' alt='foto del seguro no ha sido cargada' class='embed-responsive-item'>
+                                <embed src='../img/chuto/seguro/" . $row->id_chuto . "_seguro.pdf' height='600' alt='foto del seguro no ha sido cargada' class='embed-responsive-item'>
                                 </embed>
                             </div>
                         </div>

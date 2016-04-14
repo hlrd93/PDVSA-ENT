@@ -7,6 +7,7 @@ class Conductor {
     public $nombre_conductor;
     public $apellido_conductor;
     public $fecha_conductor;
+    public $nombre_sede;
     public $id_sede_conductor;
     public $id_conductor_estado;
     public $id_conductor_estado_child; /*especificacion*/
@@ -29,7 +30,12 @@ class Conductor {
     }
 
     public static function listar_conductor_byid($c) {
-        $sql = "SELECT * FROM conductor WHERE id_conductor ='" . $c . "'";
+        
+        $sql = "SELECT id_conductor, cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor, ";
+        $sql .= "nombre_sede, conductor.id_sede_conductor FROM conductor ";
+        $sql .= "INNER JOIN sede ON sede.id_sede = conductor.id_sede_conductor ";
+        $sql .= "WHERE id_conductor ='" . $c . "'";
+        
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
     }
@@ -123,16 +129,37 @@ class Conductor {
         }
     }
 
-    public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
+    public function subir_archivo($tmp_name, $ruta, $carpeta, $nombre, $formato) {
 
         if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/conductor/" . $x . "/" . $nombre . "." . $formato);
+            $rutab = "../img/conductor/" . $carpeta . "/" . $nombre . "." . $formato;
+
+            if($ruta != $rutab) {
+
+                rename($ruta, $rutab);
+
+            }
 
             return true;
         } else {
             return false;
         }
+    }
+
+    public function nro_id_conductor() {
+
+        global $database;
+
+        $sql = "SELECT * FROM conductor";
+        
+        $r = $database->query($sql);
+
+        $x = $r->num_rows;
+
+        $x++;
+        
+        return $x;
     }
 
 }

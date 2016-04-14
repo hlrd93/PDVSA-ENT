@@ -1,13 +1,14 @@
 <?php
 
-sleep(2);
-
 include_once("../config/init.php");
 
 $chuto = new Chuto();
 
 if (isset($_POST['fecha_chuto_estado'])) {
 
+    $id_chuto = $chuto->nro_id_chuto();
+
+    $chuto->id_chuto = $id_chuto;
     $chuto->placa_chuto = $_POST['placa_chuto'];
     $chuto->placa_nueva_chuto = $_POST['placa_nueva_chuto'];
     $chuto->serial_carroceria_chuto = $_POST['serial_carroceria_chuto'];
@@ -23,49 +24,60 @@ if (isset($_POST['fecha_chuto_estado'])) {
     $chuto->id_sede_chuto = $_POST['id_sede_chuto'];
     $chuto->id_chuto_estado = $_POST['id_chuto_estado'];
     
-    $ruta1 = "../img/chuto/placa/". $_POST['placa_chuto'].".png";
-    $ruta2 = "../img/chuto/serial_carroceria/". $_POST['serial_carroceria_chuto'].".png";
-    $ruta3 = "../img/chuto/serial_motor/". $_POST['serial_motor_chuto'].".png";
-    $ruta4 = "../img/chuto/seguro/". $_POST['placa_chuto'] . "_seguro.pdf";
-    $ruta5 = "../img/chuto/titulo/". $_POST['placa_chuto'] . "_titulo.pdf";
-    
-    $chuto->ruta_imagen_chuto1 = $ruta1;
-    $chuto->ruta_imagen_chuto2 = $ruta2;
-    $chuto->ruta_imagen_chuto3 = $ruta3;
-    $chuto->ruta_imagen_chuto4 = $ruta4;
-    $chuto->ruta_imagen_chuto5 = $ruta5;
-
     
     $tmp_name1 = $_FILES['foto_placa_chuto']['tmp_name'];
     $tmp_name2 = $_FILES['foto_serial_carroceria_chuto']['tmp_name'];
     $tmp_name3 = $_FILES['foto_serial_motor_chuto']['tmp_name'];
     $tmp_name4 = $_FILES['foto_seguro_chuto']['tmp_name'];
     $tmp_name5 = $_FILES['foto_titulo_chuto']['tmp_name'];
+    
+    $ruta1 = "../img/chuto/placa/". $id_chuto ."_placa.png";
+    $ruta2 = "../img/chuto/serial_carroceria/". $id_chuto ."_serial_carroceria.png";
+    $ruta3 = "../img/chuto/serial_motor/". $id_chuto ."_serial_motor.png";
+    $ruta4 = "../img/chuto/seguro/". $id_chuto . "_seguro.pdf";
+    $ruta5 = "../img/chuto/titulo/". $id_chuto . "_titulo.pdf";
 
-    $placa_chuto = $_POST['placa_chuto'] . "_placa";
-    $serial_carroceria_chuto = $_POST['placa_chuto'] . "_" . $_POST['serial_carroceria_chuto'] . "_carroceria";
-    $serial_motor_chuto = $_POST['placa_chuto'] . "_" . $_POST['serial_motor_chuto'] . "_motor";
-    $seguro = $_POST['placa_chuto'] . "_seguro";
-    $titulo = $_POST['placa_chuto'] . "_titulo";
+// Carpeta
     
     $a = "placa";
     $b = "serial_carroceria";
     $c = "serial_motor";
     $d = "seguro";
     $e = "titulo";
-
+    
+// Nombre de Archivo
+    
+    $placa_chuto = $id_chuto . "_placa";
+    $serial_carroceria_chuto = $id_chuto . "_serial_carroceria";
+    $serial_motor_chuto = $id_chuto . "_serial_motor";
+    $seguro = $id_chuto . "_seguro";
+    $titulo = $id_chuto . "_titulo";
+    
+// Formato
+    
     $png = "png";
     $pdf = "pdf";
 
     if ($chuto->registrar_chuto() == true) {
-                
-        $chuto->subir_archivo($tmp_name1, $ruta1, $placa_chuto, $a, $png);
-        $chuto->subir_archivo($tmp_name2, $ruta2, $serial_carroceria_chuto, $b, $png);
-        $chuto->subir_archivo($tmp_name3, $ruta3, $serial_motor_chuto, $c, $png);
-        $chuto->subir_archivo($tmp_name4, $ruta4, $seguro, $d, $pdf);
-        $chuto->subir_archivo($tmp_name5, $ruta5, $titulo, $e, $pdf);
 
+        if(!empty($tmp_name1)) {
+        $chuto->subir_archivo($tmp_name1, $ruta1, $a, $placa_chuto, $png);
+        }
+        if(!empty($tmp_name2)) {
+        $chuto->subir_archivo($tmp_name2, $ruta2, $b, $serial_carroceria_chuto, $png);
+        }
+        if(!empty($tmp_name3)) {
+        $chuto->subir_archivo($tmp_name3, $ruta3, $c, $serial_motor_chuto, $png);
+        }
+        if(!empty($tmp_name4)) {
+        $chuto->subir_archivo($tmp_name4, $ruta4, $d, $seguro, $pdf);
+        }
+        if(!empty($tmp_name5)) {
+        $chuto->subir_archivo($tmp_name5, $ruta5, $e, $titulo, $pdf);
+        }
+        
         echo '<script type="text/javascript">swal("Exito!", "Registrado!", "success");</script>';
+    
     } else {
 
         echo '<script type="text/javascript">sweetAlert("Oops...", "El Chuto ya fue registrado!", "error");</script>';

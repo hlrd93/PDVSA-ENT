@@ -29,6 +29,8 @@
         <script>
 
             $(document).ready(function() {
+            
+            $('#conductor-cargando').hide();
 
                 var date_input=$('input[name="fecha_conductor"]'); //our date input has the name "date"
                 var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
@@ -40,7 +42,6 @@
                     autoclose: true,
                 });
 
-                $('#conductor-cargando').hide();
 
                 $("#form_conductor").submit(function(e) {
                     

@@ -1,6 +1,8 @@
     
 </div> <!-- /#wrapper -->
 </div> <!-- /#wrapper -->
+</body>
+
 <!-- jQuery -->
 <script src="../js/jquery.js"></script>
         
@@ -10,8 +12,6 @@
 <script src="../js/app.js"></script>
 
 <!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-        
-</body>
+<script type="text/javascript" src="../js/bootstrap-datepicker.min.js"></script>
     
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 05-04-2016 a las 20:46:40
+-- Tiempo de generación: 14-04-2016 a las 18:22:24
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -113,34 +113,8 @@ CREATE TABLE `chuto` (
 --
 
 INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_carroceria_chuto`, `serial_motor_chuto`, `marca_chuto`, `tipo_chuto`, `modelo_chuto`, `a_o_chuto`, `nombre_color_chuto`, `color_chuto_1`, `observacion_chuto_estado`, `fecha_chuto_estado`, `id_sede_chuto`, `id_chuto_estado`) VALUES
-(1, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#a9a9a9', 'cool', 'Lunes, 14 de Marzo del 2016', 'andes_sc', 1),
-(2, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, NULL, 'Gris', '#000000', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
-(3, '745899', 'DA745899', 'LZZ5CLVB7DA745899', '130417020747', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'activo', 'Miercoles, 24 de Febrero del 201', 'andes_vg', 1),
-(4, '7458991', 'DA7458991', 'LZZ5CLVB7DA7458991', '1304170207471', 'SINOTRUK', '420', 'HOWO/A7', 1983, 'Gris', '#000000', 'aaa', 'Miercoles, 24 de Febrero del 201', 'andes_lf', 2),
-(5, 'AA85AR58', 'DAA85AR58', 'LZZ5CLVB7DAA85AR58', '13041AA85AR58', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Gris', '#ff0000', 'esta recool!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
-(6, 'AA85AR581', 'DAA85AR581', 'AA85AR581ASDFASDFAS', 'AA85AR581SADFFA', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#777777', 'COOL!!', 'Martes, 01 de Marzo del 2016', 'andes_sc', 2),
-(7, 'AA85AR5812', 'DAA85AR5812', 'AA85AR581ASDFASDFAS2', 'AA85AR581SADFFA2', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#777777', 'COOL!!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 1),
-(8, 'AA85AR5812', 'DAA85AR58123', 'AA85AR581ASDFASDFAS23', 'AA85AR581SADFFA23', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#777777', 'COOL!!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 1),
-(9, 'AA85AR5812', 'DAA85AR581234', 'AA85AR581ASDFASDFAS234', 'AA85AR581SADFFA234', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#777777', 'COOL!!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 1),
-(10, 'AA85AR5812', 'DAA85AR5812345', 'AA85AR581ASDFASDFAS2345', 'AA85AR581SADFFA2345', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#777777', 'COOL!!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 2),
-(11, 'AA85AR5812', 'DAA85AR58123456', 'AA85AR581ASDFASDFAS123456', 'AA85AR581SADFFA23456', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'coooll!!', 'Martes, 01 de Marzo del 2016', 'andes_sc', 3),
-(12, 'AA85AR581234567', 'DAA85AR58123456', 'AA85AR581ASDFASDFAS1234567', 'AA85AR581SADFFA234567', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'coooll!!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
-(13, 'AA85AR581234568', 'DAA85AR58123456', 'AA85AR581ASDFASDFAS1234568', 'AA85AR581SADFFA234568', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'coooll!!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
-(14, 'mft27p', 'mft27p', 'mft27p1234abcd', 'mft27p1234abcd9876', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
-(15, '8123456', 'DAA85AR58123456', 'SDFAS123456', 'DFFA23456', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cooooooooooooll felicidad', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(16, '1234', '1234', '1234', '1234', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cooooooooooooll felicidad', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(17, '12345', '12345', '12345', '12345', 'SINOTRUK', '420', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cooooooooooooll felicidad', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(18, '23828899', '23828899', '23828899', '23828899', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(19, '238288991', '238288991', '238288991', '238288991', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(20, '2382889912', '2382889912', '2382889912', '2382889912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(21, 'AA89912', 'AA89912', 'AA89912AA89912', 'AA8991289912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(22, 'DA89912', 'DA89912', 'DA89912AA89912', 'DA8991289912', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
-(23, 'DA899123', 'DA899123', 'DA89912AA899123', 'DA89912899123', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Miercoles, 02 de Marzo del 2016', 'andes_sc', 1),
-(24, 'DA8991234', 'DA8991234', 'DA89912AA8991234', 'DA899128991234', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
-(25, '44PGBI', '44PGBI', '3AKJA6CG97DZ12438', '06R0968154', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', '', 'Martes, 15 de Marzo del 2016', 'andes_vg', 1),
-(26, '44PGBI1', '44PGBI1', '3AKJA6CG97DZ124381', '06R09681541', 'IVECO', 'Ocupado', 'TRACTO CAMION C', 2007, 'Blanco', '#ffffff', 'esta andando!', 'Martes, 15 de Marzo del 2016', 'andes_sc', 1),
-(27, '56697721', '5669772', '5669772rey', '5669772', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'cool!', 'Martes, 15 de Marzo del 2016', 'andes_vg', 1),
-(28, '1234', '213', '213', '213', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#ffffff', 'se ecnuentra activo', 'Lunes, 04 de Abril del 2016', 'andes_vg', 2);
+(1, '21341421', '21341421', '21341421', '21341421', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Jueves, 14 de Abril del 2016', 'andes_vg', 1),
+(2, '23828899', '23828899', '23828899', '23828899', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#000000', 'cool', 'Jueves, 14 de Abril del 2016', 'andes_sc', 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +272,7 @@ INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`,
 (7, '14954761', 'Marc', 'Anthony', '11/05/2016', '', '0', ''),
 (8, '12432567', 'Alex', 'Rey', '30/03/2016', '', '0', ''),
 (9, '22448449', 'orlando disney', 'florida miami', '30/03/2016', '', '0', ''),
-(12, '11223344', 'fibonacci alexo', 'castro chavez', '05/04/2016', 'andes_sc', 'A', 'ADE');
+(12, '112233441', 'fibonacci alexo1', 'castro chavez1', '13/04/2016', 'andes_sc', 'A', 'ACH');
 
 -- --------------------------------------------------------
 
@@ -498,30 +472,15 @@ ALTER TABLE `sede`
 ALTER TABLE `analista_sede`
   MODIFY `id_analista` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `chuto`
---
-ALTER TABLE `chuto`
-  MODIFY `id_chuto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
 -- AUTO_INCREMENT de la tabla `chuto_estado_modificaciones`
 --
 ALTER TABLE `chuto_estado_modificaciones`
   MODIFY `nro_chuto_estado` int(5) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `cisterna`
---
-ALTER TABLE `cisterna`
-  MODIFY `id_cisterna` int(11) NOT NULL AUTO_INCREMENT COMMENT 'identificador de cisterna', AUTO_INCREMENT=16;
---
 -- AUTO_INCREMENT de la tabla `cisterna_estado_modificaciones`
 --
 ALTER TABLE `cisterna_estado_modificaciones`
   MODIFY `nro_cisterna_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT de la tabla `conductor`
---
-ALTER TABLE `conductor`
-  MODIFY `id_conductor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Restricciones para tablas volcadas
 --

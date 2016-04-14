@@ -6,7 +6,7 @@ $resultado_listado = Chuto::listar_chutos();
 
 
 echo "<div class='table-responsive'>";
-echo "<table class='table table-hover'>";
+echo "<table class='table table-hover table-condensed'>";
 echo "<thead>";
 echo "<tr>
         <th class='text-center'>Acción</th>

@@ -63,14 +63,24 @@ class Cisterna {
         $sql .= "fecha_cisterna_estado, nombre_sede, cisterna_estado, ";
         $sql .= "cisterna.id_sede_cisterna, cisterna.id_cisterna_estado ";
         $sql .= "FROM cisterna INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
-        $sql .= "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado WHERE id_cisterna ='" . $id . "'";
+        $sql .= "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado ";
+        $sql .= "WHERE id_cisterna ='" . $id . "'";
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
     }
 
     public function listar_cisternas() {
         global $database;
-        $sql = "SELECT id_cisterna, placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, nombre_color_cisterna,color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, capacidad_1erc_cisterna, capacidad_2doc_cisterna, capacidad_3erc_cisterna, capacidad_totalc_cisterna, observacion_cisterna_estado, fecha_cisterna_estado, nombre_sede, cisterna_estado FROM cisterna INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado ORDER BY id_cisterna ASC";
+
+        $sql = "SELECT id_cisterna, placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
+        $sql = "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, nombre_color_cisterna, ";
+        $sql = "color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, capacidad_1erc_cisterna,  ";
+        $sql = "capacidad_2doc_cisterna, capacidad_3erc_cisterna, capacidad_totalc_cisterna, ";
+        $sql = "observacion_cisterna_estado, fecha_cisterna_estado, nombre_sede, cisterna_estado ";
+        $sql = "FROM cisterna  ";
+        $sql = "INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
+        $sql = "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado "; 
+        $sql = "ORDER BY id_cisterna ASC";
 
         $resultado = self::consulta($sql);
         return !empty($resultado) ? $resultado : false;
@@ -209,16 +219,37 @@ class Cisterna {
         }
     }
 
-    public function subir_archivo($tmp_name, $ruta, $nombre, $x, $formato) {
+    public function subir_archivo($tmp_name, $ruta, $carpeta, $nombre, $formato) {
 
         if (move_uploaded_file($tmp_name, $ruta) == true) {
 
-            rename($ruta, "../img/cisterna/" . $x . "/" . $nombre . "." . $formato);
+            $rutab = "../img/cisterna/" . $carpeta . "/" . $nombre . "." . $formato;
+            
+            if($ruta != $rutab) {
+                
+                rename($ruta, $rutab);
+            
+            }
 
             return true;
         } else {
             return false;
         }
+    }
+
+    public function nro_id_cisterna() {
+
+        global $database;
+
+        $sql = "SELECT * FROM cisterna";
+        
+        $r = $database->query($sql);
+
+        $x = $r->num_rows;
+
+        $x++;
+        
+        return $x;
     }
 
 }

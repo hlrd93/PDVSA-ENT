@@ -54,8 +54,6 @@
                 $(".form_chuto").submit(function(e) {
                     
                     e.preventDefault();
-
-                    /*$('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');*/
                     
                 var data = new FormData(this);
                 
@@ -73,19 +71,7 @@
                             }
                         }
                 });
-                
-                /*    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
-                    
-                    var postData = $(this).serialize();
-                    var url = $(this).attr("action");
-                    
-                    $.post(url, postData, function(php_table_data){
-                        
-                        $("#chuto-resultado").html(php_table_data);                        
-                        
-                    });
-                    
-                */
+
                 });
                 
             }); /*document ready function */
@@ -107,19 +93,21 @@
                             
                     </div>
                     <hr>
-                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-md-10 col-md-offset-1">
                         <form id="form_chuto" class="form_chuto" method="post" enctype="multipart/form-data">
                             
                             <!-- id del chuto -->
+                            <div class="form-group form-group-md">
                             <input type="hidden" id="id_chuto" name="id_chuto" value="<?php echo $id; ?>">
-                            
-                            <div class="form-group form-group-sm">
+                            </div>
+
+                            <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="placa_chuto">
                                     Placa Chuto
                                     <span class="asteriskField">
                                         *
                                     </span>
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-truck">
@@ -131,10 +119,10 @@
                                     Ingrese Placa de Chuto
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="placa_nueva_chuto">
                                     Placa Nueva
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-bookmark-o">
@@ -146,13 +134,13 @@
                                     Ingrese Placa Nueva (si posee)
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="serial_carroceria_chuto">
                                     Serial de Carroceria
                                     <span class="asteriskField">
                                         *
                                     </span>
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-barcode">
@@ -164,13 +152,13 @@
                                     Ingrese el Serial de la Carroceria
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="serial_motor_chuto">
                                     Serial del Motor
                                     <span class="asteriskField">
                                         *
                                     </span>
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-barcode">
@@ -182,10 +170,10 @@
                                     Ingrese el Serial del Motor
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="marca_chuto">
                                     Marca
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-tags">
@@ -197,10 +185,10 @@
                                     Ingrese la Marca del Chuto
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="tipo_chuto">
                                     Tipo de Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-gg">
@@ -212,10 +200,10 @@
                                     Ingrese el Tipo del Chuto
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="modelo_chuto">
                                     Modelo del Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-gg-circle">
@@ -227,10 +215,10 @@
                                     Ingrese el Modelo del Chuto
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="a_o_chuto">
                                     A&ntilde;o de Origen
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar-o">
@@ -242,10 +230,10 @@
                                     Ingrese el A&ntilde;o de Origen
                                 </span>
                             </div>
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="color_chuto">
                                     Color
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-paint-brush">
@@ -259,10 +247,10 @@
                                 </span>
                             </div>
                                 
-                            <div class="form-group form-group-sm">
+                            <div class="form-group form-group-md">
                                 <label class="control-label " for="observacion_chuto_estado">
                                     Observacion del Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-eye">
@@ -278,7 +266,7 @@
                             <div class="form-group form-group-md">
                                 <label class="control-label " for="fecha_chuto_estado">
                                     Fecha de Registro
-                                </label>
+                                </label><br>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar">
@@ -301,7 +289,7 @@
                                     <span class="asteriskField">
                                         *
                                     </span>
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="fa fa-industry">
                                     </i>
@@ -334,7 +322,7 @@
                                     <span class="asteriskField">
                                         *
                                     </span>
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="fa fa-chevron-down">
                                     </i>
@@ -374,7 +362,7 @@
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_placa_chuto">
                                     Foto Placa del Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
@@ -384,7 +372,7 @@
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_serial_carroceria_chuto">
                                     Foto Serial de Carroceria del Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
@@ -394,17 +382,17 @@
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_serial_motor_chuto">
                                 Foto Serial de Motor del Chuto
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
-                                    <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Motor">
                                 </div>
+                                    <input type="file" name="foto_serial_motor_chuto" id="foto_serial_motor_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Serial de Motor">
                             </div>
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_seguro_chuto">
                                     Foto Digital del Seguro
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
@@ -414,7 +402,7 @@
                             <div class="form-group form-group-md">
                                 <label class="control-label requiredField" for="foto_titulo_chuto">
                                     Foto Digital del Titulo
-                                </label>
+                                </label><br>
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-cloud-upload">
                                     </i>
