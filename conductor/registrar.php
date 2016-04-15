@@ -66,4 +66,6 @@ if (isset($_POST['cedula_conductor'])) {
     } else {
 
         echo '<script type="text/javascript">sweetAlert("Oops...", "El Conductor ya fue registrado!", "error");</script>';
-    id_conductor
+    }
+}
+?>

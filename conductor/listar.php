@@ -44,7 +44,7 @@ echo "<div class='row'>";
                     <h3 class='panel-title'>Foto de la Cedula</h3>
                 </div>
                 <div class='panel-body text-center'>
-                    <img src='../img/conductor/cedula/" . $row->cedula_conductor . "_cedula.png' alt='foto de la Cedula no ha sido cargada' class='img-responsive img-thumbnail'>
+                    <img src='../img/conductor/cedula/" . $row->id_conductor . "_cedula.png' alt='foto de la Cedula no ha sido cargada' class='img-responsive img-thumbnail'>
                 </div>
             </div>
         </div>";
@@ -55,7 +55,7 @@ echo "<div class='row'>";
                     <h3 class='panel-title'>Foto del Carnet</h3>
                 </div>
                 <div class='panel-body text-center'>
-                    <img src='../img/conductor/carnet/" . $row->cedula_conductor . "_carnet.png' alt='foto del Carnet no ha sido cargada' class='img-responsive img-thumbnail'>
+                    <img src='../img/conductor/carnet/" . $row->id_conductor . "_carnet.png' alt='foto del Carnet no ha sido cargada' class='img-responsive img-thumbnail'>
                 </div>
             </div>
         </div>";
@@ -67,7 +67,7 @@ echo "<div class='row'>";
                     <h3 class='panel-title'>Foto del Certificado Medico</h3>
                 </div>
                 <div class='panel-body text-center'>
-                    <img src='../img/conductor/certificado_medico/" . $row->cedula_conductor . "_certificado_medico.png' alt='foto del Certificado Medico no ha sido cargada' class='img-responsive img-thumbnail'>
+                    <img src='../img/conductor/certificado_medico/" . $row->id_conductor . "_certificado_medico.png' alt='foto del Certificado Medico no ha sido cargada' class='img-responsive img-thumbnail'>
                 </div>
             </div>
         </div>";
@@ -78,7 +78,7 @@ echo "<div class='row'>";
                     <h3 class='panel-title'>Foto de la Licencia</h3>
                 </div>
                 <div class='panel-body text-center'>
-                    <img src='../img/conductor/licencia/" . $row->cedula_conductor . "_licencia.png' alt='foto de la Licencia no ha sido cargada' class='img-responsive img-thumbnail'>
+                    <img src='../img/conductor/licencia/" . $row->id_conductor . "_licencia.png' alt='foto de la Licencia no ha sido cargada' class='img-responsive img-thumbnail'>
                 </div>
             </div>
         </div>";
