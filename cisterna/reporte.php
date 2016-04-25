@@ -27,7 +27,7 @@
 //      $html2pdf->setModeDebug();
         $html2pdf->setDefaultFont('Arial');
         $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $html2pdf->Output('ficha_tecnica_chuto.pdf');
+        $html2pdf->Output('ficha_tecnica_cisterna.pdf');
     }
     catch(HTML2PDF_exception $e) {
         echo $e;

@@ -27,7 +27,6 @@ echo '  </tr>';
 echo '  <tr>';
 echo '      <td>';*/
 echo '          <h2 class="text-center">Empresa Nacional de Transporte</h2>';
-echo '          <h4 class="text-center"><i>Ficha Técnica de Chuto</i></h4>';
 echo '      </td>';
 echo '  </tr>';
 echo '';
@@ -101,46 +100,42 @@ echo '</table><br><br><br><br><br>';
 
         echo '<table style="border: solid 1px #D51C28">';
         echo '  <tr>';
-
-        if(file_exists("../img/chuto/placa/' . $row->id_chuto . '_placa.png")) {
-
         echo '      <td>';
         echo '          <h4>Foto de la Placa</h4>';
         echo '          <hr>';
         echo '          <img src="../img/chuto/placa/' . $row->id_chuto . '_placa.png" alt="Logo" width=350 />';
         echo '      </td>';
-        
-        }
-        
-        if(file_exists("../img/chuto/serial_carroceria/' . $row->id_chuto . '_serial_carroceria.png")) {
+    /*    echo '  </tr>';
+        echo '</table>';
 
+            echo '<table style="border: solid 1px #D51C28">';
+        echo '  <tr>';*/
         echo '      <td>';
         echo '          <h4>Foto del Serial de Carroceria</h4>';
         echo '          <hr>';
         echo '          <img src="../img/chuto/serial_carroceria/' . $row->id_chuto . '_serial_carroceria.png" alt="Logo" width=350 />';
         echo '      </td>';
-        
-        }
-
         echo '  </tr>';
         echo '</table>';
 
             echo '<table style="border: solid 1px #D51C28">';
         echo '  <tr>';
-
-        if(file_exists("../img/chuto/serial_motor/' . $row->id_chuto . '_serial_motor.png")) {
-
         echo '      <td>';
         echo '          <h4>Foto del Serial de Motor</h4>';
         echo '          <hr>';
         echo '          <img src="../img/chuto/serial_motor/' . $row->id_chuto . '_serial_motor.png" alt="Logo" width=350 />';
         echo '      </td>';
-        
-        }
-
         echo '  </tr>';
         echo '</table>';
 
+        // echo '<table style="border: solid 1px #D51C28">';
+        // echo '  <tr>';
+        // echo '      <td>';
+        // echo '          <h4>Titulo</h4>';
+        // echo '          <img src="../img/chuto/seguro/' . $row->id_chuto . '_seguro.pdf" alt="Logo" width=350 />';
+        // echo '      </td>';
+        // echo '  </tr>';
+        // echo '</table>';
         }
     }
     ?>

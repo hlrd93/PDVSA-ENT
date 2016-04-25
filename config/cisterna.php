@@ -55,7 +55,7 @@ class Cisterna {
     }
 
     public static function listar_cisterna_byid($id) {
-        $sql = "SELECT placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
+        $sql = "SELECT id_cisterna, placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
         $sql .= "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, ";
         $sql .= "nombre_color_cisterna, color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, ";
         $sql .= "capacidad_1erc_cisterna, capacidad_2doc_cisterna, capacidad_3erc_cisterna, ";

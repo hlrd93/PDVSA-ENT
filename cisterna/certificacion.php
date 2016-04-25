@@ -9,51 +9,54 @@ if ($resultado_listado == true) {
     foreach ($resultado_listado as $row) {
         
 echo "<div class='table-responsive'>";
-    echo "<table class='table table-hover'>";
+    echo "<table class='table table-hover table-condensed'>";
         echo "<thead>";
 
         echo "<tr>
-            <th>#</th>
-            <th>Placa</th>
-            <th>Placa Nueva</th>
-            <th>Serial de Carroceria</th>
-            <th>Marca</th>
-            <th>Tipo</th>
+                <th class='text-center'>Ficha</th>
+                <th class='text-center'>#</th>
+                <th class='text-center'>Placa</th>
+                <th class='text-center'>Placa Nueva</th>
+                <th class='text-center'>Serial de Carroceria</th>
+                <th class='text-center'>Marca</th>
+                <th class='text-center'>Tipo</th>
             </tr>";
         echo "</thead>";
 
         echo "<tbody>";
             echo "<tr>";
-            echo '<th scope="row">' . $row->id_cisterna . '</th>';
-            echo "<td>" . $row->placa_cisterna . "</td>";
-            echo "<td>" . $row->placa_nueva_cisterna . "</td>";
-            echo "<td>" . $row->serial_carroceria_cisterna . "</td>";
-            echo "<td>" . $row->marca_cisterna . "</td>";
-            echo "<td>" . $row->tipo_cisterna . "</td>";
+            echo '<td class="text-center">
+                        <a rel=' . $row->id_cisterna . ' href="./reporte.php?id='.$row->id_cisterna.'" class="btn btn-danger btn-xs btn-block" target="_blank">PDF</a></td>';
+            echo '<th class="text-center" scope="row">' . $row->id_cisterna . '</th>';
+            echo "<td class='text-center'>" . $row->placa_cisterna . "</td>";
+            echo "<td class='text-center'>" . $row->placa_nueva_cisterna . "</td>";
+            echo "<td class='text-center'>" . $row->serial_carroceria_cisterna . "</td>";
+            echo "<td class='text-center'>" . $row->marca_cisterna . "</td>";
+            echo "<td class='text-center'>" . $row->tipo_cisterna . "</td>";
             echo "</tr>";
         echo "</tbody>";
         
         echo "<thead>";
         echo "<tr>
-            <th>Modelo</th>
-            <th>Año</th>
-            <th>Color</th>
-            <th>Observacion</th>
-            <th>Fecha Modificacion</th>
-            <th>Sede</th>
-            <th>Estatus</th>
+                <th class='text-center'>Modelo</th>
+                <th class='text-center'>Año</th>
+                <th class='text-center'>Color</th>
+                <th class='text-center'>Observacion</th>
+                <th class='text-center'>Fecha Modificacion</th>
+                <th class='text-center'>Sede</th>
+                <th class='text-center'>Estatus</th>
             </tr>";
         echo "</thead>";
 
         echo "<tbody>";
             echo "<tr>";
-            echo "<td>" . $row->modelo_cisterna . "</td>";
-            echo "<td>" . $row->a_o_cisterna . "</td>";
-            echo '<td class="borde" style="background-color:' . $row->color_cisterna_1 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
-            echo "<td>" . $row->observacion_cisterna_estado . "</td>";
-            echo "<td>" . $row->fecha_cisterna_estado . "</td>";
-            echo "<td>" . $row->nombre_sede . "</td>";
-            echo "<td>" . $row->cisterna_estado . "</td>";
+            echo "<td class='text-center'>" . $row->modelo_cisterna . "</td>";
+            echo "<td class='text-center'>" . $row->a_o_cisterna . "</td>";
+            echo '<td class="text-center borde" style="background-color:' . $row->color_cisterna_1 . ';"><b>' . $row->nombre_color_cisterna . '</b></td>';
+            echo "<td class='text-center'>" . $row->observacion_cisterna_estado . "</td>";
+            echo "<td class='text-center'>" . $row->fecha_cisterna_estado . "</td>";
+            echo "<td class='text-center'>" . $row->nombre_sede . "</td>";
+            echo "<td class='text-center'>" . $row->cisterna_estado . "</td>";
             echo "</tr>";
         echo "</tbody>";
 
