@@ -32,7 +32,7 @@
                     $resultado_listado = $camion_tanque->listar_camiontanque();
 
                     echo "<div class='table-responsive'>";
-                        echo "<table class='table table-hover'>";
+                        echo "<table class='table table-hover table-condensed'>";
                             echo "<thead>";
                                 echo "<tr>
                                         <th>#</th>

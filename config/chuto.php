@@ -45,7 +45,7 @@ class Chuto {
     }
 
     public static function listar_chuto_byid($id) {
-        $sql = "SELECT placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
+        $sql = "SELECT id_chuto, placa_chuto, placa_nueva_chuto, serial_carroceria_chuto, ";
         $sql .= "serial_motor_chuto, marca_chuto, tipo_chuto, modelo_chuto, a_o_chuto, ";
         $sql .= "nombre_color_chuto, color_chuto_1, observacion_chuto_estado, ";
         $sql .= "fecha_chuto_estado, nombre_sede, chuto_estado, chuto.id_sede_chuto, chuto.id_chuto_estado ";
