@@ -9,7 +9,7 @@ echo "<div class='table-responsive'>";
 echo "<table class='table table-hover table-condensed'>";
 echo "<thead>";
 echo "<tr>
-        <th class='text-center'>Acción</th>
+        <th class='text-center'>Actualizar</th>
         <th class='text-center'>#</th>
         <th class='text-center'>Placa</th>
         <th class='text-center'>Placa Nueva</th>
@@ -31,18 +31,7 @@ foreach ($resultado_listado as $row) {
     echo "<tbody>";
     echo "<tr>";
     echo '<td class="text-center">
-            <div class="dropup">
-                    <button class="btn btn-default dropdown-toggle btn-xs" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Opcion:
-                    <span class="caret"></span>
-                    </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-                    <li><button type="submit" rel=' . $row->id_chuto . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button></li>
-                
-                    <li><button type="submit" rel=' . $row->id_chuto . ' class="eliminar btn btn-danger btn-xs btn-block">Eliminar</button></li>
-                </ul>
-            </div>
+            <button type="submit" rel=' . $row->id_chuto . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button>
         </td>';
     echo '<th scope="row" class="text-center">' . $row->id_chuto . '</th>';
     echo "<td class='text-center'>" . $row->placa_chuto . "</td>";

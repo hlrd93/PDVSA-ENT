@@ -73,13 +73,12 @@ class Cisterna {
         global $database;
 
         $sql = "SELECT id_cisterna, placa_cisterna, placa_nueva_cisterna, serial_carroceria_cisterna, ";
-        $sql = "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, nombre_color_cisterna, ";
-        $sql = "color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, capacidad_1erc_cisterna,  ";
+        $sql = "marca_cisterna, tipo_cisterna, modelo_cisterna, a_o_cisterna, ";
+        $sql = "nombre_color_cisterna, color_cisterna_1, color_cisterna_2, nro_ejes_cisterna, capacidad_1erc_cisterna, ";
         $sql = "capacidad_2doc_cisterna, capacidad_3erc_cisterna, capacidad_totalc_cisterna, ";
         $sql = "observacion_cisterna_estado, fecha_cisterna_estado, nombre_sede, cisterna_estado ";
-        $sql = "FROM cisterna  ";
-        $sql = "INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
-        $sql = "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado "; 
+        $sql = "FROM cisterna INNER JOIN sede ON sede.id_sede = cisterna.id_sede_cisterna ";
+        $sql = "INNER JOIN cisterna_estado ON cisterna_estado.id_cisterna_estado = cisterna.id_cisterna_estado ";
         $sql = "ORDER BY id_cisterna ASC";
 
         $resultado = self::consulta($sql);

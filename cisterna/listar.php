@@ -2,33 +2,32 @@
 
 include_once("../config/init.php");
 
-$resultado_listado = Cisterna::listar_cisternas();
-
+$resultado_listado = Cisterna::buscar_cisternas("","","","","","");
 
 echo "<div class='table-responsive'>";
-echo "<table class='table table-hover'>";
+echo "<table class='table table-hover table-condensed'>";
 echo "<thead>";
 echo "<tr>
-        <th class='text-center'>Acción</th>
-        <th class='text-center' class='text-center'>#</th>
-        <th class='text-center' class='text-center'>Placa</th>
-        <th class='text-center' class='text-center'>Placa Nueva</th>
-        <th class='text-center' class='text-center'>Serial de Carroceria</th>
-        <th class='text-center' class='text-center'>Marca</th>
-        <th class='text-center' class='text-center'>Tipo</th>
-        <th class='text-center' class='text-center'>Modelo</th>
-        <th class='text-center' class='text-center'>Año</th>
-        <th class='text-center' class='text-center'>Color 1</th>
-        <th class='text-center' class='text-center'>Color 2</th>
-        <th class='text-center' class='text-center'>Nro. Ejes</th>
-        <th class='text-center' class='text-center'>1er Compartimiento <small>(lts)</small></th>
-        <th class='text-center' class='text-center'>2do Compartimiento <small>(lts)</small></th>
-        <th class='text-center' class='text-center'>3er Compartimiento <small>(lts)</small></th>
-        <th class='text-center' class='text-center'>Total Compartimientos <small>(lts)</small></th>
-        <th class='text-center' class='text-center'>Observacion</th>
-        <th class='text-center' class='text-center'>Fecha Modificacion</th>
-        <th class='text-center' class='text-center'>Sede</th>
-        <th class='text-center' class='text-center'>Estatus</th>
+        <th class='text-center'>Actualizar</th>
+        <th class='text-center'>#</th>
+        <th class='text-center'>Placa</th>
+        <th class='text-center'>Placa Nueva</th>
+        <th class='text-center'>Serial de Carroceria</th>
+        <th class='text-center'>Marca</th>
+        <th class='text-center'>Tipo</th>
+        <th class='text-center'>Modelo</th>
+        <th class='text-center'>Año</th>
+        <th class='text-center'>Color 1</th>
+        <th class='text-center'>Color 2</th>
+        <th class='text-center'>Nro. Ejes</th>
+        <th class='text-center'>1er Compartimiento <small>(lts)</small></th>
+        <th class='text-center'>2do Compartimiento <small>(lts)</small></th>
+        <th class='text-center'>3er Compartimiento <small>(lts)</small></th>
+        <th class='text-center'>Total Compartimientos <small>(lts)</small></th>
+        <th class='text-center'>Observacion</th>
+        <th class='text-center'>Fecha Modificacion</th>
+        <th class='text-center'>Sede</th>
+        <th class='text-center'>Estatus</th>
         </tr>";
 echo "</thead>";
 
@@ -36,18 +35,7 @@ foreach ($resultado_listado as $row) {
     echo "<tbody>";
     echo "<tr>";
     echo '<td class="text-center">
-            <div class="dropup">
-                    <button class="btn btn-default dropdown-toggle btn-xs" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Opcion:
-                    <span class="caret"></span>
-                    </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-
-                    <li><button type="submit" rel=' . $row->id_cisterna . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button></li>
-                
-                    <li><button type="submit" rel=' . $row->id_cisterna . ' class="eliminar btn btn-danger btn-xs btn-block">Eliminar</button></li>
-                </ul>
-            </div>
+            <button type="submit" rel=' . $row->id_cisterna . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button>
         </td>';
     echo '<th scope="row" class="text-center">' . $row->id_cisterna . '</th>';
     echo "<td class='text-center'>" . $row->placa_cisterna . "</td>";

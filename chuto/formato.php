@@ -44,7 +44,6 @@ echo '</table><br><br><br><br><br>';
 
         foreach ($resultado_listado as $row) {
 
-    // echo "<div class='table-responsive'>";
         echo "<table align='center' class='table'>";
             echo "<thead>";
 
@@ -102,7 +101,7 @@ echo '</table><br><br><br><br><br>';
         echo '<table style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
-        if(file_exists("../img/chuto/placa/' . $row->id_chuto . '_placa.png")) {
+        if(file_exists('../img/chuto/placa/' . $row->id_chuto . '_placa.png')) {
 
         echo '      <td>';
         echo '          <h4>Foto de la Placa</h4>';
@@ -112,7 +111,7 @@ echo '</table><br><br><br><br><br>';
         
         }
         
-        if(file_exists("../img/chuto/serial_carroceria/' . $row->id_chuto . '_serial_carroceria.png")) {
+        if(file_exists('../img/chuto/serial_carroceria/' . $row->id_chuto . '_serial_carroceria.png')) {
 
         echo '      <td>';
         echo '          <h4>Foto del Serial de Carroceria</h4>';
@@ -128,7 +127,7 @@ echo '</table><br><br><br><br><br>';
             echo '<table style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
-        if(file_exists("../img/chuto/serial_motor/' . $row->id_chuto . '_serial_motor.png")) {
+        if(file_exists('../img/chuto/serial_motor/' . $row->id_chuto . '_serial_motor.png')) {
 
         echo '      <td>';
         echo '          <h4>Foto del Serial de Motor</h4>';

@@ -22,10 +22,6 @@ echo '      </td>';
 echo '  </tr>';
 echo '  <tr>';
 echo '      <td>';
-/*echo '      </td>';
-echo '  </tr>';
-echo '  <tr>';
-echo '      <td>';*/
 echo '          <h2 class="text-center">Empresa Nacional de Transporte</h2>';
 echo '          <h4 class="text-center"><i>Ficha Técnica de Cisterna</i></h4>';
 echo '      </td>';
@@ -44,7 +40,6 @@ echo '</table><br><br><br><br><br>';
 
         foreach ($resultado_listado as $row) {
 
-    // echo "<div class='table-responsive'>";
         echo "<table align='center' class='table'>";
             echo "<thead>";
 
@@ -102,7 +97,7 @@ echo '</table><br><br><br><br><br>';
         echo '<table style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
-        if(file_exists("../img/cisterna/placa/' . $row->id_cisterna . '_placa.png")) {
+        if(file_exists('../img/cisterna/placa/' . $row->id_cisterna . '_placa.png')) {
         
         echo '      <td>';
         echo '          <h4>Foto de la Placa</h4>';
@@ -112,7 +107,7 @@ echo '</table><br><br><br><br><br>';
         
         }
 
-        if(file_exists("../img/cisterna/serial_carroceria/' . $row->id_cisterna . '_serial_carroceria.png")) {
+        if(file_exists('../img/cisterna/serial_carroceria/' . $row->id_cisterna . '_serial_carroceria.png')) {
         
         echo '      <td>';
         echo '          <h4>Foto del Serial de Carroceria</h4>';
