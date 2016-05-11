@@ -65,6 +65,7 @@ echo "</div>";
 
         echo "<div class='container-fluid'>";
 
+        if(file_exists("../img/cisterna/placa/" . $row->placa_cisterna . "_placa.png")) {
             echo "<div class='col-md-6'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -75,7 +76,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/cisterna/serial_carroceria/" . $row->placa_cisterna . "_" . $row->serial_carroceria_cisterna . "_carroceria.png")) {
             echo "<div class='col-md-6'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -86,7 +88,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/cisterna/titulo/" . $row->placa_cisterna . "_titulo.pdf")) {
             echo "<div class='col-md-12'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -100,7 +103,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/cisterna/seguro/" . $row->placa_cisterna . "_seguro.pdf")) {
             echo "<div class='col-md-12'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -114,6 +118,7 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
+        }
         echo "</div>";
     }
 } else {

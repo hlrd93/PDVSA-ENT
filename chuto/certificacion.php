@@ -68,6 +68,7 @@ echo "</div>";
 
         echo "<div class='container-fluid'>";
 
+        if(file_exists("../img/chuto/placa/" . $row->id_chuto . "_placa.png")) {
             echo "<div class='col-md-6'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -78,7 +79,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/chuto/serial_carroceria/" . $row->id_chuto . "_serial_carroceria.png")) {
             echo "<div class='col-md-6'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -89,7 +91,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/chuto/serial_motor/" . $row->id_chuto . "_serial_motor.png")) {
             echo "<div class='col-md-6'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -100,7 +103,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/chuto/titulo/" . $row->id_chuto . "_titulo.pdf")) {
             echo "<div class='col-md-12'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -114,7 +118,8 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
-
+        }
+        if(file_exists("../img/chuto/seguro/" . $row->id_chuto . "_seguro.pdf")) {
             echo "<div class='col-md-12'>
                     <div class='panel panel-primary'>
                         <div class='panel-heading'>
@@ -128,6 +133,7 @@ echo "</div>";
                         </div>
                     </div>
                 </div>";
+        }
         echo "</div>";
     }
 

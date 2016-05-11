@@ -10,7 +10,9 @@ class Conductor {
     public $nombre_sede;
     public $id_sede_conductor;
     public $id_conductor_estado;
-    public $id_conductor_estado_child; /*especificacion*/
+    public $id_conductor_estado_child; /*id_estado_especificacion*/
+    public $nombre_estado;
+    public $nombre_especificacion;
 
     public function actualizar_conductor() {
         global $database;
@@ -32,8 +34,11 @@ class Conductor {
     public static function listar_conductor_byid($c) {
         
         $sql = "SELECT id_conductor, cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor, ";
-        $sql .= "nombre_sede, conductor.id_sede_conductor FROM conductor ";
+        $sql .= "nombre_sede, conductor.id_sede_conductor, conductor.id_conductor_estado, ";
+        $sql .= "conductor.id_estado_especificacion, nombre_estado, nombre_especificacion FROM conductor ";
         $sql .= "INNER JOIN sede ON sede.id_sede = conductor.id_sede_conductor ";
+        $sql .= "INNER JOIN conductor_estado ON conductor_estado.id_conductor_estado = conductor.id_conductor_estado ";
+        $sql .= "INNER JOIN estado_especificacion ON estado_especificacion.id_estado_especificacion = conductor.id_estado_especificacion ";
         $sql .= "WHERE id_conductor ='" . $c . "'";
         
         $resultado = self::consulta($sql);
@@ -108,8 +113,9 @@ class Conductor {
         $resultado = $database->query($sql);
 
         if ($resultado->num_rows == 0) {
-            $sql = "INSERT INTO conductor(cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor, id_sede_conductor, id_conductor_estado, id_estado_especificacion) ";
+            $sql = "INSERT INTO conductor(id_conductor, cedula_conductor, nombre_conductor, apellido_conductor, fecha_conductor, id_sede_conductor, id_conductor_estado, id_estado_especificacion) ";
             $sql .= "VALUES ('";
+            $sql .= $database->escape_string($this->id_conductor) . "','";
             $sql .= $database->escape_string($this->cedula_conductor) . "','";
             $sql .= $database->escape_string($this->nombre_conductor) . "','";
             $sql .= $database->escape_string($this->apellido_conductor) . "','";

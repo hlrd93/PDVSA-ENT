@@ -105,7 +105,6 @@
                     <div class="formden_header col-md-offset-1">
                         <h2>
                             Formulario Conductor
-                            <div id="conductor-cargando"><img src="../img/cargando2.gif" height="40px" alt="Cargando"></div>
                         </h2>
                         <p>
                             <span class="asteriskField">
@@ -292,13 +291,21 @@
                                 <input type="file" name="foto_licencia" id="foto_licencia" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione el Documento">
                             </div>
 
+                            <div id="conductor-resultado"></div>
+
+                            <div id="conductor-cargando" class="row">
+                                <img src="../img/cargando1.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando2.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando3.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando4.gif" height="80px" alt="Cargando" class="col-md-3">
+                            </div>
+
                             <div class="form-group">
                                 <div>
                                     <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar">
                                 </div>
                             </div>
                         </form>
-                        <div id="conductor-resultado"></div>
                     </div>
                 </div>
             </div>

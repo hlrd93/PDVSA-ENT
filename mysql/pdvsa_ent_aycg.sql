@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-04-2016 a las 18:22:24
+-- Tiempo de generación: 11-05-2016 a las 19:48:42
 -- Versión del servidor: 10.1.9-MariaDB
 -- Versión de PHP: 5.6.15
 
@@ -113,8 +113,13 @@ CREATE TABLE `chuto` (
 --
 
 INSERT INTO `chuto` (`id_chuto`, `placa_chuto`, `placa_nueva_chuto`, `serial_carroceria_chuto`, `serial_motor_chuto`, `marca_chuto`, `tipo_chuto`, `modelo_chuto`, `a_o_chuto`, `nombre_color_chuto`, `color_chuto_1`, `observacion_chuto_estado`, `fecha_chuto_estado`, `id_sede_chuto`, `id_chuto_estado`) VALUES
-(1, '21341421', '21341421', '21341421', '21341421', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Jueves, 14 de Abril del 2016', 'andes_vg', 1),
-(2, '23828899', '23828899', '23828899', '23828899', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#000000', 'cool', 'Jueves, 14 de Abril del 2016', 'andes_sc', 1);
+(1, '21341421', '21341421', '21341421', '21341421', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Miercoles, 20 de Abril del 2016', 'andes_vg', 1),
+(2, '23828899', '23828899', '23828899', '23828899', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Gris', '#000000', 'cool', 'Jueves, 14 de Abril del 2016', 'andes_sc', 1),
+(3, 'asdf', 'asd', 'asd', 'asd', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Lunes, 09 de Mayo del 2016', 'andes_sc', 1),
+(4, 'asdf1', 'asd1', 'asd1', 'asd1', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Lunes, 09 de Mayo del 2016', 'andes_sc', 1),
+(5, 'asdf12', 'asd12', 'asd12', 'asd12', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Lunes, 09 de Mayo del 2016', 'andes_sc', 1),
+(6, 'asdf123', 'asd123', 'asd123', 'asd123', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Lunes, 09 de Mayo del 2016', 'andes_sc', 1),
+(7, 'asdf1234', 'asd1234', 'asd1234', 'asd1234', 'SINOTRUK', 'Ocupado', 'HOWO/A7', 2013, 'Blanco', '#000000', 'cool', 'Lunes, 09 de Mayo del 2016', 'andes_sc', 1);
 
 -- --------------------------------------------------------
 
@@ -186,8 +191,6 @@ CREATE TABLE `cisterna` (
 --
 
 INSERT INTO `cisterna` (`id_cisterna`, `placa_cisterna`, `placa_nueva_cisterna`, `serial_carroceria_cisterna`, `marca_cisterna`, `tipo_cisterna`, `modelo_cisterna`, `a_o_cisterna`, `nombre_color_cisterna`, `color_cisterna_1`, `color_cisterna_2`, `nro_ejes_cisterna`, `capacidad_1erc_cisterna`, `capacidad_2doc_cisterna`, `capacidad_3erc_cisterna`, `capacidad_totalc_cisterna`, `observacion_cisterna_estado`, `fecha_cisterna_estado`, `id_sede_cisterna`, `id_cisterna_estado`) VALUES
-(5, '03VGBHffgg55', '03VGBH', '8XVS4WSS57V501117', 'IVECO', 'Convenio', 'EUROTECH', 2007, '', '#ff0000', '#ffffff', 3, 12000, 14000, 16000, 42000, 'cool', 'Lunes, 04 de Abril del 2016', 'andes_vg', 1),
-(6, '03VGBH1', '03VGBH1', '8XVS4WSS57V5011171', 'IVECO', 'Convenio', 'EUROTECH', 2007, NULL, '#000000', '#000000', 3, 12000, 14000, 16000, 42000, 'COOL!', 'Martes, 01 de Marzo del 2016', 'andes_vg', 1),
 (7, '03VGBH12', '03VGBH12', '8XVS4WSS57V50111712', 'IVECO', 'Convenio', 'EUROTECH', 2007, 'Gris y Rojo', '#000000', '#000000', 3, 12000, 14000, 16000, 42000, 'Reparacion', 'Martes, 01 de Marzo del 2016', 'andes_sc', 2),
 (8, '03VGBH123', '03VGBH123', '8XVS4WSS57V501117123', 'IVECO', 'Convenio', 'EUROTECH', 2007, '', '#818181', '#ff0000', 3, 12000, 14000, 16000, 42000, 'cooool!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 3),
 (9, '03VGBH1234', '03VGBH1234', '8XVS4WSS57V5011171234', 'IVECO', 'Convenio', 'EUROTECH', 2007, '', '#818181', '#ff0000', 3, 12000, 14000, 16000, 42000, 'cooool!', 'Martes, 01 de Marzo del 2016', 'andes_lf', 4),
@@ -264,15 +267,10 @@ CREATE TABLE `conductor` (
 --
 
 INSERT INTO `conductor` (`id_conductor`, `cedula_conductor`, `nombre_conductor`, `apellido_conductor`, `fecha_conductor`, `id_sede_conductor`, `id_conductor_estado`, `id_estado_especificacion`) VALUES
-(1, '238288991', 'Herwin', 'Rey', '31/03/2016', '', '0', ''),
-(2, '21341422', 'Eleyibeth Alexandra', 'Ogliastre Galvan', '31/03/2016', '', '0', ''),
-(4, '5669772', 'Omar', 'Rey Reyes', '27/04/2016', '', '0', ''),
-(5, '6058648', 'Betty Teresa', 'Diaz Porras', '24/05/2016', '', '0', ''),
-(6, '11499411', 'Carolina', 'Rey', '24/05/2016', '', '0', ''),
-(7, '14954761', 'Marc', 'Anthony', '11/05/2016', '', '0', ''),
-(8, '12432567', 'Alex', 'Rey', '30/03/2016', '', '0', ''),
-(9, '22448449', 'orlando disney', 'florida miami', '30/03/2016', '', '0', ''),
-(12, '112233441', 'fibonacci alexo1', 'castro chavez1', '13/04/2016', 'andes_sc', 'A', 'ACH');
+(0, '11223344', 'fibonacci alexo1', 'castro chavez1', '14/04/2016', 'andes_sc', 'A', 'APR'),
+(3, '23828898', 'fibonacci alexo', 'Rey', '10/05/2016', 'andes_sc', 'B', 'BVA'),
+(4, '21223325', 'ExtraÃ±o', 'cool', '15/06/2016', 'andes_sc', 'B', 'BVA'),
+(12, '23828899', 'Herwin Leonardo', 'Rey Diaz', '14/04/2016', 'andes_sc', 'B', 'BVA');
 
 -- --------------------------------------------------------
 

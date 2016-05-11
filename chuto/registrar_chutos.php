@@ -30,41 +30,36 @@
             
             $(document).ready(function() {
 
+                $('#chuto-cargando').hide();
+
                 $("#form_chuto").submit(function(e) {
                     
                     e.preventDefault();
-
-                    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
                     
                 var data = new FormData(this);
                 
-                $.ajax({
-                        url: '../chuto/registrar.php',
-                        type: 'POST',
-                        data: data,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (data) {
+                    $.ajax({
+                            url: '../chuto/registrar.php',
+                            type: 'POST',
+                            data: data,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            beforeSend: function(){
 
-                            if (!data.error) {
-                                $('#chuto-resultado').html(data);
+                                $('#chuto-cargando').show();
+                            
+                            },
+                            success: function (data) {
+
+                                if (!data.error) {
+                                    
+                                    $('#chuto-cargando').hide();
+
+                                    $('#chuto-resultado').html(data);
+                                }
                             }
-                        }
-                });
-                
-                /*    $('#chuto-resultado').html('<h3><small>Manten la Calma y juega Rubik...!</small></h3><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../img/cargando1.gif" height="150"/><img src="../img/cargando2.gif" height="150"/><img src="../img/cargando.gif" height="150"/><img src="../img/cargando4.gif" height="150"/>');
-                    
-                    var postData = $(this).serialize();
-                    var url = $(this).attr("action");
-                    
-                    $.post(url, postData, function(php_table_data){
-                        
-                        $("#chuto-resultado").html(php_table_data);                        
-                        
                     });
-                    
-                */
                 });
                 
             }); /*document ready function */
@@ -391,16 +386,17 @@
                                 </div>
                                 <input type="file" name="foto_titulo_chuto" id="foto_titulo_chuto" class="filestyle" data-input="true" data-buttonBefore="true" data-buttonText="Seleccione Titulo de Propiedad">
                             </div>
-                            <!-- ventana modal bootstrap de loading -->
+                            
+                            <div id="chuto-resultado"></div>
+
+                            <div id="chuto-cargando" class="row">
+                                <img src="../img/cargando1.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando2.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando3.gif" height="80px" alt="Cargando" class="col-md-3">
+                                <img src="../img/cargando4.gif" height="80px" alt="Cargando" class="col-md-3">
+                            </div>
+                            
                             <div class="form-group">
-                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div id="chuto-resultado">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div>
                                     <input type="submit" id="submit" name="submit" class="btn btn-custom btn-lg btn-block outline" value="Registrar" data-toggle="modal" data-target=".bs-example-modal-lg">
                                 </div>

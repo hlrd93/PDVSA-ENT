@@ -94,7 +94,7 @@ echo '</table><br><br><br><br><br>';
 
         echo "</table><br><br><br>";
 
-        echo '<table style="border: solid 1px #D51C28">';
+        echo '<table align="center" style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
         if(file_exists('../img/cisterna/placa/' . $row->id_cisterna . '_placa.png')) {

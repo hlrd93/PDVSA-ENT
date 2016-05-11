@@ -98,7 +98,7 @@ echo '</table><br><br><br><br><br>';
 
         echo "</table><br><br><br>";
 
-        echo '<table style="border: solid 1px #D51C28">';
+        echo '<table align="center" style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
         if(file_exists('../img/chuto/placa/' . $row->id_chuto . '_placa.png')) {
@@ -124,7 +124,7 @@ echo '</table><br><br><br><br><br>';
         echo '  </tr>';
         echo '</table>';
 
-            echo '<table style="border: solid 1px #D51C28">';
+        echo '<table align="center" style="border: solid 1px #D51C28">';
         echo '  <tr>';
 
         if(file_exists('../img/chuto/serial_motor/' . $row->id_chuto . '_serial_motor.png')) {

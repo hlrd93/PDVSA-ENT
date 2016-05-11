@@ -21,6 +21,7 @@ echo "<div class='container-fluid'>";
                 <th class='text-center'>Opciones</th>
                 </tr>";
             echo "</thead>";
+            
             echo "<tbody>";
                 echo "<tr>";
                 echo '<th scope="row" class="text-center">' . $row->id_conductor . '</th>';
@@ -30,7 +31,7 @@ echo "<div class='container-fluid'>";
                 echo "<td class='text-center'>" . $row->fecha_conductor . "</td>";
                 echo '<td class="text-center">
                             <button type="submit" rel=' . $row->id_conductor . ' class="actualizar btn btn-success btn-xs btn-block" data-toggle="modal" data-target="#myModal">Actualizar</button>
-                            <button type="submit" rel=' . $row->id_conductor . ' class="eliminar btn btn-danger btn-xs btn-block">Eliminar</button>
+                            <a rel=' . $row->id_conductor . ' href="./reporte.php?id='.$row->id_conductor.'" class="btn btn-danger btn-xs btn-block" target="_blank">PDF</a>
                     </td>';
                 echo "</tr>";
             echo "</tbody>";
@@ -38,6 +39,7 @@ echo "<div class='container-fluid'>";
     echo "</div>";
 
 echo "<div class='row'>";
+    if(file_exists("../img/conductor/cedula/" . $row->id_conductor . "_cedula.png")) {
     echo "<div class='col-md-6'>
             <div class='panel panel-primary'>
                 <div class='panel-heading'>
@@ -48,7 +50,8 @@ echo "<div class='row'>";
                 </div>
             </div>
         </div>";
-
+    }
+    if(file_exists("../img/conductor/carnet/" . $row->id_conductor . "_carnet.png")) {
     echo "<div class='col-md-6'>
             <div class='panel panel-primary'>
                 <div class='panel-heading'>
@@ -59,8 +62,10 @@ echo "<div class='row'>";
                 </div>
             </div>
         </div>";
+    }
 echo "</div>";
 echo "<div class='row'>";
+    if(file_exists("../img/conductor/certificado_medico/" . $row->id_conductor . "_certificado_medico.png")) {
     echo "<div class='col-md-6'>
             <div class='panel panel-primary'>
                 <div class='panel-heading'>
@@ -71,7 +76,8 @@ echo "<div class='row'>";
                 </div>
             </div>
         </div>";
-
+    }
+    if(file_exists("../img/conductor/licencia/" . $row->id_conductor . "_licencia.png")) {
     echo "<div class='col-md-6'>
             <div class='panel panel-primary'>
                 <div class='panel-heading'>
@@ -82,6 +88,7 @@ echo "<div class='row'>";
                 </div>
             </div>
         </div>";
+    }
         echo "</div>";
         echo "<hr>";
 echo "</div>";
